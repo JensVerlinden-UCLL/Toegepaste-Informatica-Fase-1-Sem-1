@@ -1,0 +1,21 @@
+form {
+  background-color: lightgray;
+  max-width: 40em;
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+form label {
+  text-align: right;
+}
+form input {
+  grid-column: span 2;
+}
+form input:last-of-type {
+  grid-column: 2/3;
+}
+form #submit-button {
+  grid-row: 4/5;
+}/*# sourceMappingURL=styles.css.map */

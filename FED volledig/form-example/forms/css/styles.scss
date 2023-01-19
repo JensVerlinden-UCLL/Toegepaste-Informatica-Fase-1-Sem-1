@@ -1,0 +1,28 @@
+@use './variables';
+
+form {
+    background-color: variables.$lightgray;
+    max-width: 40em;
+    display: grid;
+    gap: variables.$padding;
+    padding: variables.$padding;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+    label {
+        text-align: right;
+    }
+
+    input {
+        grid-column: span 2;
+
+        &:last-of-type {
+            grid-column: 2 / 3;
+        }
+    }
+
+    #submit-button {
+        grid-row: 4 / 5;
+    }
+}

@@ -1,0 +1,156 @@
+:root{
+    --sans: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    --serif: Georgia, serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3{
+    font-family: var(--sans);
+}
+
+p, a{
+    font-family: var(--serif);
+    line-height: 1.5;
+}
+
+p{
+    padding-bottom: 0.5em;
+}
+
+body{
+    background-color: #CECECE;
+    padding-top: 0;
+    padding-bottom: 0.7em;
+}
+
+
+#container{
+    width: 40em;
+    margin: 0 auto;
+    background-color: #FFFFFF;   
+    box-shadow:  -3px 0px 10px black; 
+
+}
+
+li{
+    list-style: none;
+
+}
+
+header{
+    background-color: #0A032B;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+h1{
+    color: white;
+    padding: 1.6rem ;
+    font-size: 2em;
+    width: fit-content;
+}
+
+h2{
+    margin-bottom: 0.8em;
+}
+
+header{
+    margin-bottom: 2em
+}
+
+main{
+    padding: 1.6rem;
+}
+
+header nav{
+    grid-column: span 2;
+    background-color: black;
+    
+}
+
+header nav ul{
+    display: flex;
+    gap: 1em;
+    padding: 1.6rem;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+}
+
+
+header nav ul a{
+    text-decoration: none;
+    color: white;
+
+    
+}
+.hier a{
+    color: #F5D99B;
+}
+
+header > a{
+    justify-self: flex-end;
+    margin-top: 1em;
+    margin-right: 1em;
+    height: fit-content;
+    
+}
+
+header > a:hover{
+    transform: scale(1.5);
+    
+}
+
+q{
+    float: left;
+    line-height: 1.45;
+    background-color: #ececec;
+    max-width: 25ch;
+    color: #404596;
+    margin: 0em 0.7em 0em 0em;
+    font-style: italic;
+    padding: 0.8em;
+}
+
+p em{
+    background-color: yellow;
+}
+
+p strong{
+    text-transform: uppercase;
+    color: rgb(2, 87, 2);
+    font-weight: lighter;
+}
+
+article h2{
+    text-align: right;
+    border-top: 1px solid #0A032B;
+}
+
+img{
+    float:right;
+    margin: 0.5em 0 0.5em 0.5em;
+}
+
+h3{
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    clear: right;
+}
+
+footer{
+    background-color: #0A032B;
+}
+
+footer p{
+    color: white;
+    padding: 0.5em;
+    text-align: center;
+}
+
+
+

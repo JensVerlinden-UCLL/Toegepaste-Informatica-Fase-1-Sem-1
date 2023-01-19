@@ -1,0 +1,161 @@
+@use "../sass-utils/variables";
+
+@use "../base/typography";
+
+
+header {
+
+    /*CSS for navigation at top which is universal for whole webpage*/
+
+    background-image: url(../images/texture-background.png);
+    margin-bottom: 0em;
+    max-width: 100%;
+
+    .title {
+
+        padding: 0.5em;
+
+        h1 {
+            color: variables.$pure_black;
+            text-align: center;
+            padding: 1em;
+            font-family: typography.$header1-font-family;
+            font-style: italic;
+            text-decoration: underline;
+            border-style: solid;
+            border-width: 5px;
+            border-color: variables.$pure_black;
+            margin: 0.5em auto;
+            margin-bottom: 0em;
+            max-width: fit-content;
+            border-radius: 1em;
+            background-image: radial-gradient(variables.$pure_white 50%, variables.$light-blue-gradient);
+        }
+    }
+
+    .overnav {
+
+        background-color: variables.$blue_flag;
+        max-width: 200em;
+
+        .logo {
+            background-color: variables.$blue_flag;
+            margin: 0 auto;
+            
+
+            img {
+                
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                cursor: url(../images/pointer-cursor.png), pointer;
+            }
+        }
+
+        nav {
+
+            background-color: variables.$blue_flag;
+
+            ul#navigation_bar {
+
+                display: flex;
+                gap: 1.5em;
+                list-style: none;
+                flex-direction: column;
+                align-items: center;
+                padding-bottom: 1.5em;
+                font-family: typography.$heading-font-family;
+                text-decoration: none;
+                text-align: center;
+                padding-left: 1.5em;
+                padding-right: 1.5em;
+
+                li {
+                    flex: 1;
+                    flex-wrap: wrap;
+
+                    a {
+                        color: variables.$pure_white;
+                        text-decoration: none;
+                        font-size: typography.$heading-font-size;
+                        text-transform: uppercase;
+
+                        &:hover {
+                            color: variables.$pure_black;
+
+                        }
+
+                    }
+
+                    &.active {
+                        background-color: variables.$blue_background;
+                        padding: 0.3em;
+                        border-radius: 20%;
+                        border-color: variables.$pure_black;
+                        border-width: 5px;
+                        border-style: solid;
+
+                        a {
+                            color: variables.$pure_black;
+                        }
+                    }
+
+                }
+
+                @media (min-width: variables.$media-large) {
+
+                    padding-bottom: 0;
+
+                }
+
+
+            }
+
+        }
+
+    }
+
+    /*CSS for layout of navigation on tablet-mode*/
+
+    @media (min-width: variables.$media-medium) {
+
+        .overnav {
+
+            max-width: 80%;
+            margin: 0 auto;
+
+            nav {
+
+                ul#navigation_bar {
+
+                    flex-direction: row;
+                    justify-content: space-around;
+
+                    li a {
+                        font-size: typography.$heading-font-size-medium;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    /*CSS for layout of navigation on wide-mode*/
+
+    @media (min-width: variables.$media-large) {
+
+        .overnav {
+            display: flex;
+            align-items: center;
+            gap: 8em;
+            width: 80%;
+            max-width: 100em;
+
+
+            .logo {
+                padding-left: 2em;
+            }
+        }
+    }
+}

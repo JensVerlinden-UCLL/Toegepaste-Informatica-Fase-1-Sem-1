@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+header {
+    background: linear-gradient(to top right, black, rgb(50, 35, 35));
+    color: rgb(255, 255, 255);
+    padding: 2em;
+}
+h1 {    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 3em;
+}
+header ul {
+    display: flex;
+    list-style: none;
+    gap: 3em;
+    margin-top: 2em;
+    justify-content: center;
+    align-items: center;    
+}
+header ul li{
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    color: black;
+    background-color: rgb(96, 85, 85);
+    font-weight: bold;
+    flex-shrink: 1;
+    flex-grow: 1;
+    text-align : center;
+    padding: 1em;
+    border-style: ridge;
+    border-color: grey;
+    border-radius: 0.5em;
+    
+}
+header ul li a{
+    color: rgb(251, 251, 251);
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+header ul li a:hover{
+    color: black;
+}
+main{
+ background: linear-gradient(black, rgb(67, 65, 65))
+}
+footer{
+    background-color: rgb(50, 47, 47);
+    color: white;
+}
+main .alinea{
+    padding: 0.3em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 1em;
+    border-color: rgba(255, 255, 255, 50);
+    background-color: rgb(39, 42, 65);
+    border-width: 0.5em;
+    border-style: solid;
+    color: white;
+}
+main {
+    padding: 1em;
+    font-size: 1.4em;
+}
+main img {
+    border-width: 0.3em;
+    border-radius: 1em;
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+}
+
+main iframe {
+    border-width: 0.3em;
+    border-radius: 1em;
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    margin-bottom: 1em;
+}
+main p{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+}
+
+main figure{
+    margin-bottom: 1em;
+    color: white
+}
+main h2{
+    text-decoration: underline;
+    text-align: center;
+    font-size: 2em;
+    padding: 0em;
+}

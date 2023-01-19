@@ -1,0 +1,177 @@
+@use "../sass-utils/variables";
+
+@use "../base/typography";
+
+main {
+
+
+
+    .unusual-boxes {
+
+        /*General adaptive CSS for whole page*/
+
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 2em;
+        max-width: 90em;
+        margin: 2em auto;
+        padding-left: 1em;
+        padding-right: 1em;
+
+        h2 {
+            margin-top: 0;
+        }
+
+        h3 {
+            padding-left: 0;
+        }
+
+
+        h4 {
+
+            color: variables.$pure_white;
+            text-shadow: 1.7px 0 0 variables.$pure_black, 0 -1.7px 0 variables.$pure_black, 0 1.7px 0 variables.$pure_black, -1.7px 0 0 variables.$pure_black;
+            font-size: typography.$heading3-font-size;
+
+            @media (min-width: variables.$media-medium) {
+                font-size: typography.$heading3-font-size-medium;
+
+            }
+
+            @media (min-width: variables.$media-large) {
+                font-size: typography.$heading3-font-size-large;
+            }
+
+
+
+        }
+
+        p {
+            margin: 0;
+            margin-right: 0;
+            max-width: 90ch;
+        }
+
+        /*Adaptive CSS for the different flag sections*/
+
+        .proportion {
+            background-color: variables.$analogue1;
+            border-color: variables.$analogue1-border;
+            border-width: 0.5em;
+            border-style: solid;
+            padding: 1em;
+            grid-column: span 6;
+            box-shadow: 0 0 10px;
+
+            @media (min-width: variables.$media-medium) {
+                grid-column: span 3;
+            }
+
+        }
+
+        .historical {
+            background-color: variables.$analogue2;
+            border-color: variables.$analogue2-border;
+            border-width: 0.5em;
+            border-style: solid;
+            padding: 1em;
+            grid-column: span 6;
+            box-shadow: 0 0 10px;
+
+            @media (min-width: variables.$media-medium) {
+                grid-column: span 3;
+            }
+
+        }
+
+        .emblem {
+            background-color: variables.$analogue3;
+            border-color: variables.$analogue3-border;
+            border-width: 0.5em;
+            border-style: solid;
+            padding: 1em;
+            grid-column: span 6;
+            box-shadow: 0 0 10px;
+
+            @media (min-width: variables.$media-medium) {
+                grid-column: span 3;
+            }
+
+            @media (min-width: 1200px) {
+                grid-column: span 2;
+            }
+        }
+
+        .design {
+            background-color: variables.$analogue4;
+            border-color: variables.$analogue4-border;
+            border-width: 0.5em;
+            border-style: solid;
+            padding: 1em;
+            grid-column: span 6;
+            box-shadow: 0 0 10px;
+
+            @media (min-width: variables.$media-medium) {
+                grid-column: span 3;
+            }
+
+            @media (min-width: 1200px) {
+                grid-column: span 2;
+            }
+        }
+
+        .symbolism {
+            background-color: variables.$alternative;
+            border-color: variables.$alternative-border;
+            border-width: 0.5em;
+            border-style: solid;
+            padding: 1em;
+            grid-column: span 6;
+            box-shadow: 0 0 10px;
+
+            @media (min-width: variables.$media-medium) {
+                grid-column: span 3;
+            }
+
+            @media (min-width: 1200px) {
+                grid-column: span 2;
+            }
+        }
+
+        /*Adaptive CSS for the flag images*/
+
+        img {
+            border-width: 0.2em;
+            border-style: solid;
+            border-radius: 1em;
+            float: left;
+            margin-right: 2em;
+            border-color: variables.$light-blue-gradient;
+            max-width: 10em;
+            background-color: variables.$pure_white_opacity;
+            padding: 0.3em;
+
+            @media (max-width: 350px) {
+
+                float: none;
+            }
+
+            @media (min-width: variables.$media-large) {
+                max-width: 12em;
+            }
+
+
+        }
+
+        /*Adaptive CSS for Nepal flag which has a larger height than width*/
+
+        .high {
+            max-width: 6em;
+
+
+            @media (min-width: variables.$media-large) {
+                max-width: 8em;
+            }
+        }
+    }
+}

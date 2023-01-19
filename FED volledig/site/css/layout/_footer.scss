@@ -1,0 +1,97 @@
+@use "../sass-utils/variables";
+
+@use "../base/typography";
+
+footer {
+
+    /*CSS for footer at bottom which is universal for whole webpage*/
+
+    display: flex;
+    gap: 6em;
+    justify-content: center;
+    z-index: 11;
+    text-align: center;
+    font-size: typography.$footer-font-size;
+    background-color: variables.$light-blue-gradient;
+    padding-bottom: 1em;
+    position: relative;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+
+    @media (min-width: variables.$media-large) {
+        font-size: typography.$body-font-size-medium;
+    }
+
+    @media (max-width: 378px) {
+        gap: 0.5em;
+    }
+
+    img.corner-image {
+
+
+        position: absolute;
+        left: 0;
+        bottom: 0;
+
+        max-width: 8%;
+        max-height: 6.5em;
+
+        @media (max-width: 799.99999px) {
+            display: none;
+        }
+
+        @media (min-width: 1900px) {
+
+            max-width: 6%;
+
+        }
+
+    }
+
+    address {
+
+        ul {
+            list-style: none;
+
+            li {
+                &:first-of-type {
+                    padding-top: 1em;
+                }
+            }
+        }
+
+        img {
+            width: 7em;
+            opacity: 1;
+            border-radius: 0.6em;
+            cursor: url(../images/pointer-cursor.png), pointer;
+            transition: 0.5s;
+            margin-top: 0.3em;
+
+            &:hover {
+                transform: scale(1.1)
+            }
+        }
+
+    }
+
+    aside {
+
+        h3 {
+            text-decoration: underline;
+            padding-top: 1em;
+        }
+
+        p {
+            text-align: center;
+
+            a {
+                text-decoration: none;
+
+            }
+        }
+    }
+
+
+
+}

@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color:aquamarine;
+
+    .bodycontainer{
+        max-width: min(80%, 220em);
+        margin: 0 auto;
+        background-color: white;
+        box-shadow: 0 5px 10px black;
+
+    }
+    
+    img{
+        max-width: 100%;
+    }
+
+    p{
+        max-width: 70ch;
+        line-height: 1.5;
+    }
+
+
+}

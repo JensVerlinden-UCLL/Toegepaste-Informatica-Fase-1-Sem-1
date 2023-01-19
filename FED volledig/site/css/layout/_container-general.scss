@@ -1,0 +1,149 @@
+@use "../sass-utils/variables";
+
+@use "../base/typography";
+
+main {
+
+
+    background-image: url(../images/texture-background.png);
+    background-repeat: repeat;
+    padding-top: 2em;
+    padding-bottom: 2em;
+
+    p {
+        text-align: left;
+        margin: 0 auto;
+        margin-bottom: 1em;
+        padding: 0.5em;
+        font-family: typography.$body-font-family;
+        font-size: typography.$body-font-size;
+
+        @media (min-width: variables.$media-medium) {
+
+            font-size: typography.$body-font-size-medium;
+        }
+
+        @media (min-width: variables.$media-large) {
+
+            font-size: typography.$body-font-size-large;
+        }
+    }
+
+
+    h2 {
+        margin-top: 2em;
+        margin-bottom: 1.5em;
+        font-family: typography.$heading-font-family;
+        font-size: typography.$heading2-font-size;
+        color: variables.$heading2-color;
+        background-color: variables.$background-h2;
+        padding: 1em 0.5em;
+        text-align: center;
+
+
+        @media (min-width: variables.$media-medium) {
+
+            font-size: typography.$heading2-font-size-medium;
+        }
+
+        @media (min-width: variables.$media-large) {
+
+            font-size: typography.$heading2-font-size-large;
+        }
+
+    }
+
+    .start {
+        margin-top: 0em;
+    }
+
+    h3 {
+
+        font-family: typography.$heading-font-family;
+        padding: 1em;
+        font-size: typography.$heading3-font-size;
+        text-decoration: underline;
+
+        @media (min-width: variables.$media-medium) {
+            font-size: typography.$heading3-font-size-medium;
+        }
+
+        @media (min-width: variables.$media-large) {
+            font-size: typography.$heading3-font-size-large;
+        }
+
+    }
+
+    span.example {
+        background-color: variables.$light-blue-gradient;
+        border-radius: 5px;
+        border: 3px solid variables.$blue_flag;
+        padding-left: 0.3em;
+        padding-right: 0.3em;
+        white-space: nowrap;
+    }
+
+
+    figcaption {
+        font-style: italic;
+        padding: 0.5em;
+        font-family: typography.$body-font-family;
+        font-size: typography.$body-font-size;
+        background-color: variables.$background-blockquote;
+        border-color: variables.$blue_flag;
+        border-width: 0.2em;
+        border-style: solid;
+        width: fit-content;
+        margin: 0.3em auto;
+
+        @media (min-width: variables.$media-medium) {
+
+            font-size: typography.$body-font-size-medium;
+        }
+
+        @media (min-width: variables.$media-large) {
+
+            font-size: typography.$body-font-size-large;
+        }
+    }
+
+    /*Top button CSS*/
+
+    #topbutton {
+        position: fixed;
+        bottom: 1em;
+        right: 1em;
+        z-index: 100;
+        color: variables.$pure_white;
+        background-color: variables.$blue_flag;
+        color: variables.$pure_white;
+        text-decoration: none;
+        border-width: 0.5em;
+        border-color: variables.$border-button;
+        border-style: ridge;
+        padding: 0.5em;
+        border-radius: 10%;
+        font-family: typography.$body-font-family;
+        font-weight: bold;
+        font-size: 1rem;
+
+        &:visited {
+
+            color: variables.$pure_white;
+
+        }
+
+        &:hover {
+            color: variables.$pure_black;
+            background-color: variables.$pure_white;
+        }
+
+        /*Phone users don't need the button which would only take up space*/
+
+        @media (max-width:799.99999px) {
+            display: none;
+        }
+
+    }
+
+}

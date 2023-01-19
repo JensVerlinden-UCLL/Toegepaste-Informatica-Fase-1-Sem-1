@@ -1,0 +1,226 @@
+address {
+  background-color: darkgreen;
+  color: white;
+  text-align: center;
+}
+address > p {
+  margin: 0 auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: aquamarine;
+}
+body .bodycontainer {
+  max-width: min(80%, 220em);
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 5px 10px black;
+}
+body img {
+  max-width: 100%;
+}
+body p {
+  max-width: 70ch;
+  line-height: 1.5;
+}
+
+main {
+  background-color: rgb(203, 224, 224);
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+}
+main .algemeen, main .medewerkers {
+  display: flex;
+  gap: 2em;
+  flex-direction: column;
+}
+main .algemeen table, main .medewerkers table {
+  border-collapse: collapse;
+  background-color: aliceblue;
+}
+main .algemeen th, main .algemeen td, main .medewerkers th, main .medewerkers td {
+  border: 2px solid black;
+  text-align: center;
+}
+main h2, main h3 {
+  color: #0c3907;
+  margin: 1.5em 0;
+  -webkit-text-decoration: dotted underline;
+          text-decoration: dotted underline;
+  text-align: center;
+}
+main h2 {
+  padding-top: 1.5em;
+}
+@media (min-width: 1350px) {
+  main .algemeen, main .medewerkers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+main form {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 1em;
+  background-color: aliceblue;
+  border-radius: 10px;
+}
+main form label {
+  grid-column: span 1/2;
+  text-align: right;
+  -webkit-text-decoration: solid underline;
+          text-decoration: solid underline;
+  align-self: center;
+}
+main form button {
+  grid-column: 2/4;
+}
+main form input, main form select {
+  grid-column: span 2;
+}
+main form input:not(#datum) {
+  grid-column: span 5;
+}
+main form input#detail {
+  height: 5rem;
+}
+main .optionimages {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1em;
+  padding-bottom: 1em;
+}
+@media (max-width: 1350px) {
+  main .optionimages {
+    display: flex;
+    flex-direction: column;
+  }
+  main .optionimages .afbeelding {
+    flex: 1;
+  }
+}
+main .optionimages .afbeelding {
+  grid-column: span 4;
+  position: relative;
+}
+main .optionimages .afbeelding:nth-child(4n) {
+  grid-column: 3/7;
+}
+main .optionimages .afbeelding:nth-child(5n) {
+  grid-column: 7/11;
+}
+main .optionimages .afbeelding img {
+  border: 3px solid white;
+  border-radius: 50px 20px;
+  height: 100%;
+  z-index: 1;
+}
+main .optionimages .afbeelding img:hover, main .optionimages .afbeelding img:focus, main .optionimages .afbeelding img:active {
+  filter: brightness(30%);
+}
+main .optionimages .afbeelding img:hover + p, main .optionimages .afbeelding img:focus + p, main .optionimages .afbeelding img:active + p {
+  display: block;
+}
+main .optionimages .afbeelding p {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  bottom: 10%;
+  margin: auto auto;
+  z-index: 1;
+  font-size: 300%;
+  display: none;
+  color: white;
+}
+
+header {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+header img {
+  display: block;
+  margin: 0 auto;
+}
+header ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin: 0 auto;
+  padding: 1em;
+}
+@media (min-width: 800px) {
+  header ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1350px) {
+  header ul {
+    display: flex;
+    flex-direction: row;
+  }
+}
+header ul li {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5em;
+  color: black;
+  border: 3px solid black;
+  background-color: rgb(232, 232, 224);
+  font-size: 1.5rem;
+}
+header ul li.active {
+  background-color: aquamarine;
+}
+header ul li:hover {
+  -webkit-text-decoration: wavy underline;
+          text-decoration: wavy underline;
+}
+header ul li:not(:first-child) {
+  border-top: none;
+}
+header ul li:nth-child(even) {
+  background-color: rgb(219, 255, 253);
+}
+header ul li a {
+  color: black;
+  text-decoration: none;
+}
+@media (min-width: 800px) {
+  header ul li:nth-child(even) {
+    border-top: 3px solid black;
+    border-left: none;
+  }
+  header ul li:nth-child(4) {
+    border-top: none;
+  }
+}
+@media (min-width: 1350px) {
+  header ul li:nth-child(even) {
+    border-left: 3px solid black;
+  }
+  header ul li:nth-child(4) {
+    border-top: 3px solid black;
+  }
+  header ul li:nth-child(3) {
+    border-top: 3px solid black;
+  }
+  header ul li:not(:first-child) {
+    border-left: none;
+  }
+}/*# sourceMappingURL=style.css.map */

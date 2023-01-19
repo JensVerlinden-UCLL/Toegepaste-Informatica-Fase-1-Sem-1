@@ -1,0 +1,62 @@
+@use 'sass-utils/variables';
+
+@use 'base/typography';
+
+@use 'layout/header';
+@use 'layout/container-general';
+@use 'layout/footer';
+
+@use 'layout/container--index';
+@use 'layout/container--types-of-flags';
+@use 'layout/container--unusual-flags';
+@use 'layout/container--flag-quiz';
+@use 'layout/container--form';
+
+
+* {
+
+    /*CSS which is universal for whole website*/
+
+    transition: 0.3s;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    img {
+        max-width: 100%;
+    }
+
+    p {
+        max-width: 70ch;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    cursor: url(../images/default-cursor.png),
+    default;
+
+    a {
+        cursor: url(../images/pointer-cursor.png), pointer;
+    }
+
+    a:link {
+        color: rgb(118, 21, 21);
+    }
+
+    a:visited {
+        color: rgb(82, 12, 12);
+    }
+
+    .location:link {
+        color: variables.$pure_black;
+        text-decoration: underline;
+        color: rgb(76, 25, 77);
+
+    }
+
+    .location:visited {
+        color: rgb(91, 36, 87);
+    }
+}

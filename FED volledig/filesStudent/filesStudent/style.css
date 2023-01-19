@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --link-back: #444444;
+    --link-front: #FDFDFD;
+    --hover-back:#005F60;
+    --current-back:#FDFDFD;
+    --current-front:#444444;
+    --ul-back: #444444;
+}
+
+body {
+    background: #ccc;
+    font-family: "trebuchet ms", sans-serif;
+    line-height: 1.1;
+    color: #444;
+}
+
+a{
+    background-color: var(--link-back);
+    color: var(--link-front);
+    display: block;
+    font-size: 1.6em;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+ul{
+    background-color: var(--ul-back);
+}
+
+li{
+    list-style: none;
+    
+}
+
+li:not(:first-of-type){
+    border-top: 3px solid var(--link-front);
+}
+
+a:hover{
+    background-color: var(--hover-back);
+    transition: 0.3s;
+}
+
+a.current{
+    background-color: var(--current-back);
+    color: var(--current-front);
+}
+
+@media (min-width: 30rem){
+    ul{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    a{
+        background-color: #808080;
+    }
+
+    li{
+        grid-column: span 3;
+    }
+
+    li:not(:first-of-type){
+        border-top: none;
+    }
+}
+
+@media (min-width: 40rem){
+    li{
+        grid-column: span 2;
+    }
+
+}
+
+@media (min-width: 50rem){
+    ul{
+        display: flex;
+        justify-content: space-between;
+    }
+
+}
+
+/* add styles below */

@@ -1,0 +1,1730 @@
+@charset "UTF-8";
+header {
+  /*CSS for navigation at top which is universal for whole webpage*/
+  background-image: url(../images/texture-background.png);
+  margin-bottom: 0em;
+  max-width: 100%;
+  /*CSS for layout of navigation on tablet-mode*/
+  /*CSS for layout of navigation on wide-mode*/
+}
+header .title {
+  padding: 0.5em;
+}
+header .title h1 {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 1em;
+  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-style: italic;
+  text-decoration: underline;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(0, 0, 0);
+  margin: 0.5em auto;
+  margin-bottom: 0em;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  border-radius: 1em;
+  background-image: radial-gradient(rgb(255, 255, 255) 50%, rgb(200, 230, 239));
+}
+header .overnav {
+  background-color: #2C5BAE;
+  max-width: 200em;
+}
+header .overnav .logo {
+  background-color: #2C5BAE;
+  margin: 0 auto;
+}
+header .overnav .logo img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: url(../images/pointer-cursor.png), pointer;
+}
+header .overnav nav {
+  background-color: #2C5BAE;
+}
+header .overnav nav ul#navigation_bar {
+  display: flex;
+  gap: 1.5em;
+  list-style: none;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1.5em;
+  font-family: "Georgia", "Times New Roman", Times, sans-serif;
+  text-decoration: none;
+  text-align: center;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+header .overnav nav ul#navigation_bar li {
+  flex: 1;
+  flex-wrap: wrap;
+}
+header .overnav nav ul#navigation_bar li a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+header .overnav nav ul#navigation_bar li a:hover {
+  color: rgb(0, 0, 0);
+}
+header .overnav nav ul#navigation_bar li.active {
+  background-color: rgb(169, 211, 244);
+  padding: 0.3em;
+  border-radius: 20%;
+  border-color: rgb(0, 0, 0);
+  border-width: 5px;
+  border-style: solid;
+}
+header .overnav nav ul#navigation_bar li.active a {
+  color: rgb(0, 0, 0);
+}
+@media (min-width: 1300px) {
+  header .overnav nav ul#navigation_bar {
+    padding-bottom: 0;
+  }
+}
+@media (min-width: 800px) {
+  header .overnav {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  header .overnav nav ul#navigation_bar {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  header .overnav nav ul#navigation_bar li a {
+    font-size: 1.6rem;
+  }
+}
+@media (min-width: 1300px) {
+  header .overnav {
+    display: flex;
+    align-items: center;
+    gap: 8em;
+    width: 80%;
+    max-width: 100em;
+  }
+  header .overnav .logo {
+    padding-left: 2em;
+  }
+}
+
+main {
+  background-image: url(../images/texture-background.png);
+  background-repeat: repeat;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  /*Top button CSS*/
+}
+main p {
+  text-align: left;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  font-family: "Tahoma", Georgia, "Times New Roman", Times, serif;
+  font-size: 1rem;
+}
+@media (min-width: 800px) {
+  main p {
+    font-size: 1.1rem;
+  }
+}
+@media (min-width: 1300px) {
+  main p {
+    font-size: 1.2rem;
+  }
+}
+main h2 {
+  margin-top: 2em;
+  margin-bottom: 1.5em;
+  font-family: "Georgia", "Times New Roman", Times, sans-serif;
+  font-size: 1.4rem;
+  color: rgb(30, 4, 102);
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 1em 0.5em;
+  text-align: center;
+}
+@media (min-width: 800px) {
+  main h2 {
+    font-size: 1.6rem;
+  }
+}
+@media (min-width: 1300px) {
+  main h2 {
+    font-size: 2rem;
+  }
+}
+main .start {
+  margin-top: 0em;
+}
+main h3 {
+  font-family: "Georgia", "Times New Roman", Times, sans-serif;
+  padding: 1em;
+  font-size: 1.2em;
+  text-decoration: underline;
+}
+@media (min-width: 800px) {
+  main h3 {
+    font-size: 1.4em;
+  }
+}
+@media (min-width: 1300px) {
+  main h3 {
+    font-size: 1.7em;
+  }
+}
+main span.example {
+  background-color: rgb(200, 230, 239);
+  border-radius: 5px;
+  border: 3px solid #2C5BAE;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  white-space: nowrap;
+}
+main figcaption {
+  font-style: italic;
+  padding: 0.5em;
+  font-family: "Tahoma", Georgia, "Times New Roman", Times, serif;
+  font-size: 1rem;
+  background-color: rgb(218, 226, 231);
+  border-color: #2C5BAE;
+  border-width: 0.2em;
+  border-style: solid;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0.3em auto;
+}
+@media (min-width: 800px) {
+  main figcaption {
+    font-size: 1.1rem;
+  }
+}
+@media (min-width: 1300px) {
+  main figcaption {
+    font-size: 1.2rem;
+  }
+}
+main #topbutton {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  z-index: 100;
+  color: rgb(255, 255, 255);
+  background-color: #2C5BAE;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border-width: 0.5em;
+  border-color: rgb(25, 5, 84);
+  border-style: ridge;
+  padding: 0.5em;
+  border-radius: 10%;
+  font-family: "Tahoma", Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-size: 1rem;
+  /*Phone users don't need the button which would only take up space*/
+}
+main #topbutton:visited {
+  color: rgb(255, 255, 255);
+}
+main #topbutton:hover {
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+}
+@media (max-width: 799.99999px) {
+  main #topbutton {
+    display: none;
+  }
+}
+
+footer {
+  /*CSS for footer at bottom which is universal for whole webpage*/
+  display: flex;
+  gap: 6em;
+  justify-content: center;
+  z-index: 11;
+  text-align: center;
+  font-size: 0.9rem;
+  background-color: rgb(200, 230, 239);
+  padding-bottom: 1em;
+  position: relative;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+@media (min-width: 1300px) {
+  footer {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 378px) {
+  footer {
+    gap: 0.5em;
+  }
+}
+footer img.corner-image {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-width: 8%;
+  max-height: 6.5em;
+}
+@media (max-width: 799.99999px) {
+  footer img.corner-image {
+    display: none;
+  }
+}
+@media (min-width: 1900px) {
+  footer img.corner-image {
+    max-width: 6%;
+  }
+}
+footer address ul {
+  list-style: none;
+}
+footer address ul li:first-of-type {
+  padding-top: 1em;
+}
+footer address img {
+  width: 7em;
+  opacity: 1;
+  border-radius: 0.6em;
+  cursor: url(../images/pointer-cursor.png), pointer;
+  transition: 0.5s;
+  margin-top: 0.3em;
+}
+footer address img:hover {
+  transform: scale(1.1);
+}
+footer aside h3 {
+  text-decoration: underline;
+  padding-top: 1em;
+}
+footer aside p {
+  text-align: center;
+}
+footer aside p a {
+  text-decoration: none;
+}
+
+main {
+  margin-top: 0;
+  /*CSS for table*/
+  /*Extra CSS for wide-mode (rearranging content using grid because it made experimenting with different ratios easier)*/
+}
+main section#introduction,
+main section#history,
+main section#organizations {
+  text-align: center;
+  margin: 0 auto;
+  /*Regular text extra CSS*/
+  /*Image flag CSS*/
+  /*Figure captions CSS*/
+  /*Responsive video CSS*/
+  /*Responsive blockquote CSS*/
+}
+main section#introduction p,
+main section#history p,
+main section#organizations p {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0.5em;
+  font-family: "Tahoma", Georgia, "Times New Roman", Times, serif;
+  font-size: 1rem;
+  text-shadow: 1px 1px 1px rgb(255, 255, 255), 2px 2px 1px rgb(188, 175, 175);
+}
+main section#introduction figure#intro-image,
+main section#history figure#intro-image,
+main section#organizations figure#intro-image {
+  padding: 0.5em;
+}
+main section#introduction figure#intro-image img,
+main section#history figure#intro-image img,
+main section#organizations figure#intro-image img {
+  max-height: 28em;
+  border-radius: 10%;
+  border-style: inset;
+  border-width: 0.7em;
+  border-color: #2C5BAE;
+}
+@media (max-width: 420px) {
+  main section#introduction figure#intro-image img,
+main section#history figure#intro-image img,
+main section#organizations figure#intro-image img {
+    border-width: 0.5em;
+  }
+}
+main section#introduction figure,
+main section#history figure,
+main section#organizations figure {
+  font-family: "Tahoma", Georgia, "Times New Roman", Times, serif;
+  font-size: 1.1rem;
+  align-items: center;
+}
+main section#introduction #video-drew,
+main section#history #video-drew,
+main section#organizations #video-drew {
+  width: 90vw;
+  height: 30vh;
+  border-style: inset;
+  border-radius: 2em;
+  border-width: 0.5em;
+  border-color: #2C5BAE;
+  box-sizing: content-box;
+  margin-top: 1em;
+}
+@media (max-width: 420px) {
+  main section#introduction #video-drew,
+main section#history #video-drew,
+main section#organizations #video-drew {
+    width: 90vw;
+    height: 25vh;
+  }
+}
+@media (min-width: 550px) {
+  main section#introduction #video-drew,
+main section#history #video-drew,
+main section#organizations #video-drew {
+    width: 70vw;
+    height: 40vw;
+  }
+}
+@media (min-width: 1000px) {
+  main section#introduction #video-drew,
+main section#history #video-drew,
+main section#organizations #video-drew {
+    width: 50vw;
+    height: 35vh;
+  }
+}
+@media (min-width: 1300px) {
+  main section#introduction #video-drew,
+main section#history #video-drew,
+main section#organizations #video-drew {
+    width: 40vw;
+    height: 42vh;
+  }
+}
+@media (min-width: 800px) {
+  main section#introduction h2,
+main section#history h2,
+main section#organizations h2 {
+    font-size: 1.6rem;
+  }
+  main section#introduction p,
+main section#history p,
+main section#organizations p {
+    font-size: 1.1rem;
+  }
+}
+main section#introduction .blockquote-box,
+main section#history .blockquote-box,
+main section#organizations .blockquote-box {
+  padding: 0.5em;
+}
+main section#introduction .blockquote-box .blockquote,
+main section#history .blockquote-box .blockquote,
+main section#organizations .blockquote-box .blockquote {
+  max-width: 40em;
+  margin: 0em auto;
+  padding: 1em;
+  background-color: rgb(218, 226, 231);
+  border: 0.1em solid rgb(66, 113, 122);
+  color: rgb(17, 45, 57);
+  border-left-width: 0.8em;
+}
+main section#introduction .blockquote-box .blockquote .blockquote-text,
+main section#introduction .blockquote-box .blockquote .blockquote-author,
+main section#history .blockquote-box .blockquote .blockquote-text,
+main section#history .blockquote-box .blockquote .blockquote-author,
+main section#organizations .blockquote-box .blockquote .blockquote-text,
+main section#organizations .blockquote-box .blockquote .blockquote-author {
+  font-family: "Gelasio", sans-serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  margin: 0;
+}
+@media (min-width: 1300px) {
+  main section#introduction .blockquote-box .blockquote .blockquote-text,
+main section#introduction .blockquote-box .blockquote .blockquote-author,
+main section#history .blockquote-box .blockquote .blockquote-text,
+main section#history .blockquote-box .blockquote .blockquote-author,
+main section#organizations .blockquote-box .blockquote .blockquote-text,
+main section#organizations .blockquote-box .blockquote .blockquote-author {
+    font-size: 1.2rem;
+  }
+}
+main section#introduction .blockquote-box .blockquote .blockquote-text,
+main section#history .blockquote-box .blockquote .blockquote-text,
+main section#organizations .blockquote-box .blockquote .blockquote-text {
+  text-align: left;
+}
+main section#introduction .blockquote-box .blockquote .blockquote-text::before,
+main section#history .blockquote-box .blockquote .blockquote-text::before,
+main section#organizations .blockquote-box .blockquote .blockquote-text::before {
+  content: "“";
+  /*Quote sign*/
+  font-size: 60px;
+  color: rgb(29, 80, 89);
+  display: block;
+  margin-bottom: -40px;
+  margin-top: -18px;
+}
+main section#introduction .blockquote-box .blockquote .blockquote-author,
+main section#history .blockquote-box .blockquote .blockquote-author,
+main section#organizations .blockquote-box .blockquote .blockquote-author {
+  font-weight: bolder;
+  text-align: right;
+}
+main .table-box {
+  padding: 0.5em;
+}
+main .table-box table {
+  border-collapse: collapse;
+  margin: 2em auto;
+}
+main .table-box table td,
+main .table-box table th {
+  padding: 8px;
+  max-width: 50ch;
+  border-color: #2C5BAE;
+  border-style: solid;
+  border-width: 0.25em;
+  text-align: center;
+  font-family: "Tahoma", Georgia, "Times New Roman", Times, serif;
+  font-size: 1rem;
+}
+@media (min-width: 800px) {
+  main .table-box table td,
+main .table-box table th {
+    font-size: 1.1rem;
+  }
+}
+@media (min-width: 1300px) {
+  main .table-box table td,
+main .table-box table th {
+    font-size: 1.2rem;
+  }
+}
+main .table-box table tr {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+main .table-box table tr:nth-child(even) {
+  background-color: rgba(181, 220, 227, 0.8);
+}
+@media (min-width: 1300px) {
+  main .grid-introduction {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 3em;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    /*Increase readability on very wide screens*/
+  }
+  main .grid-introduction p {
+    margin: 0;
+  }
+  main .grid-introduction figure#intro_image {
+    max-width: 675.2px;
+  }
+  main .grid-introduction .organizations p {
+    vertical-align: middle;
+    text-align: left;
+    max-width: 60ch;
+  }
+}
+@media (min-width: 1300px) and (min-width: 1450px) {
+  main .grid-introduction {
+    gap: 6em;
+  }
+}
+@media (min-width: 1300px) {
+  main .grid-history {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 3em;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: auto;
+    gap: 2em;
+  }
+  main .grid-history p {
+    vertical-align: middle;
+    max-width: 60ch;
+    grid-column: 2;
+  }
+  main .grid-history .blockquote-box {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  main .grid-history .blockquote-box .blockquote .blockquote-text,
+main .grid-history .blockquote-box .blockquote .blockquote-author {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 1300px) and (min-width: 1450px) {
+  main .grid-history {
+    gap: 6em;
+  }
+}
+@media (min-width: 1300px) {
+  main .grid-organizations {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 3em;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: auto auto;
+    gap: 2em;
+    /*Increase readability on very wide screens*/
+  }
+}
+@media (min-width: 1300px) and (min-width: 1450px) {
+  main .grid-organizations {
+    gap: 6em;
+  }
+}
+@media (min-width: 1300px) {
+  main .grid-organizations p {
+    vertical-align: middle;
+    max-width: 60ch;
+  }
+}
+@media (min-width: 1300px) {
+  main .grid-organizations iframe#video-drew {
+    max-width: 584px;
+  }
+}
+@media (min-width: 1300px) {
+  main section#introduction h2,
+main section#history h2,
+main section#organizations h2 {
+    font-size: 2rem;
+  }
+  main section#introduction p,
+main section#history p,
+main section#organizations p {
+    font-size: 1.2rem;
+    text-align: right;
+  }
+}
+@media (min-width: 1300px) {
+  main section#history p {
+    text-align: left;
+  }
+}
+
+main {
+  margin: 0 auto;
+  /*Adaptive CSS for first box*/
+  /*CSS for background of following boxes*/
+  /*Adaptive CSS for all boxes*/
+  /*Extra CSS for boxes with fact*/
+  /*Extra CSS for boxes without fact*/
+  /*Adaptive CSS for fact-boxes*/
+}
+main article#summary dt {
+  font-weight: bold;
+  text-decoration: underline;
+}
+@media (min-width: 1300px) {
+  main article#summary dt {
+    text-align: left;
+  }
+}
+main article#summary dd {
+  padding-bottom: 0.8em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+@media (min-width: 1300px) {
+  main article#summary dd {
+    margin: 0;
+    padding: 0 0 0.5em 1em;
+    text-align: left;
+  }
+}
+main article#summary dt,
+main article#summary dd {
+  font-size: 1rem;
+  font-family: "Tahoma", Georgia, "Times New Roman", Times, serif;
+}
+@media (min-width: 800px) {
+  main article#summary dt,
+main article#summary dd {
+    font-size: 1.1rem;
+  }
+}
+@media (min-width: 1300px) {
+  main article#summary dt,
+main article#summary dd {
+    font-size: 1.2rem;
+  }
+}
+main article#summary .summary-box-title {
+  font-family: "Georgia", "Times New Roman", Times, sans-serif;
+  padding-top: 1em;
+  padding-bottom: 0em;
+  font-size: 1.2em;
+  text-decoration: underline;
+}
+@media (min-width: 800px) {
+  main article#summary .summary-box-title {
+    font-size: 1.4em;
+  }
+}
+@media (min-width: 1300px) {
+  main article#summary .summary-box-title {
+    font-size: 1.7em;
+  }
+}
+main article#summary .summary-box {
+  background-color: rgba(69, 197, 232, 0.5);
+  border-width: 0.7em;
+  border-color: rgba(59, 111, 196, 0.75);
+  border-style: solid;
+  box-shadow: 0 0 10px;
+  margin-top: 1.5em;
+}
+main article#summary .summary-box h3,
+main article#summary .summary-box p,
+main article#summary .summary-box dl {
+  text-align: center;
+  margin: 0 auto;
+}
+@media (min-width: 1300px) {
+  main article#summary .summary-box h3,
+main article#summary .summary-box p,
+main article#summary .summary-box dl {
+    margin-bottom: 0em;
+  }
+}
+@media (min-width: 1300px) {
+  main article#summary .summary-box p {
+    text-align: left;
+  }
+}
+main article#summary .summary-box .split {
+  margin-bottom: 1em;
+}
+main article#summary .summary-box .split .summary-text {
+  margin: 0 auto;
+  margin-bottom: 2em;
+  max-width: 80ch;
+}
+@media (min-width: 1300px) {
+  main article#summary .summary-box .split .summary-text {
+    padding-left: 3em;
+    margin: 0;
+  }
+}
+main article#summary .summary-box .split .summary-list {
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+@media (min-width: 1300px) {
+  main article#summary .summary-box .split .summary-list {
+    padding-right: 3em;
+    margin: 0;
+    max-width: 70ch;
+  }
+}
+main .national-box,
+main .politics-box {
+  background-color: rgba(59, 179, 196, 0.5);
+}
+main .micronation-box,
+main .gender-box {
+  background-color: rgba(126, 171, 245, 0.75);
+}
+main .international-box,
+main .racing-box {
+  background-color: rgba(96, 204, 163, 0.5);
+}
+main .planet-box,
+main .referendum-box {
+  background-color: rgba(69, 197, 232, 0.5);
+}
+main .sport-box,
+main .peace-box {
+  background-color: rgba(148, 217, 197, 0.5);
+}
+main .split,
+main .national-box,
+main .micronation-box,
+main .international-box,
+main .planet-box,
+main .sport-box,
+main .politics-box,
+main .gender-box,
+main .racing-box,
+main .referendum-box,
+main .peace-box {
+  margin-top: 1.5em;
+}
+main .split .split2,
+main .national-box .split2,
+main .micronation-box .split2,
+main .international-box .split2,
+main .planet-box .split2,
+main .sport-box .split2,
+main .politics-box .split2,
+main .gender-box .split2,
+main .racing-box .split2,
+main .referendum-box .split2,
+main .peace-box .split2 {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1300px) {
+  main .split:not(.split, .micronation-box, .planet-box, .politics-box, .referendum-box),
+main .national-box:not(.split, .micronation-box, .planet-box, .politics-box, .referendum-box),
+main .micronation-box:not(.split, .micronation-box, .planet-box, .politics-box, .referendum-box),
+main .international-box:not(.split, .micronation-box, .planet-box, .politics-box, .referendum-box),
+main .planet-box:not(.split, .micronation-box, .planet-box, .politics-box, .referendum-box),
+main .sport-box:not(.split, .micronation-box, .planet-box, .politics-box, .referendum-box),
+main .politics-box:not(.split, .micronation-box, .planet-box, .politics-box, .referendum-box),
+main .gender-box:not(.split, .micronation-box, .planet-box, .politics-box, .referendum-box),
+main .racing-box:not(.split, .micronation-box, .planet-box, .politics-box, .referendum-box),
+main .referendum-box:not(.split, .micronation-box, .planet-box, .politics-box, .referendum-box),
+main .peace-box:not(.split, .micronation-box, .planet-box, .politics-box, .referendum-box) {
+    flex-direction: row-reverse;
+  }
+}
+main .split img,
+main .national-box img,
+main .micronation-box img,
+main .international-box img,
+main .planet-box img,
+main .sport-box img,
+main .politics-box img,
+main .gender-box img,
+main .racing-box img,
+main .referendum-box img,
+main .peace-box img {
+  border-radius: 20px;
+  margin: 1em auto;
+  padding-bottom: 0em;
+  align-items: center;
+  max-width: 60%;
+  box-shadow: 0 0 10px #999;
+}
+@media (min-width: 1300px) {
+  main .split img,
+main .national-box img,
+main .micronation-box img,
+main .international-box img,
+main .planet-box img,
+main .sport-box img,
+main .politics-box img,
+main .gender-box img,
+main .racing-box img,
+main .referendum-box img,
+main .peace-box img {
+    max-width: 30vw;
+    max-height: 400px;
+  }
+}
+main .split:not(.split),
+main .national-box:not(.split),
+main .micronation-box:not(.split),
+main .international-box:not(.split),
+main .planet-box:not(.split),
+main .sport-box:not(.split),
+main .politics-box:not(.split),
+main .gender-box:not(.split),
+main .racing-box:not(.split),
+main .referendum-box:not(.split),
+main .peace-box:not(.split) {
+  border-width: 0.7em;
+  border-color: rgba(59, 111, 196, 0.75);
+  border-style: solid;
+  box-shadow: 0 0 10px;
+}
+main .split h3,
+main .national-box h3,
+main .micronation-box h3,
+main .international-box h3,
+main .planet-box h3,
+main .sport-box h3,
+main .politics-box h3,
+main .gender-box h3,
+main .racing-box h3,
+main .referendum-box h3,
+main .peace-box h3 {
+  font-family: "Georgia", "Times New Roman", Times, sans-serif;
+  padding: 1em;
+  padding-bottom: 1em;
+  text-align: center;
+}
+@media (min-width: 1300px) {
+  main .split h3,
+main .national-box h3,
+main .micronation-box h3,
+main .international-box h3,
+main .planet-box h3,
+main .sport-box h3,
+main .politics-box h3,
+main .gender-box h3,
+main .racing-box h3,
+main .referendum-box h3,
+main .peace-box h3 {
+    padding-left: 0;
+  }
+}
+main .split p,
+main .national-box p,
+main .micronation-box p,
+main .international-box p,
+main .planet-box p,
+main .sport-box p,
+main .politics-box p,
+main .gender-box p,
+main .racing-box p,
+main .referendum-box p,
+main .peace-box p {
+  font-family: "Tahoma", Georgia, "Times New Roman", Times, serif;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0.5em;
+  padding-top: 0em;
+  line-height: 1.7em;
+}
+@media (min-width: 1300px) {
+  main .split p,
+main .national-box p,
+main .micronation-box p,
+main .international-box p,
+main .planet-box p,
+main .sport-box p,
+main .politics-box p,
+main .gender-box p,
+main .racing-box p,
+main .referendum-box p,
+main .peace-box p {
+    margin-bottom: 1em;
+    padding-left: 0;
+  }
+}
+@media (min-width: 1300px) {
+  main .split,
+main .national-box,
+main .micronation-box,
+main .international-box,
+main .planet-box,
+main .sport-box,
+main .politics-box,
+main .gender-box,
+main .racing-box,
+main .referendum-box,
+main .peace-box {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+    align-items: center;
+  }
+}
+@media (min-width: 1300px) {
+  main .micronation-box p,
+main .micronation-box h3,
+main .planet-box p,
+main .planet-box h3,
+main .politics-box p,
+main .politics-box h3,
+main .referendum-box p,
+main .referendum-box h3 {
+    text-align: right;
+  }
+}
+@media (min-width: 1300px) {
+  main .split .split1 p,
+main .split .split1 h3,
+main .split .split1 dt,
+main .split .split1 dl,
+main .split .split2 p,
+main .split .split2 h3,
+main .split .split2 dt,
+main .split .split2 dl,
+main .national-box .split1 p,
+main .national-box .split1 h3,
+main .national-box .split1 dt,
+main .national-box .split1 dl,
+main .national-box .split2 p,
+main .national-box .split2 h3,
+main .national-box .split2 dt,
+main .national-box .split2 dl,
+main .international-box .split1 p,
+main .international-box .split1 h3,
+main .international-box .split1 dt,
+main .international-box .split1 dl,
+main .international-box .split2 p,
+main .international-box .split2 h3,
+main .international-box .split2 dt,
+main .international-box .split2 dl,
+main .sport-box .split1 p,
+main .sport-box .split1 h3,
+main .sport-box .split1 dt,
+main .sport-box .split1 dl,
+main .sport-box .split2 p,
+main .sport-box .split2 h3,
+main .sport-box .split2 dt,
+main .sport-box .split2 dl,
+main .gender-box .split1 p,
+main .gender-box .split1 h3,
+main .gender-box .split1 dt,
+main .gender-box .split1 dl,
+main .gender-box .split2 p,
+main .gender-box .split2 h3,
+main .gender-box .split2 dt,
+main .gender-box .split2 dl,
+main .racing-box .split1 p,
+main .racing-box .split1 h3,
+main .racing-box .split1 dt,
+main .racing-box .split1 dl,
+main .racing-box .split2 p,
+main .racing-box .split2 h3,
+main .racing-box .split2 dt,
+main .racing-box .split2 dl,
+main .peace-box .split1 p,
+main .peace-box .split1 h3,
+main .peace-box .split1 dt,
+main .peace-box .split1 dl,
+main .peace-box .split2 p,
+main .peace-box .split2 h3,
+main .peace-box .split2 dt,
+main .peace-box .split2 dl {
+    text-align: left;
+  }
+}
+main .fact {
+  position: relative;
+  box-sizing: content-box;
+}
+@media (max-width: 799.99999999px) {
+  main .fact img {
+    margin-bottom: 0.3em;
+  }
+}
+main .fact .fact-box {
+  position: absolute;
+  right: 5em;
+  top: 2em;
+  background-color: rgb(222, 132, 222);
+  border-color: rgb(136, 20, 136);
+  border-style: ridge;
+  border-width: 0.2em;
+  box-sizing: content-box;
+}
+@media (max-width: 799.99999999px) {
+  main .fact .fact-box {
+    display: block;
+    position: static;
+    max-width: 60%;
+    align-self: center;
+    margin-bottom: 1em;
+    margin-top: 0;
+  }
+  main .fact .fact-box .fact-title {
+    padding: 0.5em;
+    font-size: 0.7rem;
+  }
+  main .fact .fact-box .fact-text {
+    text-align: left;
+    font-size: 0.8Rem;
+  }
+}
+@media (min-width: 800px) {
+  main .fact .fact-box {
+    box-shadow: 0 0 10px;
+  }
+  main .fact .fact-box .fact-title,
+main .fact .fact-box .fact-text {
+    text-align: center;
+    max-width: 40ch;
+    padding: 0.4em;
+    text-align: left;
+    font-style: italic;
+  }
+  main .fact .fact-box .fact-title {
+    font-family: "Georgia", "Times New Roman", Times, serif;
+    padding-bottom: 0;
+    font-size: 0.8rem;
+    text-decoration: underline;
+  }
+  main .fact .fact-box .fact-text {
+    font-size: 0.9rem;
+  }
+}
+@media (min-width: 1300px) {
+  main .fact .fact-box {
+    box-shadow: 0 0 10px;
+    right: -3em;
+    top: 1.5em;
+  }
+  main .fact .fact-box .fact-title,
+main .fact .fact-box .fact-text {
+    text-align: center;
+    max-width: 40ch;
+    padding: 0.4em;
+    text-align: left;
+    font-style: italic;
+  }
+  main .fact .fact-box .fact-title {
+    font-family: "Georgia", "Times New Roman", Times, serif;
+    padding-bottom: 0;
+    font-size: 0.8rem;
+    text-decoration: underline;
+  }
+  main .fact .fact-box .fact-text {
+    font-size: 0.9Rem;
+    margin-bottom: 0;
+  }
+}
+
+main .unusual-boxes {
+  /*General adaptive CSS for whole page*/
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2em;
+  max-width: 90em;
+  margin: 2em auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  /*Adaptive CSS for the different flag sections*/
+  /*Adaptive CSS for the flag images*/
+  /*Adaptive CSS for Nepal flag which has a larger height than width*/
+}
+main .unusual-boxes h2 {
+  margin-top: 0;
+}
+main .unusual-boxes h3 {
+  padding-left: 0;
+}
+main .unusual-boxes h4 {
+  color: rgb(255, 255, 255);
+  text-shadow: 1.7px 0 0 rgb(0, 0, 0), 0 -1.7px 0 rgb(0, 0, 0), 0 1.7px 0 rgb(0, 0, 0), -1.7px 0 0 rgb(0, 0, 0);
+  font-size: 1.2em;
+}
+@media (min-width: 800px) {
+  main .unusual-boxes h4 {
+    font-size: 1.4em;
+  }
+}
+@media (min-width: 1300px) {
+  main .unusual-boxes h4 {
+    font-size: 1.7em;
+  }
+}
+main .unusual-boxes p {
+  margin: 0;
+  margin-right: 0;
+  max-width: 90ch;
+}
+main .unusual-boxes .proportion {
+  background-color: rgba(59, 179, 196, 0.5);
+  border-color: rgb(59, 179, 196);
+  border-width: 0.5em;
+  border-style: solid;
+  padding: 1em;
+  grid-column: span 6;
+  box-shadow: 0 0 10px;
+}
+@media (min-width: 800px) {
+  main .unusual-boxes .proportion {
+    grid-column: span 3;
+  }
+}
+main .unusual-boxes .historical {
+  background-color: rgba(126, 171, 245, 0.75);
+  border-color: rgb(126, 171, 245);
+  border-width: 0.5em;
+  border-style: solid;
+  padding: 1em;
+  grid-column: span 6;
+  box-shadow: 0 0 10px;
+}
+@media (min-width: 800px) {
+  main .unusual-boxes .historical {
+    grid-column: span 3;
+  }
+}
+main .unusual-boxes .emblem {
+  background-color: rgba(96, 204, 163, 0.5);
+  border-color: rgb(96, 204, 163);
+  border-width: 0.5em;
+  border-style: solid;
+  padding: 1em;
+  grid-column: span 6;
+  box-shadow: 0 0 10px;
+}
+@media (min-width: 800px) {
+  main .unusual-boxes .emblem {
+    grid-column: span 3;
+  }
+}
+@media (min-width: 1200px) {
+  main .unusual-boxes .emblem {
+    grid-column: span 2;
+  }
+}
+main .unusual-boxes .design {
+  background-color: rgba(69, 197, 232, 0.5);
+  border-color: rgb(69, 197, 232);
+  border-width: 0.5em;
+  border-style: solid;
+  padding: 1em;
+  grid-column: span 6;
+  box-shadow: 0 0 10px;
+}
+@media (min-width: 800px) {
+  main .unusual-boxes .design {
+    grid-column: span 3;
+  }
+}
+@media (min-width: 1200px) {
+  main .unusual-boxes .design {
+    grid-column: span 2;
+  }
+}
+main .unusual-boxes .symbolism {
+  background-color: rgba(202, 220, 69, 0.5);
+  border-color: rgb(202, 220, 69);
+  border-width: 0.5em;
+  border-style: solid;
+  padding: 1em;
+  grid-column: span 6;
+  box-shadow: 0 0 10px;
+}
+@media (min-width: 800px) {
+  main .unusual-boxes .symbolism {
+    grid-column: span 3;
+  }
+}
+@media (min-width: 1200px) {
+  main .unusual-boxes .symbolism {
+    grid-column: span 2;
+  }
+}
+main .unusual-boxes img {
+  border-width: 0.2em;
+  border-style: solid;
+  border-radius: 1em;
+  float: left;
+  margin-right: 2em;
+  border-color: rgb(200, 230, 239);
+  max-width: 10em;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 0.3em;
+}
+@media (max-width: 350px) {
+  main .unusual-boxes img {
+    float: none;
+  }
+}
+@media (min-width: 1300px) {
+  main .unusual-boxes img {
+    max-width: 12em;
+  }
+}
+main .unusual-boxes .high {
+  max-width: 6em;
+}
+@media (min-width: 1300px) {
+  main .unusual-boxes .high {
+    max-width: 8em;
+  }
+}
+
+main .explanation-box {
+  padding: 0.5em;
+}
+main .explanation-box:first-of-type {
+  padding-top: 0;
+}
+main .explanation-box .explanation {
+  /*CSS for yellow introduction sections*/
+  background-color: rgba(202, 220, 69, 0.5);
+  border-color: rgb(202, 220, 69);
+  border-width: 0.5em;
+  border-style: solid;
+  border-radius: 2em;
+  padding: 1em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  font-weight: bolder;
+  text-align: center;
+  box-shadow: 0 0 10px;
+}
+main .flag-names-boxes {
+  /*Responsive CSS for flag names section (first question)*/
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.6em;
+  max-width: 80em;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+main .flag-names-boxes .barbados,
+main .flag-names-boxes .gibraltar,
+main .flag-names-boxes .macau,
+main .flag-names-boxes .kyrgyzystan,
+main .flag-names-boxes .saint-lucia,
+main .flag-names-boxes .aland {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  grid-column: span 3;
+}
+@media (min-width: 1100px) {
+  main .flag-names-boxes .barbados,
+main .flag-names-boxes .gibraltar,
+main .flag-names-boxes .macau,
+main .flag-names-boxes .kyrgyzystan,
+main .flag-names-boxes .saint-lucia,
+main .flag-names-boxes .aland {
+    grid-column: span 2;
+  }
+}
+main .flag-names-boxes .barbados .center,
+main .flag-names-boxes .gibraltar .center,
+main .flag-names-boxes .macau .center,
+main .flag-names-boxes .kyrgyzystan .center,
+main .flag-names-boxes .saint-lucia .center,
+main .flag-names-boxes .aland .center {
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+main .flag-names-boxes .barbados .center p,
+main .flag-names-boxes .gibraltar .center p,
+main .flag-names-boxes .macau .center p,
+main .flag-names-boxes .kyrgyzystan .center p,
+main .flag-names-boxes .saint-lucia .center p,
+main .flag-names-boxes .aland .center p {
+  font-size: 0.7em;
+  padding: 0;
+}
+@media (min-width: 420px) {
+  main .flag-names-boxes .barbados .center p,
+main .flag-names-boxes .gibraltar .center p,
+main .flag-names-boxes .macau .center p,
+main .flag-names-boxes .kyrgyzystan .center p,
+main .flag-names-boxes .saint-lucia .center p,
+main .flag-names-boxes .aland .center p {
+    font-size: 1em;
+  }
+}
+@media (min-width: 550px) {
+  main .flag-names-boxes .barbados .center p,
+main .flag-names-boxes .gibraltar .center p,
+main .flag-names-boxes .macau .center p,
+main .flag-names-boxes .kyrgyzystan .center p,
+main .flag-names-boxes .saint-lucia .center p,
+main .flag-names-boxes .aland .center p {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 800px) {
+  main .flag-names-boxes .barbados .center p,
+main .flag-names-boxes .gibraltar .center p,
+main .flag-names-boxes .macau .center p,
+main .flag-names-boxes .kyrgyzystan .center p,
+main .flag-names-boxes .saint-lucia .center p,
+main .flag-names-boxes .aland .center p {
+    font-size: 2em;
+  }
+}
+@media (min-width: 1000px) {
+  main .flag-names-boxes .barbados .center p,
+main .flag-names-boxes .gibraltar .center p,
+main .flag-names-boxes .macau .center p,
+main .flag-names-boxes .kyrgyzystan .center p,
+main .flag-names-boxes .saint-lucia .center p,
+main .flag-names-boxes .aland .center p {
+    font-size: 2.5em;
+  }
+}
+main .flag-names-boxes .barbados img,
+main .flag-names-boxes .gibraltar img,
+main .flag-names-boxes .macau img,
+main .flag-names-boxes .kyrgyzystan img,
+main .flag-names-boxes .saint-lucia img,
+main .flag-names-boxes .aland img {
+  width: 100%;
+  border-style: inset;
+  border-radius: 2em;
+  border-width: 0.8em;
+  border-color: #2C5BAE;
+}
+main .flag-names-boxes .barbados img:hover, main .flag-names-boxes .barbados img:active, main .flag-names-boxes .barbados img:focus,
+main .flag-names-boxes .gibraltar img:hover,
+main .flag-names-boxes .gibraltar img:active,
+main .flag-names-boxes .gibraltar img:focus,
+main .flag-names-boxes .macau img:hover,
+main .flag-names-boxes .macau img:active,
+main .flag-names-boxes .macau img:focus,
+main .flag-names-boxes .kyrgyzystan img:hover,
+main .flag-names-boxes .kyrgyzystan img:active,
+main .flag-names-boxes .kyrgyzystan img:focus,
+main .flag-names-boxes .saint-lucia img:hover,
+main .flag-names-boxes .saint-lucia img:active,
+main .flag-names-boxes .saint-lucia img:focus,
+main .flag-names-boxes .aland img:hover,
+main .flag-names-boxes .aland img:active,
+main .flag-names-boxes .aland img:focus {
+  filter: brightness(20%);
+  transition: 0.3s;
+}
+main .flag-names-boxes .barbados img:hover ~ .center, main .flag-names-boxes .barbados img:active ~ .center, main .flag-names-boxes .barbados img:focus ~ .center,
+main .flag-names-boxes .gibraltar img:hover ~ .center,
+main .flag-names-boxes .gibraltar img:active ~ .center,
+main .flag-names-boxes .gibraltar img:focus ~ .center,
+main .flag-names-boxes .macau img:hover ~ .center,
+main .flag-names-boxes .macau img:active ~ .center,
+main .flag-names-boxes .macau img:focus ~ .center,
+main .flag-names-boxes .kyrgyzystan img:hover ~ .center,
+main .flag-names-boxes .kyrgyzystan img:active ~ .center,
+main .flag-names-boxes .kyrgyzystan img:focus ~ .center,
+main .flag-names-boxes .saint-lucia img:hover ~ .center,
+main .flag-names-boxes .saint-lucia img:active ~ .center,
+main .flag-names-boxes .saint-lucia img:focus ~ .center,
+main .flag-names-boxes .aland img:hover ~ .center,
+main .flag-names-boxes .aland img:active ~ .center,
+main .flag-names-boxes .aland img:focus ~ .center {
+  display: flex;
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  text-decoration: underline;
+  box-sizing: border-box;
+}
+main .riddles-box {
+  padding: 0.5em;
+  padding-top: 0;
+}
+main .riddles-box .riddle-firearm,
+main .riddles-box .riddle-purple,
+main .riddles-box .riddle-old,
+main .riddles-box .riddle-ratio,
+main .riddles-box .riddle-identical {
+  /*CSS for riddles (second question)*/
+  margin: 1em;
+  border-radius: 0.7em;
+  padding: 1em;
+  border-width: 0.5em;
+  border-style: solid;
+  margin: 1.5em auto;
+  font-style: italic;
+  font-weight: bold;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 90ch;
+}
+main .riddles-box .riddle-firearm p.answer,
+main .riddles-box .riddle-purple p.answer,
+main .riddles-box .riddle-old p.answer,
+main .riddles-box .riddle-ratio p.answer,
+main .riddles-box .riddle-identical p.answer {
+  color: rgb(218, 226, 231);
+  border-width: 0.2em;
+  border-style: solid;
+  border-radius: 0.3em;
+  border-color: rgb(66, 113, 122);
+  background-color: rgb(218, 226, 231);
+  padding: 0.4em;
+  width: 8em;
+  margin: 0;
+  text-align: center;
+}
+main .riddles-box .riddle-firearm p.answer:hover, main .riddles-box .riddle-firearm p.answer:active, main .riddles-box .riddle-firearm p.answer:focus,
+main .riddles-box .riddle-purple p.answer:hover,
+main .riddles-box .riddle-purple p.answer:active,
+main .riddles-box .riddle-purple p.answer:focus,
+main .riddles-box .riddle-old p.answer:hover,
+main .riddles-box .riddle-old p.answer:active,
+main .riddles-box .riddle-old p.answer:focus,
+main .riddles-box .riddle-ratio p.answer:hover,
+main .riddles-box .riddle-ratio p.answer:active,
+main .riddles-box .riddle-ratio p.answer:focus,
+main .riddles-box .riddle-identical p.answer:hover,
+main .riddles-box .riddle-identical p.answer:active,
+main .riddles-box .riddle-identical p.answer:focus {
+  color: rgb(17, 45, 57);
+}
+main .riddles-box .riddle-firearm {
+  background-color: rgba(59, 179, 196, 0.5);
+  border-color: rgb(59, 179, 196);
+  margin-top: 0;
+}
+main .riddles-box .riddle-purple {
+  background-color: rgba(126, 171, 245, 0.75);
+  border-color: rgb(126, 171, 245);
+}
+main .riddles-box .riddle-old {
+  background-color: rgba(96, 204, 163, 0.5);
+  border-color: rgb(96, 204, 163);
+}
+main .riddles-box .riddle-ratio {
+  background-color: rgba(69, 197, 232, 0.5);
+  border-color: rgb(69, 197, 232);
+}
+main .riddles-box .riddle-identical {
+  background-color: rgba(148, 217, 197, 0.5);
+  border-color: rgb(148, 217, 197);
+}
+main .google-maps {
+  /*Responsive CSS for Google Maps (third question)*/
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  box-sizing: content-box;
+}
+main .google-maps iframe {
+  width: 90vw;
+  height: 30vh;
+  max-width: 80em;
+  margin: 1em;
+  border-style: inset;
+  border-radius: 2em;
+  border-width: 0.8em;
+  border-color: #2C5BAE;
+  box-shadow: 0 0 30px;
+}
+@media (min-width: 420px) {
+  main .google-maps iframe {
+    width: 90vw;
+    height: 30vh;
+  }
+}
+@media (min-width: 550px) {
+  main .google-maps iframe {
+    width: 70vw;
+    height: 40vw;
+  }
+}
+@media (min-width: 1000px) {
+  main .google-maps iframe {
+    width: 55%;
+  }
+}
+
+main #registration h2 {
+  margin-bottom: 1.5em;
+}
+main #registration .logo-and-content {
+  background-image: linear-gradient(rgb(255, 255, 255) 30%, #ddd);
+  box-shadow: 0 0 10px;
+  padding-bottom: 3em;
+}
+main #registration .logo-and-content img {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 1.5em;
+  max-width: 40em;
+}
+main #registration .registration-content {
+  /*CSS for info and form boxes */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 90em;
+  /*CSS for especcially the form box*/
+}
+main #registration .registration-content .declaration,
+main #registration .registration-content .form {
+  grid-column: span 2;
+  margin: 0 auto;
+  height: 100%;
+  width: 95%;
+}
+main #registration .registration-content .declaration h3,
+main #registration .registration-content .form h3 {
+  padding-top: 0;
+  text-align: center;
+}
+main #registration .registration-content .declaration .content,
+main #registration .registration-content .form .content {
+  margin: 0 auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+@media (min-width: 1300px) {
+  main #registration .registration-content .declaration,
+main #registration .registration-content .form {
+    grid-column: span 1;
+  }
+}
+main #registration .registration-content .form {
+  background-color: #ddd;
+  color: rgb(0, 0, 0);
+  border-radius: 3em;
+  box-shadow: 0 0 10px;
+  padding: 1.5em;
+  /*CSS for especcially the information box*/
+}
+main #registration .registration-content .form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+main #registration .registration-content .form form .buttons {
+  display: flex;
+  gap: 0.4em;
+}
+main #registration .registration-content .form form > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+}
+main #registration .registration-content .form form > div label {
+  text-align: right;
+  margin: 0;
+}
+main #registration .registration-content .form form > div input,
+main #registration .registration-content .form form > div select {
+  grid-column: span 2;
+  margin: 0;
+  max-width: 100%;
+}
+main #registration .registration-content .form form .felicitation {
+  justify-self: center;
+  display: initial;
+}
+main #registration .registration-content .form form .felicitation .felicitation-content {
+  margin: 0 auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+main #registration .registration-content .form form .felicitation .felicitation-content #felicitation {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  padding: 0.5em;
+}
+main #registration .registration-content .form form label::before {
+  content: "*";
+  color: red;
+}
+main #registration .registration-content .form form label,
+main #registration .registration-content .form form input,
+main #registration .registration-content .form form select,
+main #registration .registration-content .form form button {
+  text-align: left;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  font-family: "Tahoma", Georgia, "Times New Roman", Times, serif;
+  font-size: 1rem;
+}
+@media (min-width: 800px) {
+  main #registration .registration-content .form form label,
+main #registration .registration-content .form form input,
+main #registration .registration-content .form form select,
+main #registration .registration-content .form form button {
+    font-size: 1.1rem;
+  }
+}
+@media (min-width: 1300px) {
+  main #registration .registration-content .form form label,
+main #registration .registration-content .form form input,
+main #registration .registration-content .form form select,
+main #registration .registration-content .form form button {
+    font-size: 1.2rem;
+  }
+}
+main #registration .registration-content .form form div.felicitation {
+  padding-left: 0.2em;
+}
+main #registration .registration-content .form form div.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+main #registration .registration-content .form form div.buttons .reset,
+main #registration .registration-content .form form div.buttons .submit {
+  grid-column: span 1;
+  width: 100%;
+}
+main #registration .registration-content .form form div.buttons .reset input,
+main #registration .registration-content .form form div.buttons .reset button,
+main #registration .registration-content .form form div.buttons .submit input,
+main #registration .registration-content .form form div.buttons .submit button {
+  width: 100%;
+  text-align: center;
+}
+main #registration .registration-content .declaration {
+  background-color: rgb(218, 226, 231);
+  color: rgb(17, 45, 57);
+  border-radius: 3em;
+  box-shadow: 0 0 10px;
+  padding: 1.5em;
+}
+main #registration .registration-content .declaration ul {
+  padding-left: 1.5em;
+}
+main #registration .registration-content .declaration ul li p {
+  margin: 0;
+  font-style: italic;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+* {
+  /*CSS which is universal for whole website*/
+  transition: 0.3s;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: url(../images/default-cursor.png), default;
+}
+* img {
+  max-width: 100%;
+}
+* p {
+  max-width: 70ch;
+  line-height: 1.5;
+  text-align: left;
+}
+* a {
+  cursor: url(../images/pointer-cursor.png), pointer;
+}
+* a:link {
+  color: rgb(118, 21, 21);
+}
+* a:visited {
+  color: rgb(82, 12, 12);
+}
+* .location:link {
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+  color: rgb(76, 25, 77);
+}
+* .location:visited {
+  color: rgb(91, 36, 87);
+}/*# sourceMappingURL=stijl.css.map */

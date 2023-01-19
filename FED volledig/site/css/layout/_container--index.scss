@@ -1,0 +1,359 @@
+@use "../sass-utils/variables";
+
+@use "../base/typography";
+
+
+main {
+
+    margin-top: 0;
+
+    section#introduction,
+    section#history,
+    section#organizations {
+        text-align: center;
+        margin: 0 auto;
+
+        /*Regular text extra CSS*/
+
+        p {
+            text-align: center;
+            margin: 0 auto;
+            padding: 0.5em;
+            font-family: typography.$body-font-family;
+            font-size: typography.$body-font-size;
+            text-shadow: 1px 1px 1px variables.$pure_white, 2px 2px 1px variables.$shadow-color-text;
+        }
+
+        /*Image flag CSS*/
+
+        figure#intro-image {
+
+            padding: 0.5em;
+
+            img {
+                max-height: 28em;
+                border-radius: 10%;
+                border-style: inset;
+                border-width: 0.7em;
+                border-color: variables.$blue_flag;
+
+
+                @media (max-width: 420px) {
+
+                    border-width: 0.5em;
+
+                }
+            }
+
+        }
+
+        /*Figure captions CSS*/
+
+        figure {
+            font-family: typography.$body-font-family;
+            font-size: typography.$body-font-size-medium;
+            align-items: center;
+
+        }
+
+
+        /*Responsive video CSS*/
+
+        #video-drew {
+
+            width: 90vw;
+            height: 30vh;
+            border-style: inset;
+            border-radius: 2em;
+            border-width: 0.5em;
+            border-color: variables.$blue_flag;
+            box-sizing: content-box;
+            margin-top: 1em;
+
+
+
+
+            @media (max-width: 420px) {
+
+                width: 90vw;
+                height: 25vh;
+
+            }
+
+            @media (min-width: 550px) {
+
+                width: 70vw;
+                height: 40vw;
+
+            }
+
+            @media (min-width: 1000px) {
+
+                width: 50vw;
+                height: 35vh;
+
+
+            }
+
+            @media (min-width: 1300px) {
+
+                width: 40vw;
+                height: 42vh;
+
+
+
+            }
+
+        }
+
+        @media (min-width: variables.$media-medium) {
+
+            h2 {
+                font-size: typography.$heading2-font-size-medium;
+            }
+
+            p {
+                font-size: typography.$body-font-size-medium;
+            }
+
+        }
+
+        /*Responsive blockquote CSS*/
+
+        .blockquote-box {
+
+            padding: 0.5em;
+
+            .blockquote {
+                max-width: 40em;
+                margin: 0em auto;
+                padding: 1em;
+                background-color: variables.$background-blockquote;
+                border: 0.1em solid variables.$border-blockquote;
+                color: variables.$text-blockquote;
+                border-left-width: 0.8em;
+
+
+
+                .blockquote-text,
+                .blockquote-author {
+                    font-family: typography.$quote-font-family;
+                    font-style: italic;
+                    font-size: typography.$body-font-size-medium;
+                    margin: 0;
+
+                    @media (min-width: variables.$media-large) {
+
+                        font-size: typography.$body-font-size-large;
+                    }
+
+                }
+
+                .blockquote-text {
+                    text-align: left;
+
+                    &::before {
+                        content: "\201c";
+                        /*Quote sign*/
+                        font-size: 60px;
+                        color: variables.$sign-blockquote;
+                        display: block;
+                        margin-bottom: -40px;
+                        margin-top: -18px;
+                    }
+                }
+
+                .blockquote-author {
+                    font-weight: bolder;
+                    text-align: right;
+                }
+
+            }
+
+        }
+    }
+
+    /*CSS for table*/
+
+    .table-box {
+
+        padding: 0.5em;
+
+        table {
+
+            border-collapse: collapse;
+            margin: 2em auto;
+
+            td,
+            th {
+                padding: 8px;
+                max-width: 50ch;
+                border-color: variables.$blue_flag;
+                border-style: solid;
+                border-width: 0.25em;
+                text-align: center;
+                font-family: typography.$body-font-family;
+                font-size: typography.$body-font-size;
+
+                @media (min-width: variables.$media-medium) {
+
+                    font-size: typography.$body-font-size-medium;
+
+
+                }
+
+                @media (min-width:variables.$media-large) {
+
+                    font-size: typography.$body-font-size-large;
+
+                }
+            }
+
+            tr {
+                background-color: variables.$table-color1;
+
+                &:nth-child(even) {
+                    background-color: variables.$table-color2;
+
+                }
+            }
+        }
+
+
+    }
+
+    /*Extra CSS for wide-mode (rearranging content using grid because it made experimenting with different ratios easier)*/
+
+    @media (min-width: variables.$media-large) {
+
+        .grid-introduction {
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-left: 2em;
+            margin-right: 2em;
+            margin-top: 3em;
+            justify-content: center;
+            align-items: center;
+
+            gap: 2em;
+
+
+            p {
+                margin: 0;
+            }
+
+            figure#intro_image {
+                max-width: 675.2px;
+
+            }
+
+            .organizations p {
+                vertical-align: middle;
+                text-align: left;
+
+                max-width: 60ch;
+            }
+
+            /*Increase readability on very wide screens*/
+
+            @media (min-width: 1450px) {
+                gap: 6em;
+            }
+
+        }
+
+        .grid-history {
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-left: 2em;
+            margin-right: 2em;
+            margin-top: 3em;
+            justify-content: center;
+            align-items: center;
+            grid-template-columns: auto;
+            gap: 2em;
+
+
+            p {
+                vertical-align: middle;
+                max-width: 60ch;
+                grid-column: 2;
+
+            }
+
+            .blockquote-box {
+                grid-column: 1;
+                grid-row: 1;
+
+                .blockquote {
+
+                    .blockquote-text,
+                    .blockquote-author {
+                        font-size: typography.$body-font-size-large;
+                    }
+                }
+            }
+
+            @media (min-width: 1450px) {
+                gap: 6em;
+            }
+
+        }
+
+        .grid-organizations {
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-left: 2em;
+            margin-right: 2em;
+            margin-top: 3em;
+            justify-content: center;
+            align-items: center;
+            grid-template-columns: auto auto;
+            gap: 2em;
+
+            /*Increase readability on very wide screens*/
+
+            @media (min-width: 1450px) {
+                gap: 6em;
+            }
+
+
+            p {
+                vertical-align: middle;
+                max-width: 60ch;
+
+            }
+
+            iframe#video-drew {
+                max-width: 584px;
+            }
+
+
+
+        }
+
+        section#introduction,
+        section#history,
+        section#organizations {
+
+
+            h2 {
+                font-size: typography.$heading2-font-size-large;
+            }
+
+            p {
+                font-size: typography.$body-font-size-large;
+                text-align: right;
+            }
+
+        }
+
+        section#history p {
+            text-align: left;
+        }
+
+    }
+}

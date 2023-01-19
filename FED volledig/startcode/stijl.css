@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  line-height: 1.5;
+  max-width: 800px;
+  padding: 1em;
+  margin: 0 auto;
+}
+
+button {
+  padding:5px 1em;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+
+
+h1 {
+  margin: 1em 0
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top:2em;
+}
+
+#titel, #auteur {
+  width: 15em
+}
+
+#taal {
+  width: 3em
+}
+
+input[type="submit"] {
+  width: 10em
+}
+
+input {
+  padding: 5px;
+  margin-bottom: 1.5em;
+}
+
+h2{
+  font-size: 1rem;
+}
+
+p{
+  font-size: 0.9rem;
+}
+
+section article p+p{
+  text-align: right;
+}
+
+
+section.citaten{
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+section.citaten article{
+  background-color: #ECECEC;
+  padding: 1em;
+  box-shadow: 0 0 3px #000000;
+  border-radius: 0.5em;
+  grid-column: span 6;
+  max-width: 100%;
+
+}
+
+@media (min-width: 400px) {
+
+  section.citaten article{
+    grid-column: span 3;
+  
+  }
+  
+}
+
+
+@media (min-width: 560px) {
+
+  section.citaten article{
+    grid-column: span 2;
+  
+  }
+  
+}
+
+
+
+
+
+

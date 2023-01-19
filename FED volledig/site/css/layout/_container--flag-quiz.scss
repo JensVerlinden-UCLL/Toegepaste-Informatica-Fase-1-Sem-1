@@ -1,0 +1,294 @@
+@use "../sass-utils/variables";
+
+@use "../base/typography";
+
+main {
+
+    .explanation-box {
+
+        padding: 0.5em;
+
+        &:first-of-type {
+            padding-top: 0;
+        }
+
+        .explanation {
+
+            /*CSS for yellow introduction sections*/
+
+            background-color: variables.$alternative;
+            border-color: variables.$alternative-border;
+            border-width: 0.5em;
+            border-style: solid;
+            border-radius: 2em;
+            padding: 1em;
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
+            font-weight: bolder;
+            text-align: center;
+            box-shadow: 0 0 10px;
+
+        }
+    }
+
+
+    .flag-names-boxes {
+
+        /*Responsive CSS for flag names section (first question)*/
+
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 0.6em;
+        max-width: 80em;
+        margin: 0 auto;
+        margin-bottom: 2em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+
+        .barbados,
+        .gibraltar,
+        .macau,
+        .kyrgyzystan,
+        .saint-lucia,
+        .aland {
+
+            position: relative;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            color: variables.$pure_white;
+            grid-column: span 3;
+
+
+
+            @media (min-width: 1100px) {
+
+                grid-column: span 2;
+
+            }
+
+
+            .center {
+
+                margin: 0;
+                padding: 0;
+                display: none;
+
+
+                p {
+                    font-size: 0.7em;
+                    padding: 0;
+
+                    @media (min-width: 420px) {
+
+                        font-size: 1em;
+
+                    }
+
+                    @media (min-width: 550px) {
+
+                        font-size: 1.5em;
+
+                    }
+
+                    @media (min-width: variables.$media-medium) {
+
+                        font-size: 2em;
+
+                    }
+
+                    @media (min-width: 1000px) {
+
+                        font-size: 2.5em;
+
+
+                    }
+
+
+                }
+
+            }
+
+            img {
+
+                width: 100%;
+                border-style: inset;
+                border-radius: 2em;
+                border-width: 0.8em;
+                border-color: variables.$blue_flag;
+
+                &:hover,
+                &:active,
+                &:focus {
+
+                    filter: brightness(20%);
+                    transition: 0.3s;
+
+                    &~.center {
+                        display: flex;
+                        position: absolute;
+                        bottom: 10%;
+                        left: 0;
+                        width: 100%;
+                        text-align: center;
+                        text-decoration: underline;
+                        box-sizing: border-box;
+
+                    }
+                }
+            }
+
+
+        }
+    }
+
+
+    .riddles-box {
+
+        padding: 0.5em;
+        padding-top: 0;
+
+        .riddle-firearm,
+        .riddle-purple,
+        .riddle-old,
+        .riddle-ratio,
+        .riddle-identical {
+
+            /*CSS for riddles (second question)*/
+
+            margin: 1em;
+            border-radius: 0.7em;
+            padding: 1em;
+            border-width: 0.5em;
+            border-style: solid;
+            margin: 1.5em auto;
+            font-style: italic;
+            font-weight: bold;
+            width: fit-content;
+            max-width: 90ch;
+
+            p.answer {
+                color: variables.$background-blockquote;
+                border-width: 0.2em;
+                border-style: solid;
+                border-radius: 0.3em;
+                border-color: variables.$border-blockquote;
+                background-color: variables.$background-blockquote;
+                padding: 0.4em;
+                width: 8em;
+                margin: 0;
+                text-align: center;
+
+                &:hover,
+                &:active, 
+                &:focus {
+                    color: variables.$text-blockquote;
+
+                }
+            }
+
+
+
+        }
+
+        .riddle-firearm {
+
+
+            background-color: variables.$analogue1;
+            border-color: variables.$analogue1-border;
+            margin-top: 0;
+
+
+        }
+
+        .riddle-purple {
+
+
+            background-color: variables.$analogue2;
+            border-color: variables.$analogue2-border;
+
+
+        }
+
+        .riddle-old {
+
+
+            background-color: variables.$analogue3;
+            border-color: variables.$analogue3-border;
+
+
+        }
+
+        .riddle-ratio {
+
+
+            background-color: variables.$analogue4;
+            border-color: variables.$analogue4-border;
+
+
+        }
+
+        .riddle-identical {
+
+
+            background-color: variables.$analogue5;
+            border-color: variables.$analogue5-border;
+
+
+        }
+
+    }
+
+
+
+    .google-maps {
+
+        /*Responsive CSS for Google Maps (third question)*/
+
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        box-sizing: content-box;
+
+
+
+        iframe {
+            width: 90vw;
+            height: 30vh;
+            max-width: 80em;
+            margin: 1em;
+            border-style: inset;
+            border-radius: 2em;
+            border-width: 0.8em;
+            border-color: variables.$blue_flag;
+
+
+            box-shadow: 0 0 30px;
+
+
+
+            @media (min-width: 420px) {
+
+                width: 90vw;
+                height: 30vh;
+
+            }
+
+            @media (min-width: 550px) {
+
+                width: 70vw;
+                height: 40vw;
+
+            }
+
+            @media (min-width: 1000px) {
+
+                width: 55%;
+
+            }
+        }
+
+
+    }
+
+}

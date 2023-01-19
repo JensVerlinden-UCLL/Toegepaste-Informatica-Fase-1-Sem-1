@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flagazine form</title>
+    <link rel="stylesheet" href="css/stijl.css">
+    <link rel="icon" type="image/x-icon" href="images/flag-vexillology.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="overnav">
+            <div class="logo"><a href="index.html"><img src="images/flag-vexillology.png"
+                        alt="The flag of the International Federation of Vexillological Associations"></a></div>
+            <nav>
+                <ul id="navigation_bar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="types-of-flags.html">Flag types</a></li>
+                    <li><a href="unusual-flags.html">Unusual flags</a></li>
+                    <li><a href="flag-quiz.html">Flag quiz</a></li>
+                    <li class="active"><a href="form.html">Flagazine</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="title">
+            <h1>The Unofficial Site for Vexillology</h1>
+        </div>
+    </header>
+    <main>
+        <a id='topbutton' href="form.html">Top of page</a>
+        <article id="registration">
+            <h2 class="start">~ Registration for <em>Flagazine</em> ~</h2>
+            <div class="logo-and-content">
+                <div class="logo-flagazine"><img src="images/logo-flagazine.png"
+                        alt="Logo of the vexillology magazine called 'Flagazine'"></div>
+                <div class="registration-content">
+                    <section class="declaration">
+                        <h3>Subscription content</h3>
+                        <div class="content">
+                            <p class="regular">A subscription to Flagazine is first and foremost completely FREE so there's
+                                no reason not to sign up right away if you were interested in the rest of this website. For
+                                those who are still in doubt, I will explain what you can expect in your mailbox every month
+                                from this fantastic flag magazine. These parts may appear together or separately depending
+                                on the edition:</p>
+                            <ul>
+                                <li>
+                                    <p>A very interesting flag fact</p>
+                                </li>
+                                <li>
+                                    <p>A challenging but fun flag riddle</p>
+                                </li>
+                                <li>
+                                    <p>Information about the flag of the month</p>
+                                </li>
+                                <li>
+                                    <p>Information about a random historical/new flag</p>
+                                </li>
+                                <li>
+                                    <p>The link to a <a href="https://www.sporcle.com">Sporcle</a> quiz related to the
+                                        Flagazine content</p>
+                                </li>
+                            </ul>
+                            <p>Hopefully we can already slide into your mailbox next month!</p>
+                        </div>
+
+                    </section>
+                    <section class="form">
+                        <h3>Flagazine subscription form</h3>
+                        <form>
+                            <div class="first-name">
+                                <label for="first-name-input">First name:</label>
+                                <input id="first-name-input" name="first-name" placeholder="first-name" type="text"
+                                    required>
+                            </div>
+                            <div class="last-name">
+                                <label for="last-name-input">Last name:</label>
+                                <input id="last-name-input" name="last-name" placeholder="last-name" type="text"
+                                    required>
+                            </div>
+                            <div class="salutation">
+                                <label for="salutation">Title:</label>
+                                <select name="salutation" id="salutation" required>
+                                    <option value="">Choose title</option>
+                                    <option value="mx">Mx</option>
+                                    <option value="mr">Mr</option>
+                                    <option value="mrs">Mrs</option>
+                                    <option value="miss">Miss</option>
+                                    <option value="ms">Ms</option>
+                                </select>
+                            </div>
+                            <div class="birthday">
+                                <label for="birthday">Birth:</label>
+                                <input type="date" id="birthday" name="birthday" required>
+                            </div>
+                            <div class="email">
+                                <label for="email-input">Email:</label>
+                                <input id="email-input" name="username" placeholder="mail@mail.com" type="email"
+                                    required>
+                            </div>
+                            <div class="felicitation">
+                                <div class="felicitation-content">
+                                    <label for="felicitation">Flagazine birthday wishes</label>
+                                    <input id="felicitation" type="checkbox">
+                                </div>
+                            </div>
+
+                            <div class="buttons">
+                                <div class="reset"><button type="reset">Reset form</button></div>
+                                <div class="submit"><button type="submit">Subscribe!</button></div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </article>
+
+    </main>
+    <footer>
+        <address>
+            <ul>
+                <li>
+                    <a href="https://www.facebook.com/groups/navagroup/"><img src="images/like_us_on_facebook.jpg"
+                            alt="Like me on Facebook" width="100"></a>
+                </li>
+                <li>&copy; 2022 JENS VERLINDEN</li>
+            </ul>
+        </address>
+        <aside>
+            <h3>Instructing party:</h3>
+            <p>Mr Artus Vranken</p>
+            <a href="https://www.ucll.be/nl">UCLL</a>
+        </aside>
+        <img class='corner-image' src="images/sloth-with-flag.svg" alt="Drawing of sloth with flag">
+    </footer>
+</body>
+
+</html>

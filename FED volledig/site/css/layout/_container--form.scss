@@ -1,0 +1,223 @@
+@use "../sass-utils/variables";
+
+@use "../base/typography";
+
+main {
+
+    #registration {
+
+        h2 {
+            margin-bottom: 1.5em;
+        }
+
+        .logo-and-content {
+
+            background-image: linear-gradient(variables.$pure_white 30%, variables.$offwhite);
+            box-shadow: 0 0 10px;
+            padding-bottom: 3em;
+
+            img {
+
+                display: block;
+                width: 50%;
+                margin: 0 auto;
+                margin-bottom: 1.5em;
+                max-width: 40em;
+
+            }
+        }
+
+        .registration-content {
+
+            /*CSS for info and form boxes */
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1em;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            max-width: 90em;
+
+
+
+
+            .declaration,
+            .form {
+                grid-column: span 2;
+                margin: 0 auto;
+                height: 100%;
+                width: 95%;
+
+
+                h3 {
+                    padding-top: 0;
+                    text-align: center;
+                }
+
+                .content {
+                    margin: 0 auto;
+                    width: fit-content;
+                }
+
+
+
+                @media (min-width: variables.$media-large) {
+                    grid-column: span 1;
+
+
+                }
+
+
+            }
+
+
+
+            /*CSS for especcially the form box*/
+
+            .form {
+
+                background-color: variables.$offwhite;
+                color: variables.$pure_black;
+                border-radius: 3em;
+                box-shadow: 0 0 10px;
+                padding: 1.5em;
+
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1em;
+                    width: fit-content;
+                    margin: 0 auto;
+
+                    .buttons {
+                        display: flex;
+                        gap: 0.4em;
+                    }
+
+                    &>div {
+
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        gap: 1em;
+
+                        label {
+                            text-align: right;
+                            margin: 0;
+                        }
+
+
+                        input,
+                        select {
+                            grid-column: span 2;
+                            margin: 0;
+                            max-width: 100%;
+                        }
+
+
+                    }
+
+                    .felicitation {
+                        justify-self: center;
+                        display: initial;
+                        
+                        .felicitation-content{
+                            margin: 0 auto;
+                            width: fit-content;
+
+                            #felicitation{
+                                max-width: fit-content;
+                                padding: 0.5em;
+                            }
+
+
+                        }
+                        
+                    }
+
+                    label::before{
+                        content: "*";
+                        color: red;
+                    }
+
+                    label,
+                    input,
+                    select,
+                    button {
+
+
+                        text-align: left;
+                        margin: 0 auto;
+                        margin-bottom: 1em;
+                        padding: 0.5em;
+                        font-family: typography.$body-font-family;
+                        font-size: typography.$body-font-size;
+
+                        @media (min-width: variables.$media-medium) {
+
+                            font-size: typography.$body-font-size-medium;
+                        }
+
+                        @media (min-width: variables.$media-large) {
+
+                            font-size: typography.$body-font-size-large;
+                        }
+                    }
+
+                    div.felicitation {
+                        padding-left: 0.2em;
+                    }
+
+                    div.buttons {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+
+                        .reset,
+                        .submit {
+                            grid-column: span 1;
+                            width: 100%;
+
+                            input,
+                            button {
+                                width: 100%;
+                                text-align: center;
+                            }
+                        }
+                    }
+
+
+                }
+
+
+                /*CSS for especcially the information box*/
+
+            }
+
+            .declaration {
+
+                background-color: variables.$background-blockquote;
+                color: variables.$text-blockquote;
+                border-radius: 3em;
+                box-shadow: 0 0 10px;
+
+                padding: 1.5em;
+
+                ul {
+                    padding-left: 1.5em;
+
+
+                    li p {
+                        margin: 0;
+                        font-style: italic;
+                        padding-top: 0;
+                        padding-bottom: 0;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+}

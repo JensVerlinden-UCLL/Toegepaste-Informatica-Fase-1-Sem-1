@@ -1,0 +1,9 @@
+address{
+    background-color: darkgreen;
+    color: white;
+    text-align: center;
+    
+    &>p{
+        margin: 0 auto;
+    }
+}
