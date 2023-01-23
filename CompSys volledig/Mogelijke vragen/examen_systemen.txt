@@ -1,0 +1,40 @@
+hexa en binair optellen aftrekken vermenigvuldigen
+niet delen 
+wel omzetten
+positief en negateif
+
+
+
+binair aftrekken
+
+ 1000
+-1111
+ 1001
+
+
+raids!!! -> raid werkt op discniveau
+
+
+teken Raid150
+
+
+waarom is er een secondary gpt header
+
+
+preemptieve en niet preemptieve algortimes
+
+system call(asembly)
+
+rings of protection -> bepaalde instructies uitgevoerd door beheerder cpu(ring 0) en door gebruiker(ring 3)
+
+besturingssysteem is enige die alle instructies kan uitvoeren reden dat besturingssysteem tussen hardware en aplicaties staan
+
+swapping = vaak paging
+
+ac/dc
+
+
+
+
+
+

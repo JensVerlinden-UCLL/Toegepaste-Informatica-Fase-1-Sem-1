@@ -1,0 +1,17 @@
+ps u -U root --sort -pcpu
+
+dd if=/dev/sda of=/root/entry bs=128 skip=9 count=1
+
+ls -l | grep '-rwx.....'
+
+chmod a+x *.sh
+
+ls -l /var/log | grep '^-' | wc -l
+
+mkdir --parents tmp/map1/map2/map3
+
+ls -lS | grep '^-'
+
+ls -Rl /etc | grep '\.conf$' | grep '^-' | wc -l OR find /etc -type f | grep '\.conf$' | wc -l
+
+

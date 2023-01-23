@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<Document xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.5.78.0" Datum="2022-12-19T09:31:47.650532+01:00">
+  <RootNodes>
+    <StartNode Id="37249c63-a3ba-4f15-8c9a-90a3453faaaa">
+      <Children>
+        <AutomatischeSchakelaar Id="f401a593-742a-4ffd-9379-2e9470d6129f" VerliesStroomsterkte="300" Kortsluitstroom="3kA" VerliesstroomschakelaarType="Type A" NominaleStroomsterkte="40">
+          <Children>
+            <Verdeelbord Id="9f353da8-9f66-4ad8-8338-7d6627e900c0">
+              <Children>
+                <AutomatischeSchakelaar Id="65487b83-1160-4e1c-92a9-1cc501bcb42e" Kortsluitstroom="3kA" NominaleStroomsterkte="20" Uitschakelcurve="C">
+                  <Children>
+                    <Leiding Id="d218bed6-242a-48cb-9c08-36720e6966ce" GeleiderType="XVB" GeleiderDoorsnede="2,5" AantalGeleiders="3">
+                      <Children>
+                        <Contactdoos Id="2f87aee5-df36-4a52-9d20-fa98843c790a" Width="6" />
+                        <Contactdoos Id="0d7dc8fc-1942-45fd-ad9b-66c5d2d7cdd7" Width="6" />
+                        <Contactdoos Id="dd66ad37-0408-4e15-87d4-872ad066331c" Width="6" />
+                        <Contactdoos Id="ff002b69-5500-4b21-b172-22c002aa2f35" Width="6" />
+                        <Contactdoos Id="6e965cdf-a84d-4f33-8373-cf39906a5650" Width="6" />
+                        <Contactdoos Id="6349b808-6651-4ff5-a9de-9ca2f8f908ca" Width="6" />
+                      </Children>
+                    </Leiding>
+                  </Children>
+                  <Width>14</Width>
+                </AutomatischeSchakelaar>
+                <AutomatischeSchakelaar Id="95165e1f-548d-4def-9bbc-a9d2e16316ae" Kortsluitstroom="3kA" NominaleStroomsterkte="16" Uitschakelcurve="C">
+                  <Children>
+                    <Leiding Id="223f06df-6438-4f20-97a7-accc0a84ad68" GeleiderType="XVB" GeleiderDoorsnede="1,5" AantalGeleiders="3">
+                      <Children>
+                        <Schakelaar Id="733ac2e6-872e-41cc-8aa4-c171885c098d">
+                          <Children>
+                            <Lichtpunt Id="29a3f0dd-b110-4c83-8ec2-ec0f50b6315c" />
+                          </Children>
+                        </Schakelaar>
+                        <Schakelaar Id="aff012e5-9bde-46f7-9cf2-18c0164922f9">
+                          <Children>
+                            <Lichtpunt Id="9d3e848b-02ef-4dfc-bfad-79abe0d08ca9" />
+                          </Children>
+                        </Schakelaar>
+                        <Schakelaar Id="b9e2e2f9-4f24-4673-9036-4b606f2297b4">
+                          <Children>
+                            <Lichtpunt Id="62140783-6ca2-4728-99ba-43240d8c827f" />
+                          </Children>
+                        </Schakelaar>
+                        <Schakelaar Id="9554e1b3-1fa8-4d65-83db-73240ac24e4f">
+                          <Children>
+                            <Lichtpunt Id="00fbc8c2-884d-475d-ae59-e4ee45107712" />
+                          </Children>
+                        </Schakelaar>
+                        <Schakelaar Id="82f982cb-fbf0-420f-9011-c8343b2c6775">
+                          <Children>
+                            <Lichtpunt Id="adb42f9b-9563-4ed7-87e9-81529d059a35" />
+                          </Children>
+                        </Schakelaar>
+                      </Children>
+                    </Leiding>
+                  </Children>
+                  <Width>14</Width>
+                </AutomatischeSchakelaar>
+                <AutomatischeSchakelaar Id="4b6d376f-b2a7-47ce-943a-ff0e4d62c3f7" VerliesStroomsterkte="30" Kortsluitstroom="3kA" VerliesstroomschakelaarType="Type A" NominaleStroomsterkte="40">
+                  <Children>
+                    <Verdeelbord Id="6f54344e-411d-49ba-99b8-6547206df1bc">
+                      <Children>
+                        <AutomatischeSchakelaar Id="5a868944-2ee4-4475-ba36-f0e18eb6edc2" Kortsluitstroom="3kA" NominaleStroomsterkte="20" Uitschakelcurve="C">
+                          <Children>
+                            <Leiding Id="86bb525c-d923-4b19-aa81-b502f75b6724" GeleiderType="XVB" GeleiderDoorsnede="2,5" AantalGeleiders="3">
+                              <Children>
+                                <Contactdoos Id="8049a015-9d67-4d60-93a0-1b9775d4af91" Width="6" />
+                                <Contactdoos Id="e39f816e-8095-4c67-aa2f-24b47e5e00ac" Width="6" />
+                                <Contactdoos Id="a67b4998-c79a-4a83-b6b8-5a64d93fa5e7" Width="6" />
+                                <Contactdoos Id="795da682-a970-42c9-a70f-20c74d5ceea8" Width="6" />
+                              </Children>
+                            </Leiding>
+                          </Children>
+                          <Width>14</Width>
+                        </AutomatischeSchakelaar>
+                      </Children>
+                    </Verdeelbord>
+                  </Children>
+                  <Width>20</Width>
+                </AutomatischeSchakelaar>
+                <Aardingsstrip Id="7eaa8925-8093-4746-b1b9-01b42abfddb8">
+                  <Children>
+                    <Aarding Id="1c6d704d-329a-488a-a882-7d804992dcf5" />
+                  </Children>
+                </Aardingsstrip>
+              </Children>
+            </Verdeelbord>
+          </Children>
+          <Width>20</Width>
+        </AutomatischeSchakelaar>
+      </Children>
+    </StartNode>
+    <StartNode Id="2b633f5d-1ee7-411d-b417-2670d3373734" />
+  </RootNodes>
+  <Installateur>
+    <Adres>
+      <Land>België</Land>
+    </Adres>
+  </Installateur>
+  <Controleorganisme>
+    <Adres>
+      <Land>België</Land>
+    </Adres>
+  </Controleorganisme>
+  <Klant>
+    <Adres>
+      <Land>België</Land>
+    </Adres>
+    <Werfadres>
+      <Land>België</Land>
+    </Werfadres>
+  </Klant>
+  <Gebruiker Naam="UCLL" />
+  <Grondplan>
+    <Pages>
+      <GrondplanPage Id="2ea90a4f-62f8-4450-81f3-037e33349a81">
+        <Muren />
+        <GrondplanElementen />
+        <GrondplanNodes />
+      </GrondplanPage>
+    </Pages>
+    <Breedte>22000</Breedte>
+    <Hoogte>15000</Hoogte>
+  </Grondplan>
+</Document>

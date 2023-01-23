@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<Document xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.5.78.0" Datum="2023-01-23T10:06:15.0424937+01:00">
+  <RootNodes>
+    <StartNode Id="5cbc4b2f-3e50-4d44-9b81-548c8ae2df33">
+      <Children>
+        <AutomatischeSchakelaar Id="ab79e2b2-d93f-4ea2-a7db-45c6620706f9" VerliesStroomsterkte="30" Kortsluitstroom="3kA" VerliesstroomschakelaarType="Type A" NominaleStroomsterkte="40">
+          <Children>
+            <Verdeelbord Id="5538fe34-8461-485c-9e46-94a3f4918063">
+              <Children>
+                <AutomatischeSchakelaar Id="f842739a-200e-41bd-89a3-567b79c3a882" Kortsluitstroom="3kA" NominaleStroomsterkte="20" Uitschakelcurve="C">
+                  <Children>
+                    <Leiding Id="5354b350-d63b-4b4a-ad93-41ebfa7ac9d6" GeleiderType="XVB" GeleiderDoorsnede="2,5" AantalGeleiders="3">
+                      <Children>
+                        <Contactdoos Id="91a2337d-7cbd-4d10-9f4c-2c6ea84ddd92" Width="6" />
+                        <Contactdoos Id="4d416cc0-cdce-4723-8ef6-c904927b9ed0" Width="6" />
+                        <Contactdoos Id="18f0bfe9-9a7d-4b00-932f-76a8be0b2219" Width="6" />
+                        <Contactdoos Id="7ea88400-14d3-4da6-893f-bc9ae0ca4e6b" Width="6" />
+                        <Contactdoos Id="5e0b1943-bb72-4734-af17-e8881766b187" Width="6" />
+                      </Children>
+                    </Leiding>
+                  </Children>
+                  <Width>14</Width>
+                </AutomatischeSchakelaar>
+                <AutomatischeSchakelaar Id="c9694f1c-528a-424a-8b9e-4d8621491419" Kortsluitstroom="3kA" NominaleStroomsterkte="20" Uitschakelcurve="C">
+                  <Children>
+                    <Leiding Id="07c1f261-6b22-4d09-bb11-e4580a4741a7" GeleiderType="XVB" GeleiderDoorsnede="2,5" AantalGeleiders="3">
+                      <Children>
+                        <Contactdoos Id="88220f42-5b57-44c9-a49d-ff2bb7198713" Width="6" />
+                        <Contactdoos Id="6268bfae-8d94-429e-970c-6de1c5f2bdd0" Width="6" />
+                        <Contactdoos Id="bebf8352-1feb-4005-9831-c824656d259e" Width="6" />
+                        <Contactdoos Id="74219547-66b4-4bc4-b490-57e5c21e0798" Width="6" />
+                        <Contactdoos Id="821abf9c-88e8-4616-a56d-f9425d775b78" Width="6" />
+                      </Children>
+                    </Leiding>
+                  </Children>
+                  <Width>14</Width>
+                </AutomatischeSchakelaar>
+                <AutomatischeSchakelaar Id="7fb21aca-7ef1-40fa-847b-3ebe8adb3b89" Kortsluitstroom="3kA" NominaleStroomsterkte="20" Uitschakelcurve="C">
+                  <Children>
+                    <Leiding Id="b370d69a-bf3c-421c-9e68-68e27d0256e1" GeleiderType="XVB" GeleiderDoorsnede="2,5" AantalGeleiders="3">
+                      <Children>
+                        <Contactdoos Id="d870c692-75ea-4aa4-bee6-9df92cc50400" Width="6" />
+                        <Contactdoos Id="2a5bdee6-f8f0-4023-bfd0-6851edbe92ef" Width="6" />
+                        <Contactdoos Id="bad7741e-0a5a-4276-bf2a-99c326122592" Width="6" />
+                        <Contactdoos Id="5d417eac-7b15-4f0c-bf36-20fae321d50f" Width="6" />
+                        <Contactdoos Id="aad47977-0290-4a4d-af6e-2b152d8fee8d" Width="6" />
+                      </Children>
+                    </Leiding>
+                  </Children>
+                  <Width>14</Width>
+                </AutomatischeSchakelaar>
+                <Aardingsstrip Id="d5d29fed-2ccb-4fa8-8366-163e4148f1b0">
+                  <Children>
+                    <Aarding Id="149a383d-480f-40f4-93d4-482044c65bbe" />
+                  </Children>
+                </Aardingsstrip>
+              </Children>
+            </Verdeelbord>
+          </Children>
+          <Width>20</Width>
+        </AutomatischeSchakelaar>
+      </Children>
+    </StartNode>
+    <StartNode Id="10cbf167-2a01-41c1-b43f-41a9336c8349" />
+  </RootNodes>
+  <Installateur>
+    <Adres>
+      <Land>België</Land>
+    </Adres>
+  </Installateur>
+  <Controleorganisme>
+    <Adres>
+      <Land>België</Land>
+    </Adres>
+  </Controleorganisme>
+  <Klant>
+    <Adres>
+      <Land>België</Land>
+    </Adres>
+    <Werfadres>
+      <Land>België</Land>
+    </Werfadres>
+  </Klant>
+  <Gebruiker Naam="UCLL" />
+  <Grondplan>
+    <Pages>
+      <GrondplanPage Id="2f85ced7-9a5f-4faf-ba04-368f0bba7580">
+        <Muren />
+        <GrondplanElementen />
+        <GrondplanNodes />
+      </GrondplanPage>
+    </Pages>
+    <Breedte>22000</Breedte>
+    <Hoogte>15000</Hoogte>
+  </Grondplan>
+</Document>

@@ -1,0 +1,63 @@
+1) echo (-n) 'Jens' > me.txt
+
+2) cp me.txt we.txt && echo -e 'Pieter\nGerben\nTiebe' >> we.txt  
+
+3) touch writable.txt && chmod a+w writable.txt
+
+4) mkdir public && chmod 644 public
+
+5) mkdir -p dir1/dir4 dir2 dir3 && touch file24 file1 dir1/dir4/file4 dir1/file3
+
+6) rm -r /tmp/exercise
+
+7) ls -al | tr -s ' ' ' ' | cut -d' ' -f 1,9 | grep '^-'
+
+8) ls -al | tr -s ' ' ' ' | cut -d' ' -f 1,9 | grep '^-' | sort -r -k 2
+
+9) cat /etc/passwd | grep 'root'
+
+10) cat file1.txt > file3.txt && cat file2.txt >> file3.txt
+
+11) ls -al /etc | grep 'host' | grep  '^-' | tr -s ' ' ' ' | cut -d' ' -f 1,5,9 
+
+12) find /etc -type d -printf '%M %p\n' 2>/dev/null |  sort -k2 | head -n 5 
+
+13) ps u -u root --no-header | wc -l
+
+14) ls -alR /home | grep '^d' | grep -v '^d...------'
+
+15) rm !("filekeep me") OR rm file\ [0-9]*
+
+16) cal 2050 -m 7 | cut -d ' ' -f 5 | grep -e [^0-9] > day.txt OR ncal -m 7 2050 | grep '17' | cut -d' ' -f 1
+>day.txt
+
+17) echo 'THE END' >> day.txt
+
+18) touch $(date --rfc-3339=date).blabla.txt OR touch "$(date +"%Y.%m.%d").blabla.txt"
+
+19) du -h --max-depth=0 /var 2>/dev/null OR du -h  /var 2>/dev/null | grep -v '/.*/'
+
+20) cat unsorted.txt | tee /dev/null | sort > sorted.txt
+
+21) du -h /opt/ --max-depth=1 | tr -s '\t' ' ' | grep -v ' /opt/$' OR du -h /opt | tr -s '\t' ' ' | grep  '/.*/' | grep -v '/.*/.*/'
+
+22) du -h /opt/ --max-depth=1 | tr -s '\t' ' ' | grep -v ' /opt/$' | tee -a tmp/1.txt tmp/2.txt tmp/3.txt
+
+1a) Schrijft alle woorden uit het Nederlands woordenboek die informatica bevatten weg nar het bestand test.txt in de home-directory van de user
+1b) Geeft het aantal woorden in het Nederlands woordenboek
+1c) Laat een character image van de Linux mascotte zien met een tekstbubbel met daarin een korte spreuk
+1d) Schrijft de dag en maand van vandaag weg naar het bestand today.txt en print het uit in de terminal
+1e) Schrijft de eerste 50 woorden uit het Nederlands woordenboek waarbij elke letter vervangen is door zijn alfabetische tegenhanger weg naar het bestand my_first_encryption
+1f) Laat de informatie van alle inlogmomenten van de huidige user zien
+1g) Laat het aantal inlogmomenten van de huidige user zien
+1h) Laat voor iedere user die ooit is gelogd op de machine het aantal logmomenten zien gesorteerd op dalend aantal
+2) Het LS commando werkt op de folder waarin het bestand staat en zolang men dus read (en voor ls -l execute) permissions heeft op de folder zal dit lukken
+3) Het ProcesID van het shell-programma
+4) De owner kan lezen, schrijven en uitvoeren; de beheerdersgroep kan enkel lezen en uitvoeren; de rest kan enkel lezen
+
+$ awk '{print $3 "\t" $4}' marks.txt
+
+
+
+
+

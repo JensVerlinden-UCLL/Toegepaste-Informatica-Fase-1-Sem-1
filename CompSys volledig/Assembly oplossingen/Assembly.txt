@@ -1,0 +1,197 @@
+1) 
+%include "gt.asm"
+section .data
+
+section .bss
+help: resd 1
+
+section .text
+global _start
+_start:
+        mov ebp, esp; for correct debugging
+
+        inv[help]
+        mov eax, [help]
+        add eax, eax
+        add eax, eax
+        mov [help], eax
+        uit[help]
+
+        mov eax, 1; System call number (sys_exit)
+        int 0x80; Perform System Call
+
+2)
+%include "gt.asm"
+
+section .bss
+        help: resd 1
+
+section .text
+global _start
+_start:
+        mov ebp, esp; for correct debugging
+
+        inv[help]
+        mov eax, [help]
+        inv[help]
+        add eax, [help]
+        inv[help]
+        add eax, [help]
+        mov [help], eax
+        uit[help]
+
+        mov eax, 1; System call number (sys_exit)
+        int 0x80; Perform System Call
+
+3)
+%include "gt.asm"
+
+section .bss
+        help: resd 1
+        help2: resd 1
+
+section .text
+global _start
+_start:
+        mov ebp, esp; for correct debugging
+
+        inv[help]
+        mov eax, [help]
+        add eax, eax
+        mov [help2], eax
+        add eax, eax
+        add eax, eax
+        add eax, eax
+        add eax, [help]
+        add eax, [help2]
+        mov [help], eax
+        uit[help]
+
+        mov eax, 1; System call number (sys_exit)
+        int 0x80; Perform System Call
+4)
+%include "gt.asm"
+
+section .bss
+        help: resd 1
+
+section .text
+global _start
+_start:
+        mov ebp, esp; for correct debugging
+
+        inv[help]
+        mov eax, [help]
+        inv[help]
+        mov ebx, [help]
+        inv[help]
+        mov ecx, [help]
+        add eax, eax
+        add ebx, ebx
+        add ebx, ebx
+        add ecx, ecx
+        add ecx, ecx
+        add ecx, ecx
+        add eax, ebx
+        add eax, ecx
+        mov [help], eax
+        uit[help]
+
+        mov eax, 1; System call number (sys_exit)
+        int 0x80;Perform System Call
+5)
+%include "gt.asm"
+
+section .bss
+        help: resd 1
+
+section .text
+global _start
+_start:
+        mov ebp, esp; for correct debugging
+
+        inv[help]
+        mov eax, [help]
+        inv[help]
+        mov ebx, [help]
+        inv[help]
+        imul dword [help]
+        add eax, eax
+        add eax, eax
+        mov ecx, eax
+        mov eax, ebx
+        imul dword eax
+        sub eax, ecx
+        mov [help], eax
+        uit[help]
+
+        mov eax, 1; System call number (sys_exit)
+        int 0x80;Perform System Call
+6)
+%include "gt.asm"
+
+section .bss
+        help: resd 1
+
+section .text
+global _start
+_start:
+        mov ebp, esp; for correct debugging
+
+        inv[help]
+        mov eax, [help]
+        imul dword eax
+        imul dword eax
+        imul dword eax
+        idiv dword [help]
+        mov [help], eax
+        uit[help]
+
+        mov eax, 1; System call number (sys_exit)
+        int 0x80;Perform System Call
+
+
+(2^31)^(1/7)
+
+
+7)
+%include "gt.asm"
+
+section .data
+        getal1: dd 274
+        getal2: dd 11
+        const1: EQU 3
+        const2: EQU 12
+        const3: EQU 1583
+        const4: EQU 420
+        een: dd 1
+section .bss
+        help: resd 1
+
+section .text
+global _start
+_start:
+        mov ebp, esp; for correct debugging
+
+        mov edx, const1
+        add edx, const2
+        mov [help], edx
+        uit[help]
+        sub edx, const2
+        sub edx, const2
+        mov [help], edx
+        uit[help]
+        mov eax, const3
+        imul dword [een]
+        idiv dword [getal1]
+        mov [help], eax
+        uit[help]
+        mov [help], edx
+        uit[help]
+        mov eax, const4
+        imul dword [getal2]
+        mov [help], eax
+        uit[help]
+
+        mov eax, 1; System call number (sys_exit)
+        int 0x80;Perform System Call
