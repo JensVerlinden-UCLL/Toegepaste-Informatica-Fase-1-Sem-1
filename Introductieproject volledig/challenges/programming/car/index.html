@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Programming - Car</title>
+<link rel="stylesheet" href="/static/stylesheets/styles.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_programming_car">Programming - Car</a>
+<ul class="sectlevel2">
+<li><a href="#_starten">Starten</a></li>
+<li><a href="#_indienen">Indienen</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_programming_car">Programming - Car</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Het doel van deze challenge is een eerste kennismaking met programmeren. Je leert een auto stapsgewijs rondrijden in een doolhof. De oefeningen bouwen op qua moeilijkheid, we verwachten niet dat je alle oefeningen kan oplossen. Probeer zo ver mogelijk te geraken.</p>
+</div>
+<div class="sect2">
+<h3 id="_starten">Starten</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Open VScode in de folder waar je challenges staan (bv. C:\introductieproject).</p>
+</li>
+<li>
+<p>Ga naar de folder "programming\car".</p>
+</li>
+<li>
+<p>Open <code>tests.html</code> in een browser en lees de instructies om van start te gaan.</p>
+</li>
+<li>
+<p>De code dien je te schrijven in <code>student.js</code>.</p>
+</li>
+<li>
+<p>Telkens na het schrijven van code refresh je de browser.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_indienen">Indienen</h3>
+<div class="paragraph">
+<p>Om deze challenge in te dienen maak je een screenshot in de browser van <code>tests.html</code> om te laten zien hoe ver je geraakt bent (de groene vakjes in de linkerkolom).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

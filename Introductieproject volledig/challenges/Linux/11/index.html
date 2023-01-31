@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="author" content="Je krijgt een reeks bestanden genaamd `a.txt`, `b.txt`, &#8230;&#8203; , `z.txt`.">
+<title>Opgave 11</title>
+<link rel="stylesheet" href="/static/stylesheets/styles.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Opgave 11</h1>
+<div class="details">
+<span id="author" class="author">Je krijgt een reeks bestanden genaamd `a.txt`, `b.txt`, &#8230;&#8203; , `z.txt`.</span><br>
+<span id="revdate">Bepaal van elk de grootte in bytes en schrijf de resultaten naar `sizes.dat`.</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_voorbeeld">Voorbeeld</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Elke regel van <code>sizes.dat</code> moet bestaan uit</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>De grootte van het bestand in bytes</p>
+</li>
+<li>
+<p>Een of meer whitespaces (spaties, tabs, &#8230;&#8203;)</p>
+</li>
+<li>
+<p>De bestandsnaam</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>De volgorde waarin de bestanden opgelijst worden kan je vrij kiezen.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_voorbeeld">Voorbeeld</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Stel dat er slechts drie bestanden zijn, dan zou een mogelijke <code>sizes.dat</code> zijn</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>139    a.txt
+7867   c.txt
+468    b.txt</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Git revert</title>
+<link rel="stylesheet" href="/static/stylesheets/styles.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_git_revert">Git revert</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_git_revert">Git revert</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Git revert kan soms handig zijn. Wanneer je een commit gepushed hebt die je ongedaan wil maken. Het git revert commando creëert een nieuwe commit die de laatste terug ongedaan maakt. Zo blijf je wel de historiek zien van alles wat er gebeurt is op de repository.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Maak een nieuwe folder "Challenge_02", plaats hierin een bestand "solution.txt" met de text "Challenge 2 completed.". Add, commit en push je wijzigingen.</p>
+</li>
+<li>
+<p>Wijzig nu het bestand "solution.txt" met de tekst "Challenge 2 not completed". Add, commit en push je wijzigingen. Ga kijken in de browser dat de tekst van jou bestand effectief "not completed is".</p>
+</li>
+<li>
+<p>Ga in de browser nu naar de url <a href="https://github.com/ucll-introductieproject/introductieproject-challenges-ucll-&lt;plak_jouw_naam_hier&gt;/commits/master" class="bare">https://github.com/ucll-introductieproject/introductieproject-challenges-ucll-&lt;plak_jouw_naam_hier&gt;/commits/master</a>. Je krijgt nu een overzicht van alle commits in jouw repository. De laatste commit willen we ongedaan maken, reverten. Hiervoor hebben we de commit ID nodig. Deze ID bestaat uit 6 karakters en kan je helemaal rechts van de lijn vinden. Klik op deze ID, je krijgt dan een vergelijking met wat er allemaal is aangepast in die commit. Zorg dat de ID op je klembord staat (je vindt die ook terug op deze pagina).</p>
+</li>
+<li>
+<p>In git bash voer je volgend commando uit:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git revert &lt;commit_ID&gt;</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Als je op enter duwt zal een text editor openen waarin je een boodschap moet typen. Wanneer je dat bestand sluit wordt de revert doorgevoerd. Let wel op, dit gebeurt weer enkel lokaal. Zorg ervoor dat dit ook op de remote repository gebeurt.</p>
+</li>
+<li>
+<p>Kijk je solution.txt na in de browser, hierin zou terug "Challenge 2 completed" moeten staan.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

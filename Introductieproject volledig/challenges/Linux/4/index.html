@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="author" content="Je krijgt drie bestanden genaamd `a.bf`, `b.bf` en `c.bf`.">
+<title>Opgave 4</title>
+<link rel="stylesheet" href="/static/stylesheets/styles.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Opgave 4</h1>
+<div class="details">
+<span id="author" class="author">Je krijgt drie bestanden genaamd `a.bf`, `b.bf` en `c.bf`.</span><br>
+<span id="revdate">Voeg de inhoud van deze drie bestanden samen en schrijf dit naar een nieuw bestand genaamd `abc.bf`.</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_voorbeeld">Voorbeeld</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Respecteer de volgorde: <code>abc.bf</code> moet eerst de inhoud van <code>a.bf</code> bevatten, gevolgd door die van <code>b.bf</code>, gevolgd door die van <code>c.bf</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_voorbeeld">Voorbeeld</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Stel dat de gegeven bestanden de volgende inhoud hebben:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>a.bf</code> bevat '+++'.</p>
+</li>
+<li>
+<p><code>b.bf</code> bevat <code>[][][][]</code>.</p>
+</li>
+<li>
+<p><code>c.bf</code> bevat <code>&lt;&gt;&lt;&gt;&lt;&gt;</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Het bestand <code>abc.bf</code> moet dan als inhoud hebben</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>+++[][][][]&lt;&gt;&lt;&gt;&lt;&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

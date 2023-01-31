@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Base64</title>
+<link rel="stylesheet" href="/static/stylesheets/styles.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Base64</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_opdracht">Opdracht</a></li>
+<li><a href="#_base64">Base64</a>
+<ul class="sectlevel2">
+<li><a href="#_waarvoor_wordt_het_gebruikt">Waarvoor wordt het gebruikt?</a></li>
+<li><a href="#_encoderen_decoderen">Encoderen &amp; Decoderen</a></li>
+<li><a href="#_opgelet">Opgelet</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_opdracht">Opdracht</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lees onderstaande uitleg over Base64. Beantwoord volgende vragen voor jezelf om zeker te zijn dat je alles begrijpt:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Wat is een encoding scheme?</p>
+</li>
+<li>
+<p>Hoe werkt het Base64 encoding scheme en waarom wordt dit veel gebruikt?</p>
+</li>
+<li>
+<p>Hoe wordt tekst van en naar Base64 vertaald?</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Maak vervolgens een tekstbestand met een antwoord op de volgende vragen en commit dit naar je repository:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Encodeer deze string naar Base64: <code>Base64 is erg handig om tekst zonder speciale karakters "&amp;é"'(§è!çà)-" door te sturen</code>  (je hoeft dit niet met de hand te doen zoals in het filmpje, zoek naar een Base64encoder op internet)</p>
+</li>
+<li>
+<p>Decodeer deze string van Base64: <code>RGl0IGlzIGdlZW4gZ2VoZWltLCBlbmtlbCBCYXNlNjQgZ2XDq25jb2RlZXJkZSB0ZWtzdA==</code> (je hoeft dit niet met de hand te doen zoals in het filmpje, zoek naar een Base64decoder op internet)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Je tekstbestand dient dus 2 lijntjes te bevatten.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_base64">Base64</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Een computer drukt intern alles uit in bits. Een bit is de basis-eenheid om informatie weer te geven in digitale systemen. Een bit bevat de waarde 1 of 0. Door aan sequenties van bits betekenis te geven kunnen we bits gebruiken om complexere informatie weer te geven.</p>
+</div>
+<div class="paragraph">
+<p><strong>Base64</strong> is zo een bepaalde manier om aan bit sequenties betekenis te geven, een paar voorbeelden:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>000000 stelt in Base64 de letter <strong>A</strong> voor</p>
+</li>
+<li>
+<p>111101 stelt in Base64 het getal <strong>9</strong> voor</p>
+</li>
+<li>
+<p>101010 stelt in Base64 de letter <strong>q</strong> voor</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Base64=Design">Hier</a> vind je de volledige set van letters die in Base64 opgenomen zijn</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Als we dus de volgende bit-sequentie vinden op een harde schijf: 000111 011010 011010 100101 100101 101000 en we weten dat deze Base64 karakters bevatten kunnen we deze vertalen naar tekst. Je kan dit gerust is proberen aan de hand van de letter set die hierboven staat, je zal zien dat deze bit sequentie "Hallo" voorstelt.</p>
+</div>
+<div class="paragraph">
+<p>Base64 werkt met sequenties van 6 bits. Met sequenties van 6 bits kan je maximaal 64 verschillende combinaties vormen (2^6). Op de Wikipedia pagina zie je dat de letters A-Z, de letters a-z en de cijfers 0-9 allemaal een bit sequentie hebben in Base64.</p>
+</div>
+<div class="paragraph">
+<p>Zo een schema dat ons toelaat om karakters naar bits te vertalen naar tekst en vice versa noemen we een <strong>encoding scheme</strong>. Er bestaan erg veel zulke encoding schemes. Base64, ASCII en UTF-8 zijn een paar veelgebruikte voorbeelden.</p>
+</div>
+<div class="sect2">
+<h3 id="_waarvoor_wordt_het_gebruikt">Waarvoor wordt het gebruikt?</h3>
+<div class="paragraph">
+<p>De kracht van Base64 zit hem net in het feit dat (bijna) alleen de karakters A-Za-z0-9 weergegeven kunnen worden. Deze karakters zijn doodgewoon en krijgen bijna in geen enkel systeem speciale betekenis.</p>
+</div>
+<div class="paragraph">
+<p>Complexe tekst bevat erg veel karakters die worden weergegeven door encoding schemes die met 8 bits of meer werken. Zo kunnen we ook speciale tekens als "%" of "{" gebruiken. Veel systemen geven speciale betekenis aan bepaalde karakters. Zo krijgt het karakter <strong>?</strong> in een HTML URL bijvoorbeeld de betekenis van een zoekparameter. Hier is een voorbeeldje van Google: <a href="https://www.google.com/search?q=google" class="bare">https://www.google.com/search?q=google</a>.</p>
+</div>
+<div class="paragraph">
+<p>Base64 laat ons toe om bits weer te geven als tekst die geen speciale tekens bevat. Dit formaat is erg interessant om zonder problemen door te sturen over internet of op te slaan. De meeste programma&#8217;s en systemen gaan niet struikelen over Base64 tekst.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_encoderen_decoderen">Encoderen &amp; Decoderen</h3>
+<div class="paragraph">
+<p>Base64 is een interessant formaat, we moeten dus tekst van en naar Base64 kunnen vertalen.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Vertaling naar Base64 van leesbare tekst wordt <strong>Base64-encoding genoemd</strong></p>
+</li>
+<li>
+<p>Vertaling van Base64 naar leesbare tekst wordt <strong>Base64-decoding genoemd</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Bekijk <a href="https://www.youtube.com/watch?v=7gSSMy_M4HU">dit filmpje</a> dat uitlegt hoe deze vertaling net in zijn werk gaat.</p>
+</div>
+<div class="paragraph">
+<p>We geven nog een voorbeeld:</p>
+</div>
+<div class="paragraph">
+<p>De tekst "Hallo, dit is een uitleg over Base64 encodering en decodering" wordt in Base64 "SGFsbG8sIGRpdCBpcyBlZW4gdWl0bGVnIG92ZXIgQmFzZTY0IGVuY29kZXJpbmcgZW4gZGVjb2RlcmluZw==".</p>
+</div>
+<div class="paragraph">
+<p>Deze vertaling gebeurt door de originele tekst om te zetten in bits volgens zijn encoding-scheme. De bits worden vervolgens gehergroepeerd in groepjes van 6 en deze groepjes worden dan omgezet naar karakters volgens het Base64 encoding-scheme.</p>
+</div>
+<div class="paragraph">
+<p>Je zal zien dat je vaak Base64 ziet als je bijvoorbeeld op het internet surft of in een databank kijkt. Nu je deze tekst kan vertalen kan je altijd is een kijkje achter de schermen nemen!</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_opgelet">Opgelet</h3>
+<div class="paragraph">
+<p>Tekst encoderen naar Base64 is geen encryptie. Door tekst om te zetten naar Base64 maak je hem alleen onleesbaar. Maar de omzetting van en naar Base64 is door iedereen gekend. <strong>Het is dus geen veilige manier om gevoelige data te encrypteren.</strong></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

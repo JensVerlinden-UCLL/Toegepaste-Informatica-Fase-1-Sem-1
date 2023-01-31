@@ -1,0 +1,307 @@
+.highlight.rouge {
+  background: #404040;
+  color: #f8f8f2;
+}
+.highlight.rouge code[data-lang=python], .highlight.rouge code[data-lang=java] {
+  /* Highlighted lines */
+  /* Comment */
+  /* Error */
+  /* Keyword */
+  /* Literal */
+  /* Name */
+  /* Operator */
+  /* Punctuation */
+  /* Comment.Hashbang */
+  /* Comment.Multiline */
+  /* Comment.Preproc */
+  /* Comment.PreprocFile */
+  /* Comment.Single */
+  /* Comment.Special */
+  /* Generic.Deleted */
+  /* Generic.Emph */
+  /* Generic.Inserted */
+  /* Generic.Strong */
+  /* Generic.Subheading */
+  /* Keyword.Constant */
+  /* Keyword.Declaration */
+  /* Keyword.Namespace */
+  /* Keyword.Pseudo */
+  /* Keyword.Reserved */
+  /* Keyword.Type */
+  /* Literal.Date */
+  /* Literal.Number */
+  /* Literal.String */
+  /* Name.Attribute */
+  /* Name.Builtin */
+  /* Name.Class */
+  /* Name.Constant */
+  /* Name.Decorator */
+  /* Name.Entity */
+  /* Name.Exception */
+  /* Name.Function */
+  /* Name.Label */
+  /* Name.Namespace */
+  /* Name.Other */
+  /* Name.Property */
+  /* Name.Tag */
+  /* Name.Variable */
+  /* Operator.Word */
+  /* Text.Whitespace */
+  /* Literal.Number.Bin */
+  /* Literal.Number.Float */
+  /* Literal.Number.Hex */
+  /* Literal.Number.Integer */
+  /* Literal.Number.Oct */
+  /* Literal.String.Affix */
+  /* Literal.String.Backtick */
+  /* Literal.String.Char */
+  /* Literal.String.Delimiter */
+  /* Literal.String.Doc */
+  /* Literal.String.Double */
+  /* Literal.String.Escape */
+  /* Literal.String.Heredoc */
+  /* Literal.String.Interpol */
+  /* Literal.String.Other */
+  /* Literal.String.Regex */
+  /* Literal.String.Single */
+  /* Literal.String.Symbol */
+  /* Name.Builtin.Pseudo */
+  /* Name.Function.Magic */
+  /* Name.Variable.Class */
+  /* Name.Variable.Global */
+  /* Name.Variable.Instance */
+  /* Name.Variable.Magic */
+  /* Literal.Number.Integer.Long */
+}
+.highlight.rouge code[data-lang=python] .hll, .highlight.rouge code[data-lang=java] .hll {
+  background-color: #505080;
+  display: inline-block;
+  width: 100%;
+}
+.highlight.rouge code[data-lang=python] .c, .highlight.rouge code[data-lang=java] .c {
+  color: #1ab81a;
+}
+.highlight.rouge code[data-lang=python] .err, .highlight.rouge code[data-lang=java] .err {
+  color: #960050;
+  background-color: #1e0010;
+}
+.highlight.rouge code[data-lang=python] .k, .highlight.rouge code[data-lang=java] .k {
+  color: #66d9ef;
+}
+.highlight.rouge code[data-lang=python] .l, .highlight.rouge code[data-lang=java] .l {
+  color: #ae81ff;
+}
+.highlight.rouge code[data-lang=python] .n, .highlight.rouge code[data-lang=java] .n {
+  color: #f8f8f2;
+}
+.highlight.rouge code[data-lang=python] .o, .highlight.rouge code[data-lang=java] .o {
+  color: #f92672;
+}
+.highlight.rouge code[data-lang=python] .p, .highlight.rouge code[data-lang=java] .p {
+  color: #f8f8f2;
+}
+.highlight.rouge code[data-lang=python] .ch, .highlight.rouge code[data-lang=java] .ch {
+  color: #1ab81a;
+}
+.highlight.rouge code[data-lang=python] .cm, .highlight.rouge code[data-lang=java] .cm {
+  color: #1ab81a;
+}
+.highlight.rouge code[data-lang=python] .cp, .highlight.rouge code[data-lang=java] .cp {
+  color: #1ab81a;
+}
+.highlight.rouge code[data-lang=python] .cpf, .highlight.rouge code[data-lang=java] .cpf {
+  color: #1ab81a;
+}
+.highlight.rouge code[data-lang=python] .c1, .highlight.rouge code[data-lang=java] .c1 {
+  color: #1ab81a;
+}
+.highlight.rouge code[data-lang=python] .cs, .highlight.rouge code[data-lang=java] .cs {
+  color: #1ab81a;
+}
+.highlight.rouge code[data-lang=python] .gd, .highlight.rouge code[data-lang=java] .gd {
+  background: #fba7a7;
+  color: #960404;
+  display: inline-block;
+  width: 100%;
+}
+.highlight.rouge code[data-lang=python] .ge, .highlight.rouge code[data-lang=java] .ge {
+  font-style: italic;
+}
+.highlight.rouge code[data-lang=python] .gi, .highlight.rouge code[data-lang=java] .gi {
+  background: #84ffb7;
+  color: #455d14;
+  display: inline-block;
+  width: 100%;
+}
+.highlight.rouge code[data-lang=python] .gs, .highlight.rouge code[data-lang=java] .gs {
+  font-weight: bold;
+}
+.highlight.rouge code[data-lang=python] .gu, .highlight.rouge code[data-lang=java] .gu {
+  color: #75715e;
+}
+.highlight.rouge code[data-lang=python] .kc, .highlight.rouge code[data-lang=java] .kc {
+  color: #66d9ef;
+}
+.highlight.rouge code[data-lang=python] .kd, .highlight.rouge code[data-lang=java] .kd {
+  color: #66d9ef;
+}
+.highlight.rouge code[data-lang=python] .kn, .highlight.rouge code[data-lang=java] .kn {
+  color: #f92672;
+}
+.highlight.rouge code[data-lang=python] .kp, .highlight.rouge code[data-lang=java] .kp {
+  color: #66d9ef;
+}
+.highlight.rouge code[data-lang=python] .kr, .highlight.rouge code[data-lang=java] .kr {
+  color: #66d9ef;
+}
+.highlight.rouge code[data-lang=python] .kt, .highlight.rouge code[data-lang=java] .kt {
+  color: #66d9ef;
+}
+.highlight.rouge code[data-lang=python] .ld, .highlight.rouge code[data-lang=java] .ld {
+  color: #e6db74;
+}
+.highlight.rouge code[data-lang=python] .m, .highlight.rouge code[data-lang=java] .m {
+  color: #ae81ff;
+}
+.highlight.rouge code[data-lang=python] .s, .highlight.rouge code[data-lang=java] .s {
+  color: #e6db74;
+}
+.highlight.rouge code[data-lang=python] .na, .highlight.rouge code[data-lang=java] .na {
+  color: #a6e22e;
+}
+.highlight.rouge code[data-lang=python] .nb, .highlight.rouge code[data-lang=java] .nb {
+  color: #f8f8f2;
+}
+.highlight.rouge code[data-lang=python] .nc, .highlight.rouge code[data-lang=java] .nc {
+  color: #a6e22e;
+}
+.highlight.rouge code[data-lang=python] .no, .highlight.rouge code[data-lang=java] .no {
+  color: #66d9ef;
+}
+.highlight.rouge code[data-lang=python] .nd, .highlight.rouge code[data-lang=java] .nd {
+  color: #a6e22e;
+}
+.highlight.rouge code[data-lang=python] .ni, .highlight.rouge code[data-lang=java] .ni {
+  color: #f8f8f2;
+}
+.highlight.rouge code[data-lang=python] .ne, .highlight.rouge code[data-lang=java] .ne {
+  color: #a6e22e;
+}
+.highlight.rouge code[data-lang=python] .nf, .highlight.rouge code[data-lang=java] .nf {
+  color: #a6e22e;
+}
+.highlight.rouge code[data-lang=python] .nl, .highlight.rouge code[data-lang=java] .nl {
+  color: #f8f8f2;
+}
+.highlight.rouge code[data-lang=python] .nn, .highlight.rouge code[data-lang=java] .nn {
+  color: #f8f8f2;
+}
+.highlight.rouge code[data-lang=python] .nx, .highlight.rouge code[data-lang=java] .nx {
+  color: #a6e22e;
+}
+.highlight.rouge code[data-lang=python] .py, .highlight.rouge code[data-lang=java] .py {
+  color: #f8f8f2;
+}
+.highlight.rouge code[data-lang=python] .nt, .highlight.rouge code[data-lang=java] .nt {
+  color: #f92672;
+}
+.highlight.rouge code[data-lang=python] .nv, .highlight.rouge code[data-lang=java] .nv {
+  color: #f8f8f2;
+}
+.highlight.rouge code[data-lang=python] .ow, .highlight.rouge code[data-lang=java] .ow {
+  color: #f92672;
+}
+.highlight.rouge code[data-lang=python] .w, .highlight.rouge code[data-lang=java] .w {
+  color: #f8f8f2;
+}
+.highlight.rouge code[data-lang=python] .mb, .highlight.rouge code[data-lang=java] .mb {
+  color: #ae81ff;
+}
+.highlight.rouge code[data-lang=python] .mf, .highlight.rouge code[data-lang=java] .mf {
+  color: #ae81ff;
+}
+.highlight.rouge code[data-lang=python] .mh, .highlight.rouge code[data-lang=java] .mh {
+  color: #ae81ff;
+}
+.highlight.rouge code[data-lang=python] .mi, .highlight.rouge code[data-lang=java] .mi {
+  color: #ae81ff;
+}
+.highlight.rouge code[data-lang=python] .mo, .highlight.rouge code[data-lang=java] .mo {
+  color: #ae81ff;
+}
+.highlight.rouge code[data-lang=python] .sa, .highlight.rouge code[data-lang=java] .sa {
+  color: #e6db74;
+}
+.highlight.rouge code[data-lang=python] .sb, .highlight.rouge code[data-lang=java] .sb {
+  color: #e6db74;
+}
+.highlight.rouge code[data-lang=python] .sc, .highlight.rouge code[data-lang=java] .sc {
+  color: #e6db74;
+}
+.highlight.rouge code[data-lang=python] .dl, .highlight.rouge code[data-lang=java] .dl {
+  color: #e6db74;
+}
+.highlight.rouge code[data-lang=python] .sd, .highlight.rouge code[data-lang=java] .sd {
+  color: #e6db74;
+}
+.highlight.rouge code[data-lang=python] .s2, .highlight.rouge code[data-lang=java] .s2 {
+  color: #e6db74;
+}
+.highlight.rouge code[data-lang=python] .se, .highlight.rouge code[data-lang=java] .se {
+  color: #ae81ff;
+}
+.highlight.rouge code[data-lang=python] .sh, .highlight.rouge code[data-lang=java] .sh {
+  color: #e6db74;
+}
+.highlight.rouge code[data-lang=python] .si, .highlight.rouge code[data-lang=java] .si {
+  color: #e6db74;
+}
+.highlight.rouge code[data-lang=python] .sx, .highlight.rouge code[data-lang=java] .sx {
+  color: #e6db74;
+}
+.highlight.rouge code[data-lang=python] .sr, .highlight.rouge code[data-lang=java] .sr {
+  color: #e6db74;
+}
+.highlight.rouge code[data-lang=python] .s1, .highlight.rouge code[data-lang=java] .s1 {
+  color: #e6db74;
+}
+.highlight.rouge code[data-lang=python] .ss, .highlight.rouge code[data-lang=java] .ss {
+  color: #e6db74;
+}
+.highlight.rouge code[data-lang=python] .bp, .highlight.rouge code[data-lang=java] .bp {
+  color: #f8f8f2;
+}
+.highlight.rouge code[data-lang=python] .fm, .highlight.rouge code[data-lang=java] .fm {
+  color: #a6e22e;
+}
+.highlight.rouge code[data-lang=python] .vc, .highlight.rouge code[data-lang=java] .vc {
+  color: #f8f8f2;
+}
+.highlight.rouge code[data-lang=python] .vg, .highlight.rouge code[data-lang=java] .vg {
+  color: #f8f8f2;
+}
+.highlight.rouge code[data-lang=python] .vi, .highlight.rouge code[data-lang=java] .vi {
+  color: #f8f8f2;
+}
+.highlight.rouge code[data-lang=python] .vm, .highlight.rouge code[data-lang=java] .vm {
+  color: #f8f8f2;
+}
+.highlight.rouge code[data-lang=python] .il, .highlight.rouge code[data-lang=java] .il {
+  color: #ae81ff;
+}
+
+.highlight.rouge code[data-lang=bash] {
+  color: white;
+  /* Comment */
+  /* Prompt */
+}
+.highlight.rouge code[data-lang=bash] .c {
+  color: #1ab81a;
+}
+.highlight.rouge code[data-lang=bash] .nv {
+  color: red;
+}
+
+.highlight.rouge code[data-lang=text] {
+  color: white;
+}

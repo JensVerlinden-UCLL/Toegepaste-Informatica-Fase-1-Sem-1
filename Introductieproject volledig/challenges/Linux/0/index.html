@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="author" content="The purpose of this assignment is to get familiar with operating a Linux system from the command line.">
+<title>Introduction</title>
+<link rel="stylesheet" href="/static/stylesheets/styles.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Introduction</h1>
+<div class="details">
+<span id="author" class="author">The purpose of this assignment is to get familiar with operating a Linux system from the command line.</span><br>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_the_shell">The shell</a></li>
+<li><a href="#_finding_help">Finding help</a></li>
+<li><a href="#_files_and_directories">Files and directories</a></li>
+<li><a href="#_permissions">Permissions</a></li>
+<li><a href="#_standard_input_output_and_error_streams">Standard input, output and error streams</a></li>
+<li><a href="#_redirection_to_a_file">Redirection to a file</a></li>
+<li><a href="#_redirection_to_another_command">Redirection to another command</a></li>
+<li><a href="#_loops">Loops</a></li>
+<li><a href="#_find">Find</a></li>
+<li><a href="#_challenges">Challenges</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>To get you started, you can have a look at:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>[Introduction to Linux – A Hands on Guide, M. Garrels](<a href="http://www.tldp.org/LDP/intro-linux/" class="bare">http://www.tldp.org/LDP/intro-linux/</a>)</p>
+</li>
+<li>
+<p>Command line cheat sheet</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_shell">The shell</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Everything in Linux is perfectly manageable in a text based environment. Lots of tasks are even simpler and faster to accomplish from a command line interface or text based environment. Because graphical environments waste resources and could cause extra security problems, Linux system administrators often choose only to install a text based environment.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_finding_help">Finding help</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before you begin it is useful to mention some places to find help when working with the command line. In the first place, you can check the documentation on the system itself.</p>
+</div>
+<div class="paragraph">
+<p>There is a <strong>manual page</strong> for almost every command available. To access this manual page type <code>man &lt;command&gt;</code>. You can read the page and leave it by pressing <code>q</code>.</p>
+</div>
+<div class="paragraph">
+<p>Try this for the commands <code>pwd</code> and <code>ls</code>. Thanks to man you don’t have to learn every option of every command, you just can look them up.</p>
+</div>
+<div class="paragraph">
+<p>For a short description of a commands function you can make use of whatis.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">$ whatis ls
+ls (1)               - list directory contents</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you don’t know the name of a command, you can look for it with <code>apropos</code>. The man pages will be searched for your query. For example when you can&#8217;t remember how to copy files, apropos can help you out:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>$ apropos 'copy files'
+cp (1)               - copy files and directories
+cpio (1)             - copy files to and from archives
+install (1)          - copy files and set attributes</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now you know you can use the command <code>cp</code> and with <code>man cp</code> you will find all the options you need.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_files_and_directories">Files and directories</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The shell welcomes you with a prompt which you can adapt to your personal wishes. By default it looks something like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>bob@system:/etc/init.d$</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>This tells you that user 'bob' has logged in on machine ‘system’ and is currently working in the directory '/etc/init.d'.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To ask the system for the current location in the filesystem hierarchy use the <code>pwd</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Just like in Windows, Linux uses a directory hierarchy. It starts at the root (/). What follows are some main directories and their contents:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>/root			Root directory: structural base
+/home			Contains a home directory per user
+/etc			Contains configuration files for the system
+/bin			Contains executable files
+/lost+found		Contains data found when maintaining the file system.
+.				Current directory
+..				Directory one level up (parent)
+~				Home directory of logged in user</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Navigation between directories happens with the <code>cd</code> command. To go to the /bin directory you type <code>cd /bin</code>. In a directory you can find subdirectories and files. You ask for a directory’s content with the <code>ls</code> command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>$ cd /bin
+$ ls
+arch dnsdomainname login pidof
+... tempfile</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You will get a list with names of files and directories in the current working directory. Alternatively, you can ask for the listing of the directory by specifying it: <code>ls /home</code> will print the home directory&#8217;s contents.</p>
+</div>
+<div class="paragraph">
+<p>To get more information about the files you can add some options to <code>ls</code>. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>$ ls -l
+total 3816
+rwxrxrx 1 root root 2816   Sep 24 00:34 arch
+rwxrxrx 1 root root 110872 Apr 27 2003  ash
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To create a directory you use the command <code>mkdir</code>. To delete an empty directory you can use <code>rmdir</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_permissions">Permissions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>On Linux every file and every directory has rights associated with it. You can use the command ls -l to view them.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>bob@system:~/permissions$ ls -lh
+total 16K
+-rw-rw----  1 bob ldapusers 1.5K 2005-02-14 00:43 group.txt
+-rwxr-xr--  1 bob ldapusers 3.6K 2005-02-14 00:43 everyone.txt
+-rwx------  1 bob ldapusers  190 2005-02-14 00:42 me.txt
+drwxr-xr-x  2 bob ldapusers 4.0K 2005-02-14 00:47 subdir</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>User 'bob' has 3 files and a subdirectory in the directory ~/permissions. Rights are in the first column. Lets split those strange signs.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>D  U   G   O
+- rwx r-- r--</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first sign tells you whether it is a directory (D) or not (-). The next signs give the permissions for 3 groups. From left to right:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the owner permissions (user)</p>
+</li>
+<li>
+<p>the group permissions (group)</p>
+</li>
+<li>
+<p>permissions for all other users on the system (others)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are 3 different rights possible: read (r), write (w) and execute (x). Theoretically this gives us 8 different combinations of permissions: rwx, rw-, r-x, -wx, r--, -w-, --x, ---.</p>
+</div>
+<div class="paragraph">
+<p>In the file group.txt in the example above, the owner and all members of his group can read and write, but no one can execute the file. Other users cannot access it.</p>
+</div>
+<div class="paragraph">
+<p>To change permissions on files use the <code>chmod</code> command. In general form, the command will look something like this: <code>chmod [ugoa][=+-][rwx] files</code></p>
+</div>
+<div class="paragraph">
+<p>First, you tell it who you want to assign rights: user, group, others or all (u,g, o or a). You may choose to overwrite existing rights (=), add (+) or take them away (-). Next, you provide the rights you want. As last argument, give one or more files to which you want to assign these rights.</p>
+</div>
+<div class="paragraph">
+<p>To give yourself and members of your group read and write rights on OurClass.java just type:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>$ chmod u=rw,g=rw,o= OurClass.java
+$ ls -l OurClass.java
+$ -rw-rw---- 1 bob ldapusers 0 2009-09-19 14:16 OurClass.java</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For directories you can choose from the same set of permissions, but their meaning can be slightly different.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>r:  read the contents of a directory (i.e. right to use ls)
+w:  write (i.e. make or remove) files in the directory
+x:  access to subdirectories (i.e. right to use cd)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Be advised that the only use of these letters is to make interpretation a little easier. In reality, the rights system is numeric: r equals 4, w equals 2 and x equals 1. The rights rwxrw---- can also be written as 760. When combining rights, just add their numeric values. Knowing this, we can also write the <code>chmod</code> command from above as follows: <code>chmod 660 OurClass.java</code></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_standard_input_output_and_error_streams">Standard input, output and error streams</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In Linux, every program (process) gets 3 special files upon creation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>standard input (stdin)</p>
+</li>
+<li>
+<p>standard output (stdout)</p>
+</li>
+<li>
+<p>standard error (stderr)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Most people call these files standard streams. These streams are used to transport data to and from processes. When a process is running, all three default streams are opened. The shell references these open files by standardized numbers called file descriptors (FD). The first one FD 0 refers to stdin, FD 1 refers to stdout and stderr is linked to FD 2.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Standard input: this is the stream from which processes receive input, or the file in which a process can read input commands or data in general.</p>
+</li>
+<li>
+<p>Standard output: to this stream or open file, normal process output is sent.</p>
+</li>
+<li>
+<p>Standard error: processes are supposed to send errors and other diagnostic output to stderr.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In general, stdin comes from the keyboard and both stdout and stderr are sent to the screen or console terminal. If needed, it is possible to change this behavior. Consider this simple example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>$ cat
+hello
+hello
+stop repeating!
+stop repeating!
+&lt;ctrl&gt;+d
+$</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Why is the <code>cat</code> command acting like an annoying parrot? It reads a line from stdin, and echos it back to its stdout. If we do not specify a file when calling <code>cat</code>, input is coming from he keyboard, and each line of input is printed to stdout. <code>cat</code> stops doing this when it reads the end of file code, which can be entered using &lt;ctrl&gt;+d. By specifying an input file, <code>cat</code> no longer reads from stdin: <code>cat /etc/resolv.conf</code></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_redirection_to_a_file">Redirection to a file</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We can save the output of a command to a file instead of showing it on the screen.</p>
+</div>
+<div class="paragraph">
+<p>To save the contents of a directory in the file dirlist.txt, we redirect the output of ls to a file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>$ ls &gt; dirlist.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Output normally sent to the screen is redirected by the &gt; symbol and redirected to the file dirlist.txt. The given file is created, or overwritten if it already existed.</p>
+</div>
+<div class="paragraph">
+<p>Appending output to a file can be achieved in this form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>$ ls &gt;&gt; dirlist.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Just like stdout, stdin can also be redirected. In the following example stdin will not be read from the keyboard but from a file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>$ wc -l &lt; dirlist.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The command <code>wc</code> will process the contents of the file dirlist.txt as input. And the third default stream, stderr can be redirected using 2&gt;. In general, redirecting a stream is accomplished using “FD&gt;” where FD is the stream file descriptor (stdout=1,stderr=2).</p>
+</div>
+<div class="paragraph">
+<p>When this number is omitted the shell assumes redirecting stdout, thus file descriptor 1. To show that stdout and stderr are separate streams, we can give an inaccessible or nonexistent file as an argument to <code>cat</code>.</p>
+</div>
+<div class="paragraph">
+<p>When stdout is redirected to the shadow.txt file, we still see the error message, because it is sent through stderr.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>bob@system:~$ cat /abc
+cat: /abc: No such file or directory
+bob@system:~$ cat /etc/shadow &gt; shadow.txt
+cat: /etc/shadow: Permission denied
+bob@system: ~$ ls -lh shadow.txt
+-rw-r—r-- 1 bob ldapusers 0 2005-10-10 13:54 shadow.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is also possible to redirect both stdout and stderr. The following example stores regular command output to the file ls_tmp.txt while errors are saved in ls_tmp_errors.txt.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>ls -R /tmp &gt; ls_tmp.txt 2&gt; ls_tmp_errors.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Every Linux system has the special file /dev/null available. Data sent to this file just disappear. Some people refer to this file as 'the black hole'. At first sight it looks rather useless to make command output just disappear, but it can be very useful when using redirections. Redirecting the error stream to the black hole is done very frequently if these errors are not important, or if they are disturbing the readability of regular output. In the following example, all error messages from the command <code>ls</code> are sent to /dev/null.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>ls -R /tmp &gt; ls_tmp.txt 2&gt; /dev/null</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to save both regular output and errors to the same file, you can redirect the error stream to the output stream with 2&gt;&amp;1 and then redirect stdout to a file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>ls -R /tmp 2&gt;&amp;1 &gt; dirlist.txt</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_redirection_to_another_command">Redirection to another command</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>One of the most used characters in the Linux shell is probably '|' which is referred to as the <strong>pipe symbol</strong>. With this command you can redirect the standard output of a command to the standard input of another command. This is an amazing and extremely powerful feature. Let&#8217;s explain this with an example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>tree /usr</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Obviously, the output of the command above is too big to fit on the screen. <code>less</code> is a command which can be used to read larger amounts of text. I would be nice if we could redirect the output of <code>tree</code> so it can be used as input for <code>less</code>. This is done by 'piping' the output of <code>tree</code> to <code>less</code> and makes the output easier to read:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>tree /usr | less</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_loops">Loops</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To do some repetitive tasks one can use loops. There are different loop options available in Bash.</p>
+</div>
+<div class="paragraph">
+<p>A <strong>for</strong> loop:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>$ for i in $(ls /etc); do echo $i; done</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or with a <strong>while</strong> loop:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>$ ls /etc | while read i; do echo $i; done</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The while read approach is a bit more powerful. Consider the following example. First create some random files:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>$ for i in $(seq 1 9); do touch "file $i”; done
+$ ls -l
+-rw-r--r-- 1 bob 9999    0 Feb 11 10:27 file 1
+-rw-r--r-- 1 bob 9999    0 Feb 11 10:27 file 2
+-rw-r--r-- 1 bob 9999    0 Feb 11 10:27 file 3
+-rw-r--r-- 1 bob 9999    0 Feb 11 10:27 file 4
+-rw-r--r-- 1 bob 9999    0 Feb 11 10:27 file 5
+-rw-r--r-- 1 bob 9999    0 Feb 11 10:27 file 6
+-rw-r--r-- 1 bob 9999    0 Feb 11 10:27 file 7
+-rw-r--r-- 1 bob 9999    0 Feb 11 10:27 file 8
+-rw-r--r-- 1 bob 9999    0 Feb 11 10:27 file 9</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_find">Find</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Searching for files and directories can be done using the find command.
+In the next example, we look for all directories in /etc whose name start with 'cron':</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>$ find /etc -type d -name cron*
+/etc/cron.daily
+find: /etc/ppp/peers: Permission denied
+/etc/cron.hourly
+/etc/cron.weekly
+/etc/cron.monthly
+/etc/cron.d
+find: /etc/chatscripts: Permission denied</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Obviously, we cannot crawl through directories without the appropriate permissions. The message indicating we do not have sufficient rights is send to stderr. When we want to filter out these error messages we could redirect stderr as explained before as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>$ find /etc -type d -name cron* 2&gt; /dev/null
+/etc/cron.daily
+/etc/cron.hourly
+/etc/cron.weekly
+/etc/cron.monthly /etc/cron.d</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By combining find and xargs it is possible to execute a certain command for every file we find.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_challenges">Challenges</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>make a virtual Linux machine</p>
+</li>
+<li>
+<p>create a folder CHALLENGES</p>
+</li>
+<li>
+<p>change directory to the folder CHALLENGES in order to start at the challenges</p>
+</li>
+<li>
+<p>Create for each challenge a file challengeX.sh containing the different commands (one command on a separate line) you have to execute to fulfill the challenge.</p>
+</li>
+<li>
+<p>Create a zip-file called r-number.zip of this (<code>cd .. ; zip -r r-number.zip CHALLENGES</code>) and commit this file in this folder (the 0 sub-dir folder).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

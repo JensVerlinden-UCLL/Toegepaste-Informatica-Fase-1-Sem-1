@@ -1,0 +1,162 @@
+@import url(//fonts.googleapis.com/css?family=Noto+Sans);
+/* Text styles */
+body {
+  font-family: "Noto Sans", sans-serif;
+  background-color: #282c34;
+  color: #FFFFFF;
+  text-align: justify;
+}
+
+h1 {
+  color: #f39c12 !important;
+  font-family: "Noto Sans", sans-serif;
+}
+
+h2, h3, h4, h5, h6 {
+  color: #03a9f4 !important;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.title {
+  color: #FFFFFF !important;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+p {
+  font-family: "Noto Sans", sans-serif !important;
+}
+
+#toc.toc2 a:link {
+  color: #f44336;
+}
+
+blockquote {
+  color: #4db6ac !important;
+}
+
+.quoteblock {
+  color: #FFFFFF;
+}
+
+code:not([data-lang]) {
+  color: #ff9800;
+  background: #21252b;
+}
+
+/* Table styles */
+th {
+  background-color: #282c34;
+  color: #FFFFFF !important;
+}
+
+td {
+  background-color: #282c34;
+  color: #ff9800 !important;
+}
+
+#toc.toc2 {
+  background-color: #21252b;
+}
+
+#toctitle {
+  color: #FFFFFF;
+}
+
+/* Responsiveness fixes */
+video {
+  max-width: 100%;
+}
+
+@media all and (max-width: 600px) {
+  table {
+    width: 55vw !important;
+    font-size: 3vw;
+  }
+}
+.exampleblock > .content {
+  background-color: #282c34;
+}
+
+a {
+  color: #03a9f4;
+}
+
+.admonitionblock td.icon .icon-tip::before {
+  text-shadow: none;
+  color: #FFFFFF;
+}
+
+.admonitionblock td.icon .icon-note::before {
+  color: #4db6ac;
+}
+
+.admonitionblock td.icon .icon-important::before {
+  color: #f44336;
+}
+
+.admonitionblock td.icon .icon-warning::before {
+  color: #f39c12;
+}
+
+#preamble > .sectionbody > .paragraph:first-of-type p {
+  color: #FFFFFF;
+}
+
+.quoteblock blockquote::before {
+  color: #f39c12;
+}
+
+.quoteblock .attribution cite, .verseblock .attribution cite {
+  color: #FFFFFF;
+}
+
+.verseblock pre {
+  color: #FFFFFF;
+}
+
+.quoteblock blockquote, .quoteblock blockquote p {
+  color: #FFFFFF;
+}
+
+.sidebarblock {
+  background: #21252b;
+}
+
+.literalblock pre, .listingblock pre:not(.highlight), .listingblock pre[class=highlight], .listingblock pre[class^="highlight "], .listingblock pre.CodeRay, .listingblock pre.prettyprint {
+  background: #21252b;
+  color: #FFFFFF;
+}
+
+#header .details {
+  color: #FFFFFF;
+}
+
+#header .details span.email a {
+  color: #ff9800;
+}
+
+.keyseq {
+  color: #FFFFFF;
+}
+
+details {
+  margin: 1em;
+  background: #21252b;
+}
+details > summary.title {
+  padding: 5px 1em;
+  cursor: zoom-in;
+  font-size: 120%;
+  font-weight: bold;
+  user-select: none;
+  cursor: zoom-in;
+}
+details[open] > summary {
+  cursor: zoom-out;
+}
+details > div.content {
+  padding: 1em;
+  background: #21252b;
+}

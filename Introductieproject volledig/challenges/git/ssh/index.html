@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Github Authentication</title>
+<link rel="stylesheet" href="/static/stylesheets/styles.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Github Authentication</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_opdracht">Opdracht</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Als je git gebruikt om informatie van GitHub te halen moet je je authenticeren bij GitHub.</p>
+</div>
+<div class="paragraph">
+<p>Dit kan op 3 manieren:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Via username/password, net zoals je je aanmeldt op de website</p>
+</li>
+<li>
+<p>Via een token dat dienst doet als (tijdelijk) wachtwoord</p>
+</li>
+<li>
+<p>Via SSH keys</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Suport voor username/password is in de loop van 2021 afgesloten omdat deze manier niet veilig is.</p>
+</div>
+<div class="paragraph">
+<p>Meer informatie over aanmelden met een token kan je <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">hier</a> vinden. Dit wordt veel gebruikt in bijvoorbeeld code editors met ingebouwde git functionaliteit (IntelliJ bijvoorbeeld). Je kan dan een token aanmaken specifiek voor deze applicatie.</p>
+</div>
+<div class="paragraph">
+<p>De meest veilige manier om aan te melden is via SSH. Als je wil weten wat SSH is en waarom het erg veilig is kan je <a href="https://levelup.gitconnected.com/what-is-ssh-103f89e3e4b8">hier</a> achtergrond informatie vinden.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opdracht">Opdracht</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>De bedoeling van deze challenge is om SSH in te stellen voor je git installatie.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Stel SSH in voor je command-line git aan de hand van onderstaande guides</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Kies bovenaan elke guide je eigen besturingssyteem!</p>
+</li>
+<li>
+<p><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">Key aanmaken</a></p>
+</li>
+<li>
+<p><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">Key aan account toevoegen</a></p>
+</li>
+<li>
+<p><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection">Key testen</a></p>
+</li>
+<li>
+<p><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases">Key passphrase</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Plak je public key in een bestand id_rsa.pub en commit dit naar je repository</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

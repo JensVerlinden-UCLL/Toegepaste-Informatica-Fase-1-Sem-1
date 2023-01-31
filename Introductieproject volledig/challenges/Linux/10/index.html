@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="author" content="Je krijgt een reeks bestanden genaamd `fileNNN` met `NNN` een getal gaande `001` tot `999`.">
+<title>Opgave 10</title>
+<link rel="stylesheet" href="/static/stylesheets/styles.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Opgave 10</h1>
+<div class="details">
+<span id="author" class="author">Je krijgt een reeks bestanden genaamd `fileNNN` met `NNN` een getal gaande `001` tot `999`.</span><br>
+<span id="revnumber">version ,</span>
+<span id="revdate">m.a.w. voeg een extra `b` toe aan elke bestandsnaam.</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_voorbeeld">Voorbeeld</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_voorbeeld">Voorbeeld</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Stel dat je begint met bestanden</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>file001
+file002
+file003</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Na je script zouden de bestanden</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>file001b
+file002b
+file003b</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>moeten heten.</p>
+</div>
+</div>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

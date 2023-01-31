@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="author" content="Je krijgt een bestand `secret.txt`.">
+<title>Opgave 6</title>
+<link rel="stylesheet" href="/static/stylesheets/styles.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Opgave 6</h1>
+<div class="details">
+<span id="author" class="author">Je krijgt een bestand `secret.txt`.</span><br>
+<span id="revnumber">version ,</span>
+<span id="revdate">nl. door een _monoalfabetische substitutie_.</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_voorbeeld">Voorbeeld</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Het idee is gelukkig veel eenvoudiger dan het klinkt: elke letter moet simpelweg vervangen worden door een andere.
+Onderstaande tabel geeft hier een overzicht van:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>abcdefghijklmnopqrstuvwxyz
+bgimojstwzcrhuadvlfxqeynpk</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deze tabel moet je als volgt interpreteren:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>a</code> moet vervangen worden door <code>b</code></p>
+</li>
+<li>
+<p><code>b</code> moet vervangen worden door <code>g</code></p>
+</li>
+<li>
+<p><code>c</code> moet vervangen worden door <code>i</code></p>
+</li>
+<li>
+<p>Enzovoort.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Schrijf het resultaat weg naar een nieuw bestand <code>encrypted.txt</code>.</p>
+</div>
+<div class="paragraph">
+<p>Alle andere tekens (bv. cijfers, interpunctie) moeten behouden blijven.
+Je mag ervan uitgaan dat <code>secret.txt</code> enkel lowercase letters bevat.
+Je hoeft dus niet <code>A</code> naar <code>B</code> om te zetten, enkel <code>a</code> naar <code>b</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_voorbeeld">Voorbeeld</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Stel dat <code>secret.txt</code> onderstaande inhoud heeft:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>xyz 123.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Je commando moet <code>encrypted.txt</code> genereren met als inhoud</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>npk 123.</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

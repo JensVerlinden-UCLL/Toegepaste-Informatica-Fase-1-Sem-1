@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Git basics</title>
+<link rel="stylesheet" href="/static/stylesheets/styles.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_git_basics">Git basics</a>
+<ul class="sectlevel2">
+<li><a href="#_add_commit_en_push">Add, commit en push</a></li>
+<li><a href="#_opdracht">Opdracht</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_git_basics">Git basics</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_add_commit_en_push">Add, commit en push</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Open vscode in de folder waar je challenges staan (bv. C:\introductieproject)</p>
+</li>
+<li>
+<p>Ga naar de folder "git\basics"</p>
+</li>
+<li>
+<p>Maak een nieuw bestand "solution.txt" en zet op de eerste lijn jouw naam en op de tweede lijn jouw studentnummer.</p>
+</li>
+<li>
+<p>In Git bash voer je volgend commando uit:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git status</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Zoals je kan zien detecteert git nu het bestand. Maar het is nog niet toegevoegd aan onze lokale git repository. Om dit te doen doe je:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git add solution.txt
+$ git commit -m "Solution file"</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Via "git add" zeg je tegen git om het bestand te tracken, "git commit" gaat het bestand effectief toevoegen aan de lokale repository. Via "-m" voeg je een boodschap toe aan de commit.</p>
+</li>
+<li>
+<p>Ga nu via een browser naar je repository (plak de link die nog op je klembord zou moeten staan) en navigeer naar de folder "challenges/git/basics". Zoals je kan zien staat je solution.txt file daar nog niet. Dit komt omdat we de wijzigen die je net hebt gedaan op je lokale repository, moet "pushen" naar de remote versie:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git push</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Wanneer je nu gaat refreshen in de browser zal je wel jouw solution file (en commit message) zien staan.</p>
+</li>
+<li>
+<p>In git bash kan je het status commando nog eens uitvoeren. Normaal gezien zou de output als volgt moeten zijn:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_opdracht">Opdracht</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Probeer nu met wat je geleerd hebt een subfolder "Challenge_01" onder "git/basics" aan te maken. Plaats hierin een nieuw bestand "solution.txt" met de inhoud "Challenge 1 completed". Zorg ervoor dat deze folder in jouw remote repository komt.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

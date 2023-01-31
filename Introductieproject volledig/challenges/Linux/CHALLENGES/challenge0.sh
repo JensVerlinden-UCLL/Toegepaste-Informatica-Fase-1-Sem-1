@@ -1,0 +1,14 @@
+mkdir CHALLENGES
+cd CHALLENGES
+touch challenge0.sh
+touch challenge1.sh
+touch challenge2.sh
+touch challenge3.sh
+touch challenge4.sh
+touch challenge5.sh
+touch challenge6.sh
+touch challenge7.sh
+touch challenge8.sh
+touch challenge9.sh
+touch challenge10.sh
+touch challenge11.sh

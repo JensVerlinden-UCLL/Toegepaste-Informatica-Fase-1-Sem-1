@@ -1,0 +1,1 @@
+ls -l *txt | tr -s ' ' ' ' | cut -d' ' -f5,9 | tr ' ' '\t' > sizes.dat

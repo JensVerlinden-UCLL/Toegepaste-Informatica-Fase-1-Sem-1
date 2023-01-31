@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="author" content="Het bestand `data.dat` bevat honderden regels met elk 10 getallen op.">
+<title>Opgave 3</title>
+<link rel="stylesheet" href="/static/stylesheets/styles.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Opgave 3</h1>
+<div class="details">
+<span id="author" class="author">Het bestand `data.dat` bevat honderden regels met elk 10 getallen op.</span><br>
+<span id="revdate">Deze getallen worden telkens gescheiden door een spatie.</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_voorbeeld">Voorbeeld</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Genereer een bestand <code>summary.dat</code> dat van elke regel enkel het 2de en 5de getal bevat.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_voorbeeld">Voorbeeld</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Stel dat <code>data.dat</code> de volgende inhoud heeft:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>4 8 9 7 6 5 4 6 8 7
+1 0 8 7 6 5 4 2 3 4
+5 7 9 8 4 6 5 2 3 1
+8 7 9 6 5 8 9 4 5 0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Je commando&#8217;s moet aanleiding geven tot het bestand <code>summary.dat</code> met als inhoud</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>8 6
+0 6
+7 4
+7 5</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Merk op dat de getallen in de echte <code>data.dat</code> niet noodzakelijk uit een enkel cijfer bestaan.</p>
+</div>
+</div>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

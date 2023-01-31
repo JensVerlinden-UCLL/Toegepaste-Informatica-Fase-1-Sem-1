@@ -1,0 +1,22 @@
+@charset "UTF-8";
+.admonitionblock.example > table > tbody > tr > td.icon .title::before {
+  content: "🔎";
+  font-size: 200%;
+}
+
+.admonitionblock.extra > table > tbody > tr > td.icon .title::before {
+  content: "★";
+  color: #f6fa24;
+  font-size: 200%;
+}
+
+.admonitionblock.task > table > tbody > tr > td.icon .title::before {
+  content: "✍";
+  color: #f6fa24;
+  font-size: 200%;
+}
+
+.admonitionblock.warning > table > tbody > tr > td.icon .title::before {
+  content: "⛔";
+  font-size: 200%;
+}

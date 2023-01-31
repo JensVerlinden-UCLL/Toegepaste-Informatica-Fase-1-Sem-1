@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="author" content="Stel dat je wenst te weten of een grote download (bv. 1GB) gelukt is, m.a.w. dat elke gedownloade bit klopt.">
+<title>Opgave 7</title>
+<link rel="stylesheet" href="/static/stylesheets/styles.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Opgave 7</h1>
+<div class="details">
+<span id="author" class="author">Stel dat je wenst te weten of een grote download (bv. 1GB) gelukt is, m.a.w. dat elke gedownloade bit klopt.</span><br>
+<span id="revdate">Een manier om dat na te gaan is het bestand een tweede maal te downloaden en elke bit te vergelijken.</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_voorbeeld">Voorbeeld</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dit is echter nogal inefficiënt: ter verificatie moet je een extra GB afhalen.
+Vervelend is ook dat de verificatiedownload zelf fouten kan bevatten en daardoor er een kans is op vals alarm.</p>
+</div>
+<div class="paragraph">
+<p>Een beter alternatief zou zijn dat de site waarvan je het bestand hebt gedownload ook het aantal 1-bits in het bestand zou vermelden.
+Je zou dan het aantal 1-bits kunnen tellen in je gedownloade bestand en dat vergelijken met wat op de site staat. Om dit aantal voor te stellen heb je slechts 33 bits nodig.
+Je ziet dat dit een hele verbetering is: om je bestand te verifiëren heb je slechts 33 bits extra te downloaden.</p>
+</div>
+<div class="paragraph">
+<p>Er is hier echter ook weer een ernstig probleem. Stel dat er twee fouten optreden: ergens komt een 0-bit verkeerdelijk aan als een 1-bit, en later komt er tevens een 1-bit foutief aan als een 0-bit.
+Hierdoor blijft het totaal aantal 1-bits onveranderd.
+Een 2de fout kan dus een eerste fout als het ware "ongedaan" maken, waardoor je niet zou opmerken dat de download mislukt is.</p>
+</div>
+<div class="paragraph">
+<p>Een betere oplossing bestaat eruit om gebruik te maken van <strong>hashfuncties</strong>.
+We besparen je de details, maar het komt erop neer dat ook hier, zoals bij het tellen van de 1-bits, een "samenvatting" van het bestand wordt gemaakt.
+Deze samenvatting is hooguit enkele tientallen bytes groot, m.a.w. verwaarloosbaar.
+Kenmerkend voor hashfuncties is dat deze zeer chaotisch zijn: als er ook maar 1 bit verandert, krijg je een totaal andere samenvatting.
+De kans is hierdoor immens klein dat een foute bit een voorgaande kan "neutraliseren" zoals het geval was hierboven.
+Hashfuncties zijn dus een veel robuustere manier om fouten te detecteren.</p>
+</div>
+<div class="paragraph">
+<p>Er zijn een aantal "officiële" hashfuncties die heel meticuleus ontworpen werden en bruikbaar zijn voor cryptografische doeleinden.
+Ze hebben prachtige namen zoals MD5, SHA1, SHA2 en SHA3.
+Voor deze opdracht zullen we SHA1 gebruiken.</p>
+</div>
+<div class="paragraph">
+<p>Je krijgt een bestand <code>original.txt</code>.
+Bereken er de SHA1 hash van in hexadecimale vorm.
+Schrijf dit weg naar <code>hash.txt</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_voorbeeld">Voorbeeld</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Stel dat <code>original.txt</code> het woord <code>abc</code> bevat.
+Je shellscript moet dan een bestand <code>hash.txt</code> genereren met als inhoud</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>03cfd743661f07975fa2f1220c5194cbaff48451</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Merk op dat je inderdaad een heel andere hash krijgt indien je de invoer wat verandert: <code>abd</code> geeft als hash <code>cb4cc28df0fdbe0ecf9d9662e294b118092a5735</code>, wat geen enkele gelijkenis vertoont met de andere hash.</p>
+</div>
+</div>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>
