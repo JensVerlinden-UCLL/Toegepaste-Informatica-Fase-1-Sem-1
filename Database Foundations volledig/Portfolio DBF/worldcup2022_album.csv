@@ -1,0 +1,356 @@
+card_id,figure_id,buy_id,package_id,figure_type,country,mainname,last_name,player_position,birth,weight,height,amount_doubles
+1,QAT_04,1,1,player,Qatar,Meshaal,Barsham,keeper,1998-02-14,66.0,1.80,1
+2,CAN_02,1,1,shield,Canada,Team logo,,,,,,0
+3,WAL_14,1,1,player,Wales,Aaron,Ramsey,middle,1990-12-26,78.0,1.80,0
+4,WAL_18,1,1,player,Wales,Daniel,James,attack,1997-11-10,76.0,1.70,1
+5,DEN_05,1,1,player,Denmark,Andreas,Christensen,defense,1996-04-10,82.0,1.87,0
+6,IRN_17,1,2,player,Ir Iran,Karim,Ansarifard,attack,1990-04-03,77.0,1.86,0
+7,QAT_15,1,2,player,Qatar,Yousuf,Abdurisag,attack,1999-08-06,74.0,1.77,2
+8,QAT_14,1,2,player,Qatar,Assim,Omer Madibo,middle,1996-10-22,71.0,1.63,2
+9,CRO_19,1,2,player,Croatia,Marko,Livaja,attack,1993-08-26,84.0,1.82,0
+10,WAL_04,1,2,player,Wales,Wayne,Hennessey,keeper,1987-01-24,90.0,1.98,2
+11,NED_20,1,3,player,Netherlands,Donyell,Malen,attack,1999-01-19,78.0,1.79,0
+12,FWC_10,1,3,stadium,,Al Thumama,,,,,,1
+13,KOR_02,1,3,shield,Korea Republic,Team logo,,,,,,1
+14,POR_03,1,3,player,Portugal,Diogo,Costa,keeper,1999-09-19,81.0,1.87,2
+15,CMR_01,1,3,squad,Cameroon,Team shot,,,,,,1
+16,SUI_04,1,4,player,Switzerland,Gregor,Kobel,keeper,1997-12-06,88.0,1.94,2
+17,CAN_09,1,4,player,Canada,Kamal,Miller,defense,1997-05-16,84.0,1.83,0
+18,BEL_13,1,4,player,Belgium,Thorgan,Hazard,middle,1993-03-29,71.0,1.75,0
+19,BEL_08,1,4,player,Belgium,Thomas,Meunier,defense,1991-09-12,82.0,1.90,0
+20,ESP_02,1,4,shield,Spain,Team logo,,,,,,0
+21,ESP_13,1,5,player,Spain,Pedri,,defense,1994-05-27,85.0,1.89,0
+22,QAT_16,1,5,player,Qatar,Akram,Hassan Afif,attack,1996-11-18,68.0,1.76,1
+23,ECU_19,1,5,player,Ecuador,Ayrton,Preciado,attack,1994-07-17,72.0,1.81,0
+24,ECU_15,1,5,player,Ecuador,Jeremy,Sarmiento,middle,2002-06-16,74.0,1.78,3
+25,ENG_11,1,5,player,England,Jude,Bellingham,middle,2003-06-29,75.0,1.86,2
+51,CRO_16,2,1,player,Croatia,Nikola,Vlašić,middle,1997-10-04,79.0,1.78,4
+52,JPN_11,2,1,player,Japan,Genki,Haraguchi,middle,1991-05-09,68.0,1.77,4
+53,JPN_04,2,1,player,Japan,Eiji,Kawashima,keeper,1983-03-20,82.0,1.85,2
+54,GER_18,2,1,player,Germany,Marco,Reus,attack,1989-05-31,71.0,1.80,0
+56,CAN_19,2,2,player,Canada,David,Junior Hoilett,attack,1990-06-05,70.0,1.74,0
+57,CAN_04,2,2,player,Canada,Maxime,Crépeau,keeper,1994-05-11,88.0,1.85,3
+58,ARG_11,2,2,player,Argentina,Ángel,Di María,middle,1988-02-14,75.0,1.80,1
+59,NED_09,2,2,player,Netherlands,Virgil,van Dijk,defense,1991-07-08,92.0,1.93,0
+60,QAT_07,2,2,player,Qatar,Abdulkarim,Hassan,defense,1993-08-28,82.0,1.85,0
+61,DEN_07,2,3,player,Denmark,Joakim,Mæhle,defense,1997-05-20,79.0,1.84,1
+62,DEN_03,2,3,player,Denmark,Kasper,Schmeichel,keeper,1986-11-05,89.0,1.89,0
+63,KSA_05,2,3,player,Saudi Arabia,Abdulelah,Al-Amri,defense,1997-01-15,74.0,1.85,3
+64,KSA_09,2,3,player,Saudi Arabia,Yasser,Al-Shahrani,defense,1992-05-25,62.0,1.71,2
+65,ARG_18,2,3,player,Argentina,Nicolás,González,attack,1998-04-06,72.0,1.80,1
+68,POL_16,2,4,player,Poland,Piotr,Zieliński,middle,1994-05-20,75.0,1.80,2
+69,POL_05,2,4,player,Poland,Jan,Bednarek,defense,1996-04-12,77.0,1.89,0
+70,MAR_01,2,4,squad,Morocco,Team shot,,,,,,2
+71,MAR_04,2,5,player,Morocco,Munir,Mohamedi,keeper,1989-05-10,89.0,1.90,1
+73,ECU_14,2,5,player,Ecuador,Jhegson,Méndez,middle,1997-04-26,72.0,1.75,0
+74,ECU_18,2,5,player,Ecuador,Gonzalo,Plata,attack,2000-11-01,65.0,1.78,0
+75,NED_17,2,5,player,Netherlands,Arnaut,Danjuma,attack,1997-01-31,74.0,1.78,0
+76,KOR_12,3,1,player,Korea Republic,Woo-young,Jung,middle,1989-12-14,78.0,1.86,2
+77,KOR_15,3,1,player,Korea Republic,Gue-sung,Cho,attack,1998-01-25,82.0,1.88,0
+79,URU_05,3,1,player,Uruguay,Ronald,Araújo,defense,1999-03-07,79.0,1.88,2
+80,GHA_10,3,1,player,Ghana,Andy,Yiadom,defense,1991-12-02,75.0,1.80,0
+81,POR_01,3,2,squad,Portugal,Team shot,,,,,,0
+82,CMR_07,3,2,player,Cameroon,Olivier,Mbaizo,defense,1997-08-15,70.0,1.80,1
+83,CMR_02,3,2,shield,Cameroon,Team logo,,,,,,2
+84,SRB_14,3,2,player,Serbia,Sergej,Milinković-Savić,middle,1995-02-27,76.0,1.91,1
+86,CRC_10,3,3,player,Costa Rica,Juan,Pablo Vargas,defense,1995-06-06,88.0,1.92,1
+87,CRC_15,3,3,player,Costa Rica,Yeltsin,Tejeda,middle,1992-03-17,66.0,1.79,1
+88,CMR_12,3,3,player,Cameroon,Pierre,Kunde,middle,1995-07-26,86.0,1.80,1
+89,KSA_02,3,3,shield,Saudi Arabia,Team logo,,,,,,0
+90,ENG_19,3,3,player,England,Bukayo,Saka,attack,2001-09-05,65.0,1.78,0
+91,USA_01,3,4,squad,USA,Team shot,,,,,,0
+92,USA_03,3,4,player,USA,Matt,Turner,keeper,1994-06-24,79.0,1.90,0
+93,USA_04,3,4,player,USA,Zack,Steffen,keeper,1995-04-02,86.0,1.91,1
+95,WAL_01,3,4,squad,Wales,Team shot,,,,,,0
+96,WAL_10,3,5,player,Wales,Joe,Rodon,defense,1997-10-22,87.0,1.92,0
+97,WAL_19,3,5,player,Wales,Brennan,Johnson,attack,2001-05-23,73.0,1.79,0
+100,GER_01,3,5,squad,Germany,Team shot,,,,,,1
+26,USA_14,4,1,player,USA,Weston,McKennie,middle,1998-08-28,86.0,1.8,0
+27,GHA_16,4,1,player,Ghana,Felix,Afena-Gyan,attack,2003-01-19,75.0,1.75,1
+28,JPN_08,4,1,player,Japan,Miki,Yamane,defense,1993-12-22,72.0,1.78,1
+29,CMR_10,4,1,player,Cameroon,Nouhou,,defense,1997-06-23,79.0,1.78,0
+30,IRN_08,4,1,player,Ir Iran,Shoja,Khalilzadeh,defense,1989-05-14,80.0,1.83,0
+31,ARG_16,4,2,player,Argentina,Joaquín,Correa,attack,1994-08-13,77.0,1.88,0
+32,BRA_04,4,2,player,Brazil,Ederson,,keeper,1993-08-17,81.0,1.88,1
+33,QAT_09,4,2,player,Qatar,Boualem,Khoukhi,defense,1990-07-09,78.0,1.84,0
+34,KSA_14,4,2,player,Saudi Arabia,Sami,Al-Najei,middle,1997-02-07,68.0,1.76,0
+35,TUN_01,4,2,squad,Tunisia,Team shot,,,,,,2
+36,ESP_05,4,3,player,Spain,César,Azpilicueta,defense,1989-08-28,77.0,1.78,1
+37,DEN_14,4,3,player,Denmark,Christian,Nørgaard,middle,1994-03-10,77.0,1.87,0
+38,DEN_19,4,3,player,Denmark,Andreas,Skov Olsen,attack,1999-12-29,75.0,1.87,0
+39,CMR_15,4,3,player,Cameroon,André-Frank,Zambo Anguissa,middle,1995-11-16,83.0,1.84,0
+40,KOR_07,4,3,player,Korea Republic,Min-jae,Kim,defense,1996-11-15,88.0,1.90,1
+41,MEX_18,4,4,player,Mexico,Rogelio,Funes Mori,attack,1991-03-05,74.0,1.90,0
+42,MEX_10,4,4,player,Mexico,Jorge,Sánchez,defense,1997-12-10,71.0,1.75,0
+44,FWC_07,4,4,content,,Official emblem,,,,,,0
+45,ENG_02,4,4,shield,England,Team logo,,,,,,0
+46,USA_16,4,5,player,USA,Jesús,Ferreira,attack,2000-12-24,68.0,1.75,0
+47,MEX_13,4,5,player,Mexico,Andrés,Guardado,middle,1986-09-28,60.0,1.69,0
+48,IRN_01,4,5,squad,Ir Iran,Team shot,,,,,,2
+49,URU_04,4,5,player,Uruguay,Sergio,Rochet,keeper,1993-03-23,82.0,1.90,2
+50,FWC_01,4,5,content,,FIFA,,,,,,1
+101,POR_04,5,1,player,Portugal,Rui,Patrício,keeper,1988-02-15,84.0,1.90,1
+102,TUN_16,5,1,player,Tunisia,Ellyes,Skhiri,middle,1995-05-10,73.0,1.65,0
+103,NED_18,5,1,player,Netherlands,Memphis,Depay,attack,1994-02-13,78.0,1.76,0
+104,ARG_01,5,1,squad,Argentina,Team shot,,,,,,0
+105,KSA_01,5,1,squad,Saudi Arabia,Team shot,,,,,,0
+107,NED_13,5,2,player,Netherlands,Davy,Klaassen,middle,1993-02-21,70.0,1.79,0
+108,ESP_11,5,2,player,Spain,Koke,,middle,1992-01-08,74.0,1.76,0
+109,BRA_06,5,2,player,Brazil,Danilo,,defense,1991-07-15,84.0,1.84,0
+111,BRA_08,5,3,player,Brazil,Marquinhos,,defense,1994-05-14,75.0,1.83,0
+112,SUI_05,5,3,player,Switzerland,Manuel,Akanji,defense,1995-07-19,91.0,1.87,0
+113,SRB_08,5,3,player,Serbia,Filip,Đuričić,middle,1992-01-30,75.0,1.81,0
+114,DEN_01,5,3,squad,Denmark,Team shot,,,,,,0
+115,KOR_01,5,3,squad,Korea Republic,Team shot,,,,,,1
+116,ENG_17,5,4,player,England,Phil,Foden,attack,2000-05-28,70.0,1.71,0
+117,ENG_12,5,4,player,England,Jack,Grealish,middle,1995-09-10,68.0,1.75,0
+118,URU_01,5,4,squad,Uruguay,Team shot,,,,,,1
+120,IRN_14,5,4,player,Ir Iran,Ali,Gholizadeh,middle,1996-03-10,69.0,1.76,1
+121,NED_10,5,5,player,Netherlands,Steven,Berghuis,middle,1991-12-19,75.0,1.82,0
+122,DEN_13,5,5,player,Denmark,Pierre,Emile Højbjerg,middle,1995-08-05,84.0,1.87,1
+123,ARG_12,5,5,player,Argentina,Giovani,Lo Celso,middle,1996-04-09,70.0,1.77,0
+124,FRA_16,5,5,player,France,Karim,Benzema,attack,1987-12-19,81.0,1.85,1
+125,SUI_12,5,5,player,Switzerland,Xherdan,Shaqiri,middle,1991-10-10,72.0,1.69,0
+126,QAT_10,5,6,player,Qatar,Pedro,Miguel,defense,1990-08-06,73.0,1.80,2
+127,ENG_07,5,6,player,England,Harry,Maguire,defense,1993-03-05,99.0,1.94,0
+128,CRO_02,5,6,shield,Croatia,Team logo,,keeper,1995-02-01,88.0,1.95,0
+129,BRA_09,5,6,player,Brazil,Thiago,Silva,defense,1984-09-22,79.0,1.83,0
+130,ECU_02,5,6,shield,Ecuador,Team logo,,,,,,0
+131,SEN_08,5,7,player,Senegal,Kalidou,Koulibaly,defense,1991-06-20,89.0,1.95,1
+132,ESP_07,5,7,player,Spain,Jordi,Alba,defense,1989-03-21,68.0,1.70,0
+133,ECU_08,5,7,player,Ecuador,Piero,Hincapié,defense,2002-01-09,66.0,1.83,0
+134,KSA_19,5,7,player,Saudi Arabia,Salem,Al-Dawsari,attack,1991-08-19,72.0,1.71,0
+135,POR_17,5,7,player,Portugal,André,Silva,attack,1995-11-06,84.0,1.85,0
+136,WAL_11,5,8,player,Wales,Neco,Williams,defense,2001-04-13,72.0,1.83,0
+137,WAL_05,5,8,player,Wales,Ethan,Ampadu,defense,2000-09-14,78.0,1.83,1
+138,CMR_05,5,8,player,Cameroon,Jean-Charles,Castelletto,defense,1995-01-26,78.0,1.86,0
+139,ECU_11,5,8,player,Ecuador,Moisés,Caicedo,middle,2001-11-02,73.0,1.78,1
+140,MEX_06,5,8,player,Mexico,Jesús,Gallardo,defense,1994-08-15,73.0,1.76,0
+141,URU_06,5,9,player,Uruguay,Martín,Cáceres,defense,1987-04-07,78.0,1.8,0
+142,ENG_08,5,9,player,England,Luke,Shaw,defense,1995-07-12,75.0,1.85,0
+143,QAT_11,5,9,player,Qatar,Tarek,Salman,defense,1997-12-05,69.0,1.79,1
+144,SRB_17,5,9,player,Serbia,Luka,Jović,attack,1997-12-23,85.0,1.82,1
+145,ARG_02,5,9,shield,Argentina,Team logo,,,,,,0
+146,GER_12,5,10,player,Germany,İlkay,Gündoğan,middle,1990-10-24,79.0,1.80,0
+147,CRO_08,5,10,player,Croatia,Dejan,Lovren,defense,1989-07-05,84.0,1.88,0
+148,BEL_16,5,10,player,Belgium,Axel,Witsel,middle,1989-01-12,81.0,1.86,1
+149,KSA_13,5,10,player,Saudi Arabia,Abdulelah,Al-Malki,middle,1994-10-11,69.0,1.76,0
+150,CRC_11,5,10,player,Costa Rica,Kendall,Waston,defense,1988-01-01,97.0,1.95,1
+151,POL_02,6,1,shield,Poland,Team logo,,,,,,0
+152,QAT_02,6,1,shield,Qatar,Team logo,,,,,,0
+153,SEN_19,6,1,player,Senegal,Sadio,Mané,attack,1992-04-10,69.0,1.75,1
+154,USA_17,6,1,player,USA,Ricardo,Pepi,attack,2003-01-09,74.0,1.85,0
+155,MEX_09,6,1,player,Mexico,Luis,Romo,defense,1995-06-05,84.0,1.82,0
+156,CRO_18,6,2,player,Croatia,Andrej,Kramarić,attack,1991-06-19,73.0,1.77,0
+157,CRO_15,6,2,player,Croatia,Ivan,Perišić,middle,1989-02-02,80.0,1.86,0
+158,TUN_13,6,2,player,Tunisia,Wahbi,Khazri,middle,1991-02-08,76.0,1.82,0
+159,WAL_09,6,2,player,Wales,Connor,Roberts,defense,1995-09-23,75.0,1.73,1
+160,AUS_03,6,2,player,Australia,Mathew,Ryan,keeper,1992-04-08,82.0,1.84,0
+161,KSA_08,6,3,player,Saudi Arabia,Sultan,Al-Ghannam,defense,1994-05-06,67.0,1.73,0
+162,SRB_11,6,3,player,Serbia,Darko,Lazović,middle,1990-09-15,66.0,1.81,1
+163,CMR_16,6,3,player,Cameroon,Vincent,Aboubakar,attack,1992-01-22,78.0,1.84,0
+164,CMR_14,6,3,player,Cameroon,Samuel,Oum Gouet,middle,1997-12-14,74.0,1.85,0
+165,CRC_18,6,3,player,Costa Rica,Anthony,Contreras,attack,2000-01-29,72.0,1.80,0
+166,JPN_14,6,4,player,Japan,Ao,Tanaka,middle,1998-09-10,69.0,1.80,0
+167,ARG_17,6,4,player,Argentina,Alejandro,Gómez,attack,1988-02-15,68.0,1.65,0
+168,KSA_04,6,4,player,Saudi Arabia,Mohammed,Al-Rubaie,keeper,1997-08-14,77.0,1.88,0
+169,URU_11,6,4,player,Uruguay,Rodrigo,Bentancur,middle,1997-06-25,77.0,1.87,1
+170,CAN_15,6,4,player,Canada,Mark-Anthony,Kaye,middle,1994-12-02,77.0,1.86,0
+171,BEL_18,6,5,player,Belgium,Eden,Hazard,attack,1991-01-07,74.0,1.75,0
+172,CAN_08,6,5,player,Canada,Richie,Laryea,defense,1995-01-07,68.0,1.75,0
+173,WAL_17,6,5,player,Wales,Gareth,Bale,attack,1989-07-16,81.0,1.85,1
+174,ESP_18,6,5,player,Spain,Ferran,Torres,attack,2000-02-29,77.0,1.84,0
+175,FRA_08,6,5,player,France,Jules,Koundé,defense,1998-11-12,75.0,1.8,0
+176,CRO_09,7,1,player,Croatia,Borna,Sosa,defense,1998-01-21,79.0,1.87,0
+177,IRN_13,7,1,player,Ir Iran,Saeid,Ezatolahi,middle,1996-10-01,78.0,1.90,0
+181,MEX_14,7,2,player,Mexico,Érick,Gutiérrez,middle,1995-06-15,70.0,1.78,0
+182,AUS_16,7,2,player,Australia,Martin,Boyle,attack,1993-04-25,53.0,1.72,0
+183,FRA_04,7,2,player,France,Mike,Maignan,keeper,1995-07-03,91.0,1.91,1
+185,FWC_27,7,2,FIFA Museum,,France 1998,,,,,,0
+187,POR_07,7,3,player,Portugal,Nuno,Mendes,defense,2002-06-19,70.0,1.76,0
+188,AUS_02,7,3,shield,Australia,Team logo,,,,,,0
+189,SUI_17,7,3,player,Switzerland,Breel,Embolo,attack,1997-02-14,84.0,1.85,0
+191,MAR_11,7,4,player,Morocco,Sofyan,Amrabat,middle,1996-08-21,70.0,1.83,2
+193,POL_18,7,4,player,Poland,Arkadiusz,Milik,attack,1994-02-28,78.0,1.86,0
+195,KOR_05,7,4,player,Korea Republic,Chul,Hong,defense,1990-09-17,70.0,1.76,0
+196,BEL_14,7,5,player,Belgium,Youri,Tielemans,middle,1997-05-07,72.0,1.76,2
+197,SEN_02,7,5,shield,Senegal,Team logo,,,,,,1
+198,FRA_15,7,5,player,France,Wissam,Ben Yedder,attack,1990-08-12,68.0,1.70,2
+199,SUI_14,7,5,player,Switzerland,Granit,Xhaka,middle,1992-09-27,82.0,1.85,2
+200,URU_18,7,5,player,Uruguay,Darwin,Núñez,attack,1999-06-24,78.0,1.87,0
+203,GHA_19,7,6,player,Ghana,Issahaku,Abdul Fatawu,attack,2004-03-08,72.0,1.77,0
+204,GER_15,7,6,player,Germany,Joshua,Kimmich,middle,1995-02-08,73.0,1.76,0
+206,IRN_10,7,6,player,Ir Iran,Sadegh,Moharrami,defense,1996-03-01,71.0,1.74,0
+208,MAR_10,7,7,player,Morocco,Selim,Amallah,middle,1996-11-15,82.0,1.86,0
+210,SRB_03,7,7,player,Serbia,Predrag,Rajković,keeper,1995-10-31,85.0,1.91,0
+212,NED_07,7,8,player,Netherlands,Stefan,de Vrij,defense,1992-02-05,78.0,1.89,0
+213,ESP_10,7,8,player,Spain,Gavi,,middle,2004-08-05,68.0,1.73,0
+216,ECU_09,7,8,player,Ecuador,Ángelo,Preciado,defense,1998-02-18,73.0,1.73,0
+217,CRC_20,7,9,player,Costa Rica,Johan,Venegas,attack,1988-11-27,76.0,1.83,1
+218,WAL_06,7,9,player,Wales,Ben,Davies,defense,1993-04-24,76.0,1.81,0
+220,POR_20,7,9,player,Portugal,Gonçalo,Guedes,attack,1996-11-29,73.0,1.79,0
+221,BEL_04,7,9,player,Belgium,Simon,Mignolet,keeper,1988-03-06,87.0,1.93,0
+223,MEX_12,7,10,player,Mexico,Jesús,Manuel Corona,middle,1993-01-06,62.0,1.73,0
+224,SRB_09,7,10,player,Serbia,Nemanja,Gudelj,middle,1991-11-16,73.0,1.87,0
+225,URU_16,7,10,player,Uruguay,Matías,Vecino,middle,1991-11-16,81.0,1.87,0
+226,GER_02,7,10,shield,Germany,Team logo,,,,,,0
+227,TUN_15,8,1,player,Tunisia,Ferjani,Sassi,middle,1992-03-18,80.0,1.86,1
+229,AUS_04,8,1,player,Australia,Andrew,Redmayne,middle,1996-09-20,70.0,1.77,0
+231,KOR_11,8,1,player,Korea Republic,In-beom,Hwang,middle,1996-09-20,70.0,1.77,1
+233,AUS_08,8,2,player,Australia,Joel,King,defense,2000-10-30,78.0,1.80,2
+236,ECU_05,8,2,player,Ecuador,Robert,Arboleda,defense,1991-10-22,85.0,1.87,1
+237,TUN_20,8,3,player,Tunisia,Naïm,Sliti,attack,1992-07-27,75.0,1.73,1
+238,FWC_09,8,3,stadium,,Al Janoub,,,,,,2
+239,MEX_15,8,3,player,Mexico,Héctor,Herrera,middle,1990-04-19,78.0,1.85,1
+243,GER_03,8,4,player,Germany,Manuel,Neuer,keeper,1986-03-27,92.0,1.93,1
+244,SRB_20,8,4,player,Serbia,Dušan,Vlahović,attack,2000-01-28,75.0,1.90,0
+245,CMR_17,8,4,player,Cameroon,Stéphane,Bahoken,attack,1992-05-28,88.0,1.85,2
+249,SUI_08,8,5,player,Switzerland,Ricardo,Rodríguez,defense,1992-08-25,77.0,1.82,0
+251,QAT_19,8,5,player,Qatar,Almoez,Ali,attack,1996-08-19,68.0,1.80,0
+252,ENG_18,8,6,player,England,Harry,Kane,attack,1993-07-28,85.0,1.88,0
+253,JPN_17,8,6,player,Japan,Junya,Ito,attack,1993-03-09,66.0,1.76,0
+254,ENG_04,8,6,player,England,Aaron,Ramsdale,keeper,1998-05-14,77.0,1.88,1
+255,MAR_16,8,6,player,Morocco,Ayoub,El Kaabi,attack,1993-06-25,72.0,1.82,0
+257,URU_19,8,7,player,Uruguay,Facundo,Pellistri,attack,2001-12-20,69.0,1.74,1
+258,BEL_01,8,7,squad,Belgium,Team shot,,,,,,1
+259,MEX_16,8,7,player,Mexico,Diego,Lainez,middle,2000-06-09,58.0,1.68,1
+264,ARG_07,8,8,player,Argentina,Nicolás,Otamendi,defense,1988-02-12,81.0,1.83,0
+266,URU_15,8,8,player,Uruguay,Federico,Valverde,middle,1998-07-22,78.0,1.82,1
+267,GER_08,8,9,player,Germany,David,Raum,defense,1998-04-22,75.0,1.80,1
+268,KOR_03,8,9,player,Korea Republic,Seung-gyu,Kim,keeper,1990-09-30,84.0,1.87,0
+269,MEX_19,8,9,player,Mexico,Raúl,Jiménez,attack,1991-05-05,76.0,1.90,1
+271,SEN_15,8,9,player,Senegal,Nampalys,Mendy,middle,1992-06-23,73.0,1.67,3
+275,MAR_18,8,10,player,Morocco,Ryan,Mmaee,attack,1997-11-01,85.0,1.88,0
+276,POR_09,8,10,player,Portugal,Raphaël,Guerreiro,defense,1993-12-22,71.0,1.70,1
+277,GHA_04,9,1,player,Ghana,Richard,Ofori,keeper,1993-11-01,99.0,1.90,0
+279,ESP_15,9,1,player,Spain,Sergio,Busquets,middle,1988-07-16,76.0,1.89,0
+281,URU_14,9,1,player,Uruguay,Lucas,Torreira,middle,1996-02-11,64.0,1.68,0
+282,CRO_07,9,2,player,Croatia,Josip,Juranović,defense,1995-08-16,68.0,1.75,1
+283,DEN_12,9,2,player,Denmark,Christian,Eriksen,middle,1992-02-14,76.0,1.82,0
+284,BRA_15,9,2,player,Brazil,Antony,,attack,2000-02-24,63.0,1.74,0
+286,TUN_03,9,2,player,Tunisia,Bechir,Ben Saïd,keeper,1994-11-29,80.0,1.88,0
+294,ECU_10,9,4,player,Ecuador,Félix,Torres,defense,1997-01-11,78.0,1.87,1
+295,KOR_18,9,4,player,Korea Republic,Chang-hoon,Kwon,attack,1994-06-30,66.0,1.74,0
+296,ESP_08,9,4,player,Spain,Aymeric,Laporte,defense,1994-05-27,85.0,1.89,0
+299,MEX_11,9,5,player,Mexico,Edson,Álvarez,middle,1997-10-24,73.0,1.87,0
+300,SRB_13,9,5,player,Serbia,Nemanja,Maksimović,middle,1996-02-15,76.0,1.85,0
+301,SRB_02,9,5,shield,Serbia,Team logo,,,,,,0
+303,FRA_09,9,6,player,France,Benjamin,Pavard,defense,1996-03-28,76.0,1.86,0
+304,FRA_20,9,6,player,France,Christopher,Nkunku,attack,1997-11-14,73.0,1.75,1
+306,CRC_02,9,6,shield,Costa Rica,Team logo,,,,,,0
+308,TUN_04,9,7,player,Tunisia,Farouk,Ben Mustapha,keeper,1989-07-01,83.0,1.92,0
+312,AUS_20,9,8,player,Australia,Adam,Taggart,attack,1993-06-02,69.0,1.83,0
+314,SUI_11,9,8,player,Switzerland,Remo,Freuler,middle,1992-04-15,77.0,1.81,0
+316,SRB_16,9,8,player,Serbia,Andrija,Živković,middle,1996-07-11,62.0,1.69,1
+319,JPN_12,9,9,player,Japan,Hidemasa,Morita,middle,1995-10-10,74.0,1.77,0
+320,FRA_01,9,9,squad,France,Team shot,,,,,,0
+321,POL_06,9,9,player,Poland,Bartosz,Bereszyński,defense,1992-07-12,77.0,1.83,0
+323,BRA_02,9,10,shield,Brazil,Team logo,,,,,,0
+324,CAN_10,9,10,player,Canada,Steven,Vitória,defense,1987-01-11,86.0,1.95,1
+325,NED_11,9,10,player,Netherlands,Frenkie,de Jong,middle,1997-05-12,74.0,1.80,0
+326,SRB_06,9,10,player,Serbia,Strahinja,Pavlović,defense,2001-05-24,84.0,1.94,0
+328,MEX_02,10,1,shield,Mexico,Team logo,,,,,,0
+329,DEN_20,10,1,player,Denmark,Jonas,Wind,attack,1999-02-07,82.0,1.90,0
+330,GER_06,10,1,player,Germany,Robin,Gosens,defense,1994-07-05,76.0,1.83,1
+331,ENG_10,10,1,player,England,Kyle,Walker,defense,1990-05-28,70.0,1.78,0
+332,IRN_06,10,2,player,Ir Iran,Majid,Hosseini,defense,1996-06-20,78.0,1.83,0
+335,AUS_10,10,2,player,Australia,Harry,Souttar,defense,1998-10-22,79.0,1.98,0
+336,FRA_10,10,2,player,France,Raphaël,Varane,defense,1993-04-25,81.0,1.91,0
+337,WAL_08,10,3,player,Wales,Chris,Mepham,defense,1997-11-05,84.0,1.91,0
+338,CRC_03,10,3,player,Costa Rica,Keylor,Navas,keeper,1986-12-15,80.0,1.85,0
+339,JPN_19,10,3,player,Japan,Kaoru,Mitoma,attack,1997-05-20,71.0,1.78,0
+340,BEL_17,10,3,player,Belgium,Jérémy,Doku,attack,2002-05-27,72.0,1.71,0
+341,IRN_19,10,3,player,Ir Iran,Saman,Ghoddos,attack,1993-09-06,75.0,1.76,0
+342,MAR_03,10,4,player,Morocco,Yassine,Bounou,keeper,1991-04-05,78.0,1.95,0
+344,GER_10,10,4,player,Germany,Niklas,Süle,defense,1995-09-03,97.0,1.95,0
+346,BRA_20,10,4,player,Brazil,Vinícius,Jr,attack,2000-07-12,73.0,1.76,1
+347,GHA_06,10,5,player,Ghana,Abdul-Rahman,Baba,defense,1994-07-02,72.0,1.80,0
+348,GHA_09,10,5,player,Ghana,Jonathan,Mensah,defense,1994-07-02,83.0,1.87,1
+349,GHA_01,10,5,squad,Ghana,Team shot,,,,,,1
+351,MAR_13,10,5,player,Morocco,Ilias,Chair,middle,1997-10-30,53.0,1.58,0
+354,FWC_22,10,6,FIFA Museum,,England 1966,,,,,,0
+355,MAR_17,10,6,player,Morocco,Youssef,En-Nesyri,attack,1997-06-01,73.0,1.89,1
+356,USA_08,10,6,player,USA,Antonee,Robinson,defense,1997-08-08,70.0,1.83,1
+357,NED_04,10,7,player,Netherlands,Jasper,Cillessen,keeper,1989-04-22,83.0,1.85,0
+358,KOR_10,10,7,player,Korea Republic,Yong,Lee,defense,1986-12-24,74.0,1.80,1
+359,ENG_15,10,7,player,England,Kalvin,Phillips,middle,1995-12-02,73.0,1.78,0
+361,TUN_19,10,7,player,Tunisia,Youssef,Msakni,attack,1990-10-28,73.0,1.79,0
+362,QAT_03,10,8,player,Qatar,Saad,Al Sheeb,keeper,1990-02-19,83.0,1.88,0
+363,ENG_05,10,8,player,England,Trent,Alexander-Arnold,defense,1998-10-07,69.0,1.75,0
+364,ARG_13,10,8,player,Argentina,Leandro,Paredes,middle,1994-06-29,75.0,1.80,0
+365,NED_16,10,8,player,Netherlands,Steven,Bergwijn,attack,1997-10-08,74.0,1.78,1
+366,ARG_09,10,8,player,Argentina,Cristian,Romero,defense,1998-04-27,79.0,1.85,0
+367,TUN_02,10,9,shield,Tunisia,Team logo,,,,,,0
+368,SUI_19,10,9,player,Switzerland,Haris,Seferović,attack,1992-02-22,88.0,1.87,0
+370,IRN_12,10,9,player,Ir Iran,Vahid,Amiri,middle,1988-04-02,79.0,1.82,0
+371,KSA_17,10,9,player,Saudi Arabia,Abdullah,Otayf,middle,1992-08-03,68.0,1.77,1
+372,ENG_01,10,10,squad,England,Team shot,,,,,,0
+373,ECU_01,10,10,squad,Ecuador,Team shot,,,,,,0
+374,SUI_13,10,10,player,Switzerland,Djibril,Sow,middle,1997-02-06,77.0,1.84,2
+375,TUN_14,10,10,player,Tunisia,Aïssa,Laïdouni,middle,1996-12-13,75.0,1.83,0
+378,NED_05,11,1,player,Netherlands,Daley,Blind,defense,1990-03-09,72.0,1.80,0
+379,BEL_12,11,1,player,Belgium,Charles,De Ketelaere,middle,2001-03-10,79.0,1.92,0
+380,ARG_10,11,1,player,Argentina,Rodrigo,De Paul,middle,1994-05-24,70.0,1.8,0
+382,KOR_14,11,2,player,Korea Republic,Seung-ho,Paik,middle,1997-03-17,72.0,1.82,0
+383,FWC_17,11,2,stadium,,Lusail indoor,,,,,,0
+385,BRA_11,11,3,player,Brazil,Philippe,Coutinho,middle,1992-06-12,68.0,1.71,0
+387,GHA_07,11,3,player,Ghana,Alexander,Djiku,defense,1994-08-09,81.0,1.82,0
+388,QAT_06,11,3,player,Qatar,Bassam,Alrawi,defense,1997-12-16,77.0,1.74,1
+389,SEN_10,11,4,player,Senegal,Bouna,Sarr,defense,1992-01-31,71.0,1.78,0
+392,IRN_05,11,4,player,Ir Iran,Ehsan,Hajsafi,defense,1990-02-25,74.0,1.76,0
+393,SUI_01,11,5,squad,Switzerland,Team shot,,,,,,0
+394,ESP_09,11,5,player,Spain,Pau,Torres,defense,1997-01-16,80.0,1.91,0
+397,MAR_09,11,5,player,Morocco,Romain,Saïss,defense,1990-03-26,84.0,1.88,0
+448,WAL_02,11,1,shield,Wales,Team logo,,,,,,0
+449,BRA_12,11,2,player,Brazil,Fabinho,,middle,1993-10-23,78.0,1.88,0
+451,DEN_15,11,4,player,Denmark,Daniel,Wass,middle,1989-05-31,74.0,1.81,0
+401,TUN_06,12,1,player,Tunisia,Mohamed,Dräger,defense,1996-06-25,74.0,1.78,0
+402,BEL_07,12,1,player,Belgium,Jason,Denayer,defense,1995-06-28,80.0,1.84,0
+405,BRA_17,12,2,player,Brazil,Neymar,Jr,attack,1992-02-05,68.0,1.75,0
+407,FRA_19,12,2,player,France,Kylian,Mbappé,attack,1998-12-20,73.0,1.78,0
+408,GHA_14,12,3,player,Ghana,Thomas,Partey,middle,1993-06-13,77.0,1.85,0
+410,BEL_06,12,3,player,Belgium,Timothy,Castagne,defense,1995-12-05,80.0,1.85,1
+415,MEX_04,12,4,player,Mexico,Alfredo,Talavera,keeper,1982-09-18,80.0,1.88,1
+417,ENG_06,12,4,player,England,Conor,Coady,defense,1993-02-25,80.0,1.86,0
+419,GHA_05,12,5,player,Ghana,Daniel,Amartey,defense,1994-12-21,79.0,1.86,0
+422,FWC_25,12,5,FIFA Museum,,Italy 1982,,,,,,0
+423,POR_11,12,6,player,Portugal,Bernardo,Silva,middle,1994-08-10,64.0,1.73,0
+424,MEX_20,12,6,player,Mexico,Hirving,Lozano,attack,1995-07-30,70.0,1.77,0
+425,FWC_15,12,6,stadium,,Al Bayt indoor,,,,,,0
+429,MAR_08,12,7,player,Morocco,Samy,Mmaee,defense,1996-09-06,82.0,1.88,0
+432,KOR_09,12,7,player,Korea Republic,Jin-su,Kim,defense,1992-06-13,68.0,1.77,0
+433,SUI_03,12,8,player,Switzerland,Yann,Sommer,keeper,1988-12-17,79.0,1.83,0
+434,KSA_18,12,8,player,Saudi Arabia,Firas,Al-Buraikan,attack,2000-05-14,80.0,1.81,0
+441,GER_11,12,9,player,Germany,Leon,Goretzka,middle,1995-02-06,79.0,1.89,0
+443,IRN_02,12,10,shield,Ir Iran,Team logo,,,,,,0
+444,SUI_06,12,10,player,Switzerland,Nico,Elvedi,defense,1996-09-30,78.0,1.89,0
+447,BEL_20,12,10,player,Belgium,Dries,Mertens,attack,1987-05-06,61.0,1.69,0
+452,FWC_13,13,1,stadium,,Stadium 974,,,,,,0
+453,ESP_17,13,1,player,Spain,Ansu,Fati,attack,2002-10-31,66.0,1.78,0
+454,MAR_20,13,1,player,Morocco,Tarik,Tissoudali,attack,1993-04-02,70.0,1.82,0
+455,BEL_11,13,1,player,Belgium,Kevin,De Bruyne,middle,1991-06-28,68.0,1.81,0
+456,AUS_06,13,1,player,Australia,Miloš,Degenek,defense,1994-04-28,82.0,1.87,0
+460,SEN_03,13,2,player,Senegal,Édouard,Mendy,keeper,1992-03-01,93.0,1.97,0
+461,CRC_19,13,2,player,Costa Rica,Gerson,Torres,attack,1997-08-28,71.0,1.76,0
+462,FWC_12,13,3,stadium,,Khalifa International,,,,,,0
+463,SUI_15,13,3,player,Switzerland,Denis,Zakaria,middle,1996-11-20,80.0,1.90,0
+464,CAN_11,13,3,player,Canada,Tajon,Buchanan,middle,1999-02-08,71.0,1.83,0
+465,ARG_14,13,3,player,Argentina,Guido,Rodríguez,middle,1994-04-12,80.0,1.85,0
+467,POL_01,13,4,squad,Poland,Team shot,,,,,,0
+468,SUI_20,13,4,player,Switzerland,Ruben,Vargas,attack,1998-08-05,68.0,1.79,0
+473,NED_03,13,5,player,Netherlands,Justin,Bijlow,keeper,1998-01-22,84.0,1.90,0
+474,DEN_10,13,5,player,Denmark,Mikkel,Damsgaard,middle,2000-07-03,71.0,1.80,0
+475,KOR_08,13,5,player,Korea Republic,Young-gwon,Kim,defense,1990-02-27,83.0,1.86,0
+477,FWC_18,13,6,official match ball,,Al Rihla,,,,,,0
+478,FWC_04,13,6,content,,Official mascot,,,,,,0
+479,FWC_14,13,6,stadium,,Al Bayt outdoor,,,,,,0
+484,POR_06,13,7,player,Portugal,José,Fonte,defense,1983-12-22,81.0,1.91,0
+487,BRA_01,13,8,squad,Brazil,Team shot,,,,,,0
+489,ESP_19,13,8,player,Spain,Álvaro,Morata,attack,1992-10-23,82.0,1.89,0
+490,CRO_13,13,8,player,Croatia,Luka,Modrić,middle,1985-09-09,66.0,1.72,0
+491,FRA_06,13,8,player,France,Theo,Hernández,defense,1997-10-06,81.0,1.84,0
+494,GER_05,13,9,player,Germany,Matthias,Ginter,defense,1994-01-19,83.0,1.88,0
+496,NED_19,13,9,player,Netherlands,Cody,Gakpo,attack,1999-05-07,76.0,1.89,0
+497,BEL_05,13,10,player,Belgium,Toby,Alderweireld,defense,1989-03-02,81.0,1.86,0
+498,POR_18,13,10,player,Portugal,Cristiano,Ronaldo,attack,1985-02-05,83.0,1.87,0
+499,ENG_13,13,10,player,England,Jordan,Henderson,middle,1990-06-17,67.0,1.82,0

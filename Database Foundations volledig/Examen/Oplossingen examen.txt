@@ -1,0 +1,90 @@
+SET SEARCH_PATH TO schooladministratie;
+SELECT L.mentor, COUNT(*), L2.voornaam, L2.naam
+FROM lector L INNER JOIN lector L2 ON L.mentor= L2.lector_id
+WHERE L.mentor IS NOT NULL
+GROUP BY L.mentor, L2.lector_id
+ORDER BY 2 DESC
+
+
+
+
+SET SEARCH_PATH TO schooladministratie;
+SELECT ROUND(AVG(CAST(resultaat AS numeric)), 2)
+FROM examenkans
+WHERE EXTRACT(YEAR FROM datum) = '2020' and resultaat != 'NA'
+
+
+
+
+SET SEARCH_PATH TO schooladministratie;
+SELECT DISTINCT S.student_id
+FROM student S
+INNER JOIN inschrijving I ON S.student_id = I.student
+INNER JOIN opleiding O ON I.opleiding = O.opleiding_id
+INNER JOIN campus C ON  C.campus_id = O.campus AND C.naam = 'Campus Industrie'
+
+
+
+
+SET SEARCH_PATH TO schooladministratie;
+SELECT O.opocode, O.naam, AVG(CASE WHEN E.resultaat = 'NA' THEN 0 ELSE CAST(E.resultaat AS numeric) END), COUNT(*)
+FROM opleidingsonderdeel O 
+INNER JOIN examenkans E ON O.opocode = E.opo
+GROUP BY O.opocode
+HAVING COUNT(*) >= 10
+ORDER BY 3
+
+
+
+
+
+INSERT INTO lector
+VALUES('u9876543', 'Verbeken', 'Emma', 'emma.verbeken@ucll.be', 228, '1995/05/07', '2023/01/25', null, 'u8253588');
+INSERT INTO lector_geeft_opo
+VALUES('u9876543', 'U56982', 2023);
+UPDATE opleidingsonderdeel
+SET coördinator = 'u9876543'
+WHERE opocode = 'U56982'
+
+
+
+
+SET SEARCH_PATH TO schooladministratie;
+SELECT DISTINCT(S.voornaam || ' ' || S.naam) AS student, A.gemeente
+FROM student S
+INNER JOIN adres A ON S.adres = A.adres_id AND (LOWER(A.gemeente) LIKE '%a%e%' OR LOWER(A.gemeente) LIKE '%e%a%')
+INNER JOIN inschrijving I ON S.student_id = I.student
+INNER JOIN examenkans E ON E.inschrijving = I.inschrijving_id AND EXTRACT(MONTH FROM E.datum) = 8 AND (E.resultaat = '8' OR E.resultaat = '9')
+ORDER BY 2
+
+
+
+
+SET SEARCH_PATH TO schooladministratie;
+SELECT COUNT(DISTINCT(S1.student_id)) AS "Aantal beter dan gemiddeld"
+FROM student S1
+INNER JOIN inschrijving I1 ON S1.student_id = I1.student
+INNER JOIN opleiding O1 ON I1.opleiding = O1.opleiding_id
+INNER JOIN campus C1 ON  C1.campus_id = O1.campus AND C1.naam = 'Campus Hoogstraat'
+INNER JOIN examenkans E1 ON I1.inschrijving_id = E1.inschrijving
+WHERE E1.resultaat != 'NA' AND (CAST(E1.resultaat AS SMALLINT)) > (
+    SELECT AVG(CAST(E2.resultaat AS SMALLINT))
+    FROM student S2
+    INNER JOIN inschrijving I2 ON S2.student_id = I2.student
+    INNER JOIN opleiding O2 ON I2.opleiding = O2.opleiding_id
+    INNER JOIN campus C2 ON  C2.campus_id = O2.campus AND C2.naam = 'Campus Plateau'
+    INNER JOIN examenkans E2 ON I2.inschrijving_id = E2.inschrijving
+    WHERE E2.resultaat != 'NA'
+)
+
+
+
+
+
+SET SEARCH_PATH TO schooladministratie;
+SELECT A.straat
+FROM inschrijving I
+INNER JOIN student S ON S.student_id = I.student
+RIGHT OUTER JOIN adres A ON A.adres_id = S.adres
+WHERE S.student_id IS NULL AND A.gemeente = 'Aalst'
+SET SEARCH_PATH TO r0932517_check;

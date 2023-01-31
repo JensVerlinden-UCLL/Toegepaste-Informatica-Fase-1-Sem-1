@@ -1,0 +1,1421 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="PostgreSQL" id="Project-2612" database="PostgreSQL" >
+	<schema name="groep_64" >
+		<table name="aanvraag" generator_rows="100" >
+			<column name="id" type="char" length="8" decimal="0" jt="1" mandatory="y" />
+			<column name="huidige_status" type="varchar" length="8" decimal="0" jt="12" mandatory="y" />
+			<column name="beschrijving" type="varchar" length="400" decimal="0" jt="12" mandatory="y" />
+			<column name="naam_aanvrager" type="varchar" length="120" decimal="0" jt="12" mandatory="y" />
+			<column name="aanvraagdatum" type="date" length="13" decimal="0" jt="91" mandatory="y" />
+			<column name="intern_of_extern" type="char" length="6" decimal="0" jt="1" mandatory="y" />
+			<column name="deadline" type="date" length="13" decimal="0" jt="91" mandatory="y" />
+			<column name="naam_klant" type="varchar" length="150" decimal="0" jt="12" mandatory="y" />
+			<index name="pk_aanvraag" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="unq_aanvraag_intern_of_extern" unique="UNIQUE_KEY" >
+				<column name="intern_of_extern" />
+			</index>
+			<constraint name="cns_aanvraag_aanvraagdatum" >
+				<string><![CDATA[aanvraagdatum > '2014-01-01' and aanvraagdatum < DATE(NOW())]]></string>
+			</constraint>
+		</table>
+		<table name="aanvraag_voor_type_dienst" generator_rows="150" >
+			<column name="id" type="char" length="8" decimal="0" jt="1" mandatory="y" />
+			<column name="typenaam" type="varchar" length="21" decimal="0" jt="12" mandatory="y" />
+			<index name="pk_aanvraag_voor_type_dienst" unique="PRIMARY_KEY" >
+				<column name="id" />
+				<column name="typenaam" />
+			</index>
+			<fk name="fk_aanvraag_voor_type_dienst_aanvraag" to_schema="groep_64" to_table="aanvraag" >
+				<fk_column name="id" pk="id" />
+			</fk>
+			<fk name="fk_aanvraag_voor_type_dienst_type_dienst" to_schema="groep_64" to_table="type_dienst" >
+				<fk_column name="typenaam" pk="typenaam" />
+			</fk>
+		</table>
+		<table name="contactpersoon" generator_rows="100" >
+			<column name="personeelsnummer" type="char" length="8" decimal="0" jt="1" mandatory="y" regexp="[rs][0-9]{7}" />
+			<column name="voornaam" type="varchar" length="60" decimal="0" jt="12" mandatory="y" regexp="list:file=NamesFirst.txt" />
+			<column name="achternaam" type="varchar" length="100" decimal="0" jt="12" mandatory="y" regexp="list:file=NamesLast.txt" />
+			<column name="e-mail" type="varchar" length="200" decimal="0" jt="12" mandatory="y" regexp="[r-s][0-9]{7}@ucll.be" />
+			<column name="telefoonnummer" type="varchar" length="20" decimal="0" jt="12" mandatory="y" regexp="0[0-9]{9}" />
+			<index name="pk_contactpersoon" unique="PRIMARY_KEY" >
+				<column name="personeelsnummer" />
+			</index>
+		</table>
+		<table name="contactpersoon_in_aanvraag" prior="contactpersoon_wordt_vermeldt_in_aanvraag" generator_rows="150" >
+			<column name="personeelsnummer" type="char" length="8" decimal="0" jt="1" mandatory="y" />
+			<column name="id" type="char" length="8" decimal="0" jt="1" mandatory="y" />
+			<index name="pk_contactpersoon_wordt_vermeldt_in_aanvraag" unique="PRIMARY_KEY" >
+				<column name="personeelsnummer" />
+				<column name="id" />
+			</index>
+			<fk name="fk_contactpersoon_wordt_vermeldt_in_aanvraag_aanvraag" to_schema="groep_64" to_table="aanvraag" >
+				<fk_column name="id" pk="id" />
+			</fk>
+			<fk name="fk_contactpersoon_wordt_vermeldt_in_aanvraag_contactpersoon" to_schema="groep_64" to_table="contactpersoon" >
+				<fk_column name="personeelsnummer" pk="personeelsnummer" />
+			</fk>
+		</table>
+		<table name="contactpersoon_van_klant" generator_rows="150" >
+			<column name="personeelsnummer" type="char" length="8" decimal="0" jt="1" mandatory="y" />
+			<column name="naam_klant" type="varchar" length="150" decimal="0" jt="12" mandatory="y" />
+			<index name="pk_contactpersoon_van_klant" unique="PRIMARY_KEY" >
+				<column name="personeelsnummer" />
+				<column name="naam_klant" />
+			</index>
+			<fk name="fk_contactpersoon_van_klant_contactpersoon" to_schema="groep_64" to_table="contactpersoon" >
+				<fk_column name="personeelsnummer" pk="personeelsnummer" />
+			</fk>
+			<fk name="fk_contactpersoon_van_klant_klant" to_schema="groep_64" to_table="klant" >
+				<fk_column name="naam_klant" pk="naam_klant" />
+			</fk>
+		</table>
+		<table name="externe_klant" generator_rows="150" >
+			<column name="naam_klant" type="varchar" length="150" decimal="0" jt="12" mandatory="y" />
+			<column name="adres" type="varchar" length="300" decimal="0" jt="12" mandatory="y" />
+			<index name="pk_externe_klant" unique="PRIMARY_KEY" >
+				<column name="naam_klant" />
+			</index>
+			<fk name="fk_externe_klant_klant" to_schema="groep_64" to_table="klant" >
+				<fk_column name="naam_klant" pk="naam_klant" />
+			</fk>
+		</table>
+		<table name="ingeplande_medewerker_taak" prior="ingeplande medewerker taak" generator_rows="337" >
+			<column name="taak-id" type="char" length="8" jt="1" mandatory="y" />
+			<column name="personeelsnummer" type="char" length="8" jt="1" mandatory="y" />
+			<column name="week" type="date" jt="91" mandatory="y" />
+			<column name="aantal_uren" type="integer" jt="4" mandatory="y" />
+			<index name="pk_ingeplande medewerker taak" unique="PRIMARY_KEY" >
+				<column name="taak-id" />
+				<column name="personeelsnummer" />
+			</index>
+			<constraint name="cns_ingeplande_medewerker_taak_week" >
+				<string><![CDATA[to_char(week, 'Day') = 'Monday' and week > '2014-01-01']]></string>
+			</constraint>
+			<fk name="fk_ingeplande medewerker taak_taak" to_schema="groep_64" to_table="taak" >
+				<fk_column name="taak-id" pk="taak-id" />
+			</fk>
+			<fk name="fk_ingeplande medewerker taak_medewerker" to_schema="groep_64" to_table="medewerker" >
+				<fk_column name="personeelsnummer" pk="personeelsnummer" />
+			</fk>
+		</table>
+		<table name="interne_klant" generator_rows="150" >
+			<column name="naam_klant" type="varchar" length="150" decimal="0" jt="12" mandatory="y" />
+			<column name="departement" type="varchar" length="150" decimal="0" jt="12" />
+			<column name="opleiding" type="integer" length="10" decimal="0" jt="4" />
+			<column name="campus" type="varchar" length="150" decimal="0" jt="12" />
+			<index name="pk_interne_klant" unique="PRIMARY_KEY" >
+				<column name="naam_klant" />
+			</index>
+			<constraint name="cns_interne_klant" >
+				<string><![CDATA[departement IS NULL and opleiding IS NULL and campus IS NULL or departement IS NOT NULL and opleiding IS NOT NULL and campus IS NOT NULL or departement IS NOT NULL and campus IS NOT NULL]]></string>
+			</constraint>
+			<fk name="fk_interne_klant_klant" to_schema="groep_64" to_table="klant" >
+				<fk_column name="naam_klant" pk="naam_klant" />
+			</fk>
+		</table>
+		<table name="klant" generator_rows="16" >
+			<column name="naam_klant" type="varchar" length="150" decimal="0" jt="12" mandatory="y" regexp="(Re|Ad|Par|Tru|Thru|In|Bar|Cip|Dop|End|Em|Fro|Gro|Hap|Kli|Lom|Mon|Qwi|Rap|Sup|Sur|Tip|Tup|Un|Up|Var|Win|Zee)(ban|cad|dud|dim|er|frop|glib|hup|jub|kil|mun|nip|peb|pick|quest|rob|sap|sip|tan|tin|tum|ven|wer|werp|zap)(il|ic|im|in|up|ad|ack|am|on|ep|ed|ef|eg|aqu|ef|edg|op|oll|omm|ew|an|ex|pl)?(icator|or|ar|ax|an|ex|istor|entor|antor|in|over|ower|azz)(([ -]?Pro|Duplex|Multi){0}) (Direct|WorldWide|Holdings|International) (Inc|Company|Group|Corp.)?" />
+			<index name="pk_klant" unique="PRIMARY_KEY" >
+				<column name="naam_klant" />
+			</index>
+		</table>
+		<table name="label" generator_rows="100" >
+			<column name="label" type="varchar" length="100" decimal="0" jt="12" mandatory="y" />
+			<index name="pk_label" unique="PRIMARY_KEY" >
+				<column name="label" />
+			</index>
+		</table>
+		<table name="label_van_utmma-item" generator_rows="337" >
+			<column name="naam" type="varchar" length="150" decimal="0" jt="12" mandatory="y" />
+			<column name="label" type="varchar" length="100" decimal="0" jt="12" mandatory="y" />
+			<index name="pk_label_van_utmma-item" unique="PRIMARY_KEY" >
+				<column name="naam" />
+				<column name="label" />
+			</index>
+			<fk name="fk_label_van_utmma-item_utm_media_archive-item" to_schema="groep_64" to_table="utm_media_archive-item" >
+				<fk_column name="naam" pk="naam" />
+			</fk>
+			<fk name="fk_label_van_utmma-item_label" to_schema="groep_64" to_table="label" >
+				<fk_column name="label" pk="label" />
+			</fk>
+		</table>
+		<table name="medewerker" generator_rows="100" >
+			<column name="personeelsnummer" type="char" length="8" decimal="0" jt="1" mandatory="y" />
+			<column name="voornaam" type="varchar" length="60" decimal="0" jt="12" mandatory="y" />
+			<column name="achternaam" type="varchar" length="100" decimal="0" jt="12" mandatory="y" />
+			<column name="e-mail" type="varchar" length="200" decimal="0" jt="12" mandatory="y" />
+			<column name="telefoonnummer" type="varchar" length="20" decimal="0" jt="12" mandatory="y" />
+			<column name="capaciteit" type="smallint" length="5" decimal="0" jt="5" mandatory="y" />
+			<index name="pk_medewerker" unique="PRIMARY_KEY" >
+				<column name="personeelsnummer" />
+			</index>
+			<index name="unq_medewerker_voornaam" unique="UNIQUE_KEY" >
+				<column name="voornaam" />
+			</index>
+		</table>
+		<table name="medewerker_in_utmma-item" generator_rows="337" >
+			<column name="personeelsnummer" type="char" length="8" jt="1" mandatory="y" />
+			<column name="naam" type="varchar" length="150" jt="12" mandatory="y" />
+			<index name="pk_medewerker_in_utmma-item" unique="PRIMARY_KEY" >
+				<column name="personeelsnummer" />
+				<column name="naam" />
+			</index>
+			<fk name="fk_medewerker_in_utmma-item_utm_media_archive-item" to_schema="groep_64" to_table="utm_media_archive-item" >
+				<fk_column name="naam" pk="naam" />
+			</fk>
+			<fk name="fk_medewerker_in_utmma-item_medewerker" to_schema="groep_64" to_table="medewerker" >
+				<fk_column name="personeelsnummer" pk="personeelsnummer" />
+			</fk>
+		</table>
+		<table name="medewerker_taak" generator_rows="337" >
+			<column name="taak-id" type="char" length="8" jt="1" mandatory="y" />
+			<column name="personeelsnummer" type="char" length="8" jt="1" mandatory="y" />
+			<index name="pk_medewerker_taak" unique="PRIMARY_KEY" >
+				<column name="taak-id" />
+				<column name="personeelsnummer" />
+			</index>
+			<fk name="fk_medewerker_taak_taak" to_schema="groep_64" to_table="taak" >
+				<fk_column name="taak-id" pk="taak-id" />
+			</fk>
+			<fk name="fk_medewerker_taak_medewerker" to_schema="groep_64" to_table="medewerker" >
+				<fk_column name="personeelsnummer" pk="personeelsnummer" />
+			</fk>
+		</table>
+		<table name="medewerker_voor_type_dienst" generator_rows="150" >
+			<column name="personeelsnummer" type="char" length="8" jt="1" mandatory="y" />
+			<column name="typenaam" type="varchar" length="21" jt="12" mandatory="y" />
+			<index name="pk_medewerker_voor_type_dienst" unique="PRIMARY_KEY" >
+				<column name="personeelsnummer" />
+				<column name="typenaam" />
+			</index>
+			<fk name="fk_medewerker_voor_type_dienst_medewerker" to_schema="groep_64" to_table="medewerker" >
+				<fk_column name="personeelsnummer" pk="personeelsnummer" />
+			</fk>
+			<fk name="fk_medewerker_voor_type_dienst_type_dienst" to_schema="groep_64" to_table="type_dienst" >
+				<fk_column name="typenaam" pk="typenaam" />
+			</fk>
+		</table>
+		<table name="project" generator_rows="150" >
+			<column name="id" type="char" length="8" decimal="0" jt="1" mandatory="y" />
+			<column name="factuur" type="numeric" jt="2" />
+			<column name="startdatum" type="date" length="13" decimal="0" jt="91" mandatory="y" />
+			<column name="einddatum" type="date" length="13" decimal="0" jt="91" mandatory="y" />
+			<column name="status" type="varchar" length="19" decimal="0" jt="12" mandatory="y" />
+			<column name="korting" type="numeric" jt="2" />
+			<column name="kostenplaats" type="varchar" length="150" decimal="0" jt="12" />
+			<column name="verantwoordelijke_medewerker" type="char" length="8" decimal="0" jt="1" mandatory="y" />
+			<column name="naam_klant" type="varchar" length="150" decimal="0" jt="12" mandatory="y" />
+			<column name="inschattingsjaar" type="date" length="13" decimal="0" jt="91" mandatory="y" />
+			<column name="projectnaam" type="varchar" length="150" decimal="0" jt="12" mandatory="y" />
+			<column name="intern_of_extern" type="char" length="6" jt="1" mandatory="y" />
+			<index name="pk_project" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="unq_project" unique="UNIQUE_KEY" >
+				<column name="intern_of_extern" />
+			</index>
+			<constraint name="cns_project_kostenplaats" >
+				<string><![CDATA[intern_of_extern = 'intern' and kostenplaats IS NOT NULL or intern_of_extern = 'extern'  and kostenplaats IS NULL]]></string>
+			</constraint>
+			<constraint name="cns_project_factuur" >
+				<string><![CDATA[(status = 'delivered' or status = 'closed') AND factuur IS NOT NULL OR (status = 'planned and ongoing' or status = 'estimation ongoing') AND factuur IS NULL]]></string>
+			</constraint>
+			<constraint name="cns_project_data" >
+				<string><![CDATA[startdatum > '2014-01-01' and einddatum > '2014-01-01']]></string>
+			</constraint>
+			<fk name="fk_project_klant" to_schema="groep_64" to_table="klant" >
+				<fk_column name="naam_klant" pk="naam_klant" />
+			</fk>
+			<fk name="fk_project_rate_algemene_werking" to_schema="groep_64" to_table="rate_algemene_werking" >
+				<fk_column name="inschattingsjaar" pk="inschattingsjaar" />
+			</fk>
+			<fk name="fk_project_aanvraag" to_schema="groep_64" to_table="aanvraag" >
+				<fk_column name="id" pk="id" />
+			</fk>
+			<fk name="fk_project_aanvraag_0" to_schema="groep_64" to_table="aanvraag" >
+				<fk_column name="intern_of_extern" pk="intern_of_extern" />
+			</fk>
+		</table>
+		<table name="project_is_gekoppeld_aan_project" generator_rows="225" >
+			<column name="id1" type="char" length="8" decimal="0" jt="1" mandatory="y" />
+			<column name="id2" type="char" length="8" decimal="0" jt="1" mandatory="y" />
+			<index name="pk_project_is_gekoppeld_aan_project" unique="PRIMARY_KEY" >
+				<column name="id1" />
+				<column name="id2" />
+			</index>
+			<fk name="fk_project_is_gekoppeld_aan_project_project" to_schema="groep_64" to_table="project" >
+				<fk_column name="id1" pk="id" />
+			</fk>
+			<fk name="fk_project_is_gekoppeld_aan_project_project_0" to_schema="groep_64" to_table="project" >
+				<fk_column name="id2" pk="id" />
+			</fk>
+		</table>
+		<table name="rate_algemene_werking" generator_rows="100" >
+			<column name="inschattingsjaar" type="date" length="13" decimal="0" jt="91" mandatory="y" />
+			<column name="rate" type="numeric" jt="2" mandatory="y" />
+			<index name="pk_rate_algemene_werking" unique="PRIMARY_KEY" >
+				<column name="inschattingsjaar" />
+			</index>
+			<constraint name="cns_rate_algemene_werking_jaar" >
+				<string><![CDATA[EXTRACT(MONTH FROM inschattingsjaar) = 1 and EXTRACT(DAY FROM inschattingsjaar) = 1 and inschattingsjaar > '2014-01-01']]></string>
+			</constraint>
+		</table>
+		<table name="registreerder_projectprestaties" generator_rows="225" >
+			<column name="id" type="char" length="8" jt="1" mandatory="y" />
+			<column name="personeelsnummer" type="char" length="8" jt="1" mandatory="y" />
+			<column name="aantal_uren" type="integer" jt="4" mandatory="y" />
+			<column name="datum" type="date" jt="91" mandatory="y" />
+			<column name="opmerking_uren" type="varchar" length="400" jt="12" />
+			<column name="kosten" type="numeric" jt="2" />
+			<column name="beschrijving_kosten" type="varchar" length="400" jt="12" />
+			<index name="pk_registreerder_projectprestaties" unique="PRIMARY_KEY" >
+				<column name="id" />
+				<column name="personeelsnummer" />
+			</index>
+			<index name="unq_registreerder_projectprestaties_personeelsnummer" unique="UNIQUE_KEY" >
+				<column name="personeelsnummer" />
+			</index>
+			<index name="unq_registreerder_projectprestaties_id" unique="UNIQUE_KEY" >
+				<column name="id" />
+			</index>
+			<constraint name="cns_registreerder_projectprestaties_prestaties" >
+				<string><![CDATA[kosten is NOT NULL and beschrijving_kosten is NOT NULL or kosten is NULL and beschrijving_kosten is NULL]]></string>
+			</constraint>
+			<constraint name="cns_registreerder_projectprestaties_datum" >
+				<string><![CDATA[datum > '2014-01-01' and datum < DATE(NOW())]]></string>
+			</constraint>
+			<fk name="fk_registreerder_projectprestaties_project" to_schema="groep_64" to_table="project" >
+				<fk_column name="id" pk="id" />
+			</fk>
+			<fk name="fk_registreerder_projectprestaties_medewerker" to_schema="groep_64" to_table="medewerker" >
+				<fk_column name="personeelsnummer" pk="personeelsnummer" />
+			</fk>
+		</table>
+		<table name="registreerder_taakprestaties" generator_rows="337" >
+			<column name="taak-id" type="char" length="8" jt="1" mandatory="y" />
+			<column name="personeelsnummer" type="char" length="8" jt="1" mandatory="y" />
+			<column name="aantal_uren" type="integer" jt="4" mandatory="y" />
+			<column name="datum" type="date" jt="91" mandatory="y" />
+			<column name="opmerking-uren" type="varchar" length="400" jt="12" />
+			<column name="kosten" type="numeric" jt="2" />
+			<column name="beschrijving_kosten" type="varchar" length="400" jt="12" />
+			<index name="pk_registreerder_taakprestaties" unique="PRIMARY_KEY" >
+				<column name="taak-id" />
+				<column name="personeelsnummer" />
+			</index>
+			<constraint name="cns_registreerder_taakprestaties_prestaties" >
+				<string><![CDATA[kosten is NOT NULL and beschrijving_kosten is NOT NULL or kosten is NULL and beschrijving_kosten is NULL]]></string>
+			</constraint>
+			<constraint name="cns_registreerder_taakprestaties_datum" >
+				<string><![CDATA[datum > '2014-01-01' and datum < DATE(NOW())]]></string>
+			</constraint>
+			<fk name="fk_registreerder_taakprestaties_taak" to_schema="groep_64" to_table="taak" >
+				<fk_column name="taak-id" pk="taak-id" />
+			</fk>
+			<fk name="fk_registreerder_taakprestaties_medewerker" to_schema="groep_64" to_table="medewerker" >
+				<fk_column name="personeelsnummer" pk="personeelsnummer" />
+			</fk>
+		</table>
+		<table name="relatiebeheerder" prior="contactpersoon_beheert_relatie_met_externe_klant" generator_rows="225" >
+			<column name="personeelsnummer" type="char" length="8" decimal="0" jt="1" mandatory="y" />
+			<column name="naam_klant" type="varchar" length="150" decimal="0" jt="12" mandatory="y" />
+			<index name="pk_contactpersoon_beheert_relatie_met_externe_klan" unique="PRIMARY_KEY" >
+				<column name="personeelsnummer" />
+				<column name="naam_klant" />
+			</index>
+			<fk name="fk_contactpersoon_beheert_relatie_met_externe_klant_contactpers" to_schema="groep_64" to_table="contactpersoon" >
+				<fk_column name="personeelsnummer" pk="personeelsnummer" />
+			</fk>
+			<fk name="fk_contactpersoon_beheert_relatie_met_externe_klant_externe_kla" to_schema="groep_64" to_table="externe_klant" >
+				<fk_column name="naam_klant" pk="naam_klant" />
+			</fk>
+		</table>
+		<table name="statusveranderaar" generator_rows="150" >
+			<column name="personeelsnummer" type="char" length="8" jt="1" mandatory="y" />
+			<column name="id" type="char" length="8" jt="1" mandatory="y" />
+			<column name="datum" type="date" jt="91" mandatory="y" />
+			<column name="tijdstip" type="time" jt="92" mandatory="y" />
+			<column name="opmerking" type="varchar" length="400" jt="12" mandatory="y" />
+			<index name="pk_statusveranderaar" unique="PRIMARY_KEY" >
+				<column name="personeelsnummer" />
+				<column name="id" />
+			</index>
+			<index name="unq_statusveranderaar_id" unique="UNIQUE_KEY" >
+				<column name="id" />
+			</index>
+			<index name="unq_statusveranderaar_personeelsnummer" unique="UNIQUE_KEY" >
+				<column name="personeelsnummer" />
+			</index>
+			<constraint name="cns_statusveranderaar_datum" >
+				<string><![CDATA[datum > '2014-01-01' and datum < DATE(NOW())]]></string>
+			</constraint>
+			<fk name="fk_statusveranderaar_medewerker" to_schema="groep_64" to_table="medewerker" >
+				<fk_column name="personeelsnummer" pk="voornaam" />
+			</fk>
+			<fk name="fk_statusveranderaar_aanvraag" to_schema="groep_64" to_table="aanvraag" >
+				<fk_column name="id" pk="id" />
+			</fk>
+		</table>
+		<table name="taak" generator_rows="225" >
+			<column name="taak-id" type="char" length="8" jt="1" mandatory="y" />
+			<column name="typenaam" type="varchar" length="21" decimal="0" jt="12" mandatory="y" />
+			<column name="id" type="char" length="8" decimal="0" jt="1" mandatory="y" />
+			<column name="geschatte onkosten" type="numeric" jt="2" mandatory="y" />
+			<column name="geschat aantal uren" type="integer" length="10" decimal="0" jt="4" mandatory="y" />
+			<index name="pk_taak" unique="PRIMARY_KEY" >
+				<column name="taak-id" />
+			</index>
+			<fk name="fk_taak_type_dienst" to_schema="groep_64" to_table="type_dienst" >
+				<fk_column name="typenaam" pk="typenaam" />
+			</fk>
+			<fk name="fk_taak_project" to_schema="groep_64" to_table="project" >
+				<fk_column name="id" pk="id" />
+			</fk>
+		</table>
+		<table name="type_dienst" generator_rows="100" >
+			<column name="typenaam" type="varchar" length="21" decimal="0" jt="12" mandatory="y" />
+			<column name="rate" type="numeric" jt="2" mandatory="y" />
+			<index name="pk_type_dienst" unique="PRIMARY_KEY" >
+				<column name="typenaam" />
+			</index>
+		</table>
+		<table name="utm_media_archive-item" generator_rows="225" >
+			<column name="naam" type="varchar" length="150" decimal="0" jt="12" mandatory="y" />
+			<column name="id" type="char" length="8" decimal="0" jt="1" mandatory="y" />
+			<column name="beschrijving" type="varchar" length="400" decimal="0" jt="12" mandatory="y" />
+			<column name="datum_upload" type="date" length="13" decimal="0" jt="91" mandatory="y" />
+			<column name="bestandstype" type="varchar" length="60" decimal="0" jt="12" mandatory="y" />
+			<column name="bestandsgrootte_bytes" type="bigint" length="19" decimal="0" jt="-5" mandatory="y" />
+			<column name="url" type="varchar" length="300" decimal="0" jt="12" mandatory="y" />
+			<column name="vertrouwelijk" type="boolean" length="1" decimal="0" jt="-7" mandatory="y" />
+			<index name="pk_utm_media_archive-item" unique="PRIMARY_KEY" >
+				<column name="naam" />
+			</index>
+			<fk name="fk_utm_media_archive-item_project" to_schema="groep_64" to_table="project" >
+				<fk_column name="id" pk="id" />
+			</fk>
+		</table>
+	</schema>
+	<connector name="PostgreSQL" database="PostgreSQL" driver_class="org.postgresql.Driver" driver_jar="postgresql-42.4.0.jar" driver_desc="Standard" host="databanken.ucll.be" port="62223" instance="1TX36" user="local_r0932517" connection_properties="prepareThreshold=0" passwd="cnlvbnZPQW5iRDg=" useSystemProxy="false" />
+	<layout name="Main Layout" id="Layout-13d7" show_column_type="y" show_relation="columns" >
+		<entity schema="groep_64" name="aanvraag" color="C7F4BE" x="624" y="1280" />
+		<entity schema="groep_64" name="aanvraag_voor_type_dienst" color="C7F4BE" x="336" y="1280" />
+		<entity schema="groep_64" name="contactpersoon" color="C7F4BE" x="608" y="1664" />
+		<entity schema="groep_64" name="contactpersoon_in_aanvraag" color="C7F4BE" x="592" y="1504" />
+		<entity schema="groep_64" name="contactpersoon_van_klant" color="C7F4BE" x="880" y="1728" />
+		<entity schema="groep_64" name="externe_klant" color="C7F4BE" x="1312" y="1440" />
+		<entity schema="groep_64" name="ingeplande_medewerker_taak" color="C1D8EE" x="240" y="624" />
+		<entity schema="groep_64" name="interne_klant" color="BED3F4" x="1584" y="1696" />
+		<entity schema="groep_64" name="klant" color="C7F4BE" x="1168" y="1728" />
+		<entity schema="groep_64" name="label" color="BED3F4" x="1872" y="1472" />
+		<entity schema="groep_64" name="label_van_utmma-item" color="BED3F4" x="1824" y="1280" />
+		<entity schema="groep_64" name="medewerker" color="BED3F4" x="608" y="784" />
+		<entity schema="groep_64" name="medewerker_in_utmma-item" color="C1D8EE" x="1632" y="512" />
+		<entity schema="groep_64" name="medewerker_taak" color="C1D8EE" x="608" y="624" />
+		<entity schema="groep_64" name="medewerker_voor_type_dienst" color="C1D8EE" x="288" y="1024" />
+		<entity schema="groep_64" name="project" color="F4DDBE" x="1200" y="912" />
+		<entity schema="groep_64" name="project_is_gekoppeld_aan_project" color="F4DDBE" x="1440" y="800" />
+		<entity schema="groep_64" name="rate_algemene_werking" color="F4DDBE" x="1536" y="1200" />
+		<entity schema="groep_64" name="registreerder_projectprestaties" color="C1D8EE" x="912" y="880" />
+		<entity schema="groep_64" name="registreerder_taakprestaties" color="C1D8EE" x="1072" y="416" />
+		<entity schema="groep_64" name="relatiebeheerder" color="C7F4BE" x="928" y="1568" />
+		<entity schema="groep_64" name="statusveranderaar" color="C1D8EE" x="624" y="1008" />
+		<entity schema="groep_64" name="taak" color="BED3F4" x="608" y="400" />
+		<entity schema="groep_64" name="type_dienst" color="C7F4BE" x="48" y="1280" />
+		<entity schema="groep_64" name="utm_media_archive-item" color="F4DDBE" x="1792" y="912" />
+		<callout x="1680" y="80" pointer="Round" >
+			<comment><![CDATA[A layout is a diagram with data and query tools. 
+- Get a better understanding of the schema by creating multiple layouts 
+- Drag tables to the layout from the project tree. One table may show in multiple layouts 
+- Right-click the layout to create new tables 
+- Double-click table headers, columns, or foreign keys to edit]]></comment>
+		</callout>
+		<group name="interne_klant" color="ECF0F7" >
+			<entity schema="groep_64" name="label" />
+			<entity schema="groep_64" name="label_van_utmma-item" />
+			<entity schema="groep_64" name="medewerker_taak" />
+			<entity schema="groep_64" name="medewerker_in_utmma-item" />
+			<entity schema="groep_64" name="interne_klant" />
+			<entity schema="groep_64" name="registreerder_taakprestaties" />
+			<entity schema="groep_64" name="taak" />
+			<entity schema="groep_64" name="medewerker" />
+			<entity schema="groep_64" name="registreerder_projectprestaties" />
+			<entity schema="groep_64" name="statusveranderaar" />
+		</group>
+		<group name="project" color="F7F2EC" >
+			<entity schema="groep_64" name="utm_media_archive-item" />
+			<entity schema="groep_64" name="project_is_gekoppeld_aan_project" />
+			<entity schema="groep_64" name="rate_algemene_werking" />
+			<entity schema="groep_64" name="project" />
+		</group>
+		<group name="contactpersoon" color="EEF7EC" >
+			<entity schema="groep_64" name="klant" />
+			<entity schema="groep_64" name="externe_klant" />
+			<entity schema="groep_64" name="contactpersoon_van_klant" />
+			<entity schema="groep_64" name="type_dienst" />
+			<entity schema="groep_64" name="aanvraag_voor_type_dienst" />
+			<entity schema="groep_64" name="contactpersoon" />
+			<entity schema="groep_64" name="contactpersoon_in_aanvraag" />
+			<entity schema="groep_64" name="relatiebeheerder" />
+			<entity schema="groep_64" name="aanvraag" />
+		</group>
+		<script name="SQL_Editor" id="Editor-237" language="SQL" confirmed="y" >
+			<string><![CDATA[CREATE SCHEMA IF NOT EXISTS groep_64;
+
+CREATE  TABLE groep_64.aanvraag ( 
+	id                   char(8)  NOT NULL  ,
+	huidige_status       varchar(8)  NOT NULL  ,
+	beschrijving         varchar(400)  NOT NULL  ,
+	naam_aanvrager       varchar(120)  NOT NULL  ,
+	aanvraagdatum        date  NOT NULL  ,
+	intern_of_extern     char(6)  NOT NULL  ,
+	deadline             date  NOT NULL  ,
+	naam_klant           varchar(150)  NOT NULL  ,
+	CONSTRAINT pk_aanvraag PRIMARY KEY ( id )
+ );
+
+CREATE  TABLE groep_64.contactpersoon ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	voornaam             varchar(60)  NOT NULL  ,
+	achternaam           varchar(100)  NOT NULL  ,
+	"e-mail"             varchar(200)  NOT NULL  ,
+	telefoonnummer       varchar(20)  NOT NULL  ,
+	CONSTRAINT pk_contactpersoon PRIMARY KEY ( personeelsnummer )
+ );
+
+CREATE  TABLE groep_64.contactpersoon_wordt_vermeldt_in_aanvraag ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	id                   char(8)  NOT NULL  ,
+	CONSTRAINT pk_contactpersoon_wordt_vermeldt_in_aanvraag PRIMARY KEY ( personeelsnummer, id ),
+	CONSTRAINT fk_contactpersoon_wordt_vermeldt_in_aanvraag_aanvraag FOREIGN KEY ( id ) REFERENCES groep_64.aanvraag( id )   ,
+	CONSTRAINT fk_contactpersoon_wordt_vermeldt_in_aanvraag_contactpersoon FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.contactpersoon( personeelsnummer )   
+ );
+
+CREATE  TABLE groep_64.klant ( 
+	naam_klant           varchar(150)  NOT NULL  ,
+	CONSTRAINT pk_klant PRIMARY KEY ( naam_klant )
+ );
+
+CREATE  TABLE groep_64.label ( 
+	label                varchar(100)  NOT NULL  ,
+	CONSTRAINT pk_label PRIMARY KEY ( label )
+ );
+
+CREATE  TABLE groep_64.medewerker ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	voornaam             varchar(60)  NOT NULL  ,
+	achternaam           varchar(100)  NOT NULL  ,
+	"e-mail"             varchar(200)  NOT NULL  ,
+	telefoonnummer       varchar(20)  NOT NULL  ,
+	capaciteit           smallint  NOT NULL  ,
+	CONSTRAINT pk_medewerker PRIMARY KEY ( personeelsnummer )
+ );
+
+CREATE  TABLE groep_64.rate_algemene_werking ( 
+	inschattingsjaar     date  NOT NULL  ,
+	rate                 numeric  NOT NULL  ,
+	CONSTRAINT pk_rate_algemene_werking PRIMARY KEY ( inschattingsjaar )
+ );
+
+CREATE  TABLE groep_64.statusveranderaar ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	id                   char(8)  NOT NULL  ,
+	datum                date  NOT NULL  ,
+	tijdstip             time  NOT NULL  ,
+	opmerking            varchar(400)  NOT NULL  ,
+	CONSTRAINT pk_statusveranderaar PRIMARY KEY ( personeelsnummer, id ),
+	CONSTRAINT fk_statusveranderaar_medewerker FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer )   ,
+	CONSTRAINT fk_statusveranderaar_aanvraag FOREIGN KEY ( id ) REFERENCES groep_64.aanvraag( id )   
+ );
+
+CREATE  TABLE groep_64.type_dienst ( 
+	typenaam             varchar(21)  NOT NULL  ,
+	rate                 numeric  NOT NULL  ,
+	CONSTRAINT pk_type_dienst PRIMARY KEY ( typenaam )
+ );
+
+CREATE  TABLE groep_64.aanvraag_voor_type_dienst ( 
+	id                   char(8)  NOT NULL  ,
+	typenaam             varchar(21)  NOT NULL  ,
+	CONSTRAINT pk_aanvraag_voor_type_dienst PRIMARY KEY ( id, typenaam ),
+	CONSTRAINT fk_aanvraag_voor_type_dienst_aanvraag FOREIGN KEY ( id ) REFERENCES groep_64.aanvraag( id )   ,
+	CONSTRAINT fk_aanvraag_voor_type_dienst_type_dienst FOREIGN KEY ( typenaam ) REFERENCES groep_64.type_dienst( typenaam )   
+ );
+
+CREATE  TABLE groep_64.contactpersoon_van_klant ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	naam_klant           varchar(150)  NOT NULL  ,
+	CONSTRAINT pk_contactpersoon_van_klant PRIMARY KEY ( personeelsnummer, naam_klant ),
+	CONSTRAINT fk_contactpersoon_van_klant_contactpersoon FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.contactpersoon( personeelsnummer )   ,
+	CONSTRAINT fk_contactpersoon_van_klant_klant FOREIGN KEY ( naam_klant ) REFERENCES groep_64.klant( naam_klant )   
+ );
+
+CREATE  TABLE groep_64.externe_klant ( 
+	naam_klant           varchar(150)  NOT NULL  ,
+	adres                varchar(300)  NOT NULL  ,
+	CONSTRAINT pk_externe_klant PRIMARY KEY ( naam_klant ),
+	CONSTRAINT fk_externe_klant_klant FOREIGN KEY ( naam_klant ) REFERENCES groep_64.klant( naam_klant )   
+ );
+
+CREATE  TABLE groep_64.interne_klant ( 
+	naam_klant           varchar(150)  NOT NULL  ,
+	departement          varchar(150)    ,
+	opleiding            integer    ,
+	campus               varchar(150)    ,
+	CONSTRAINT pk_interne_klant PRIMARY KEY ( naam_klant ),
+	CONSTRAINT fk_interne_klant_klant FOREIGN KEY ( naam_klant ) REFERENCES groep_64.klant( naam_klant )   
+ );
+
+CREATE  TABLE groep_64.medewerker_voor_type_dienst ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	typenaam             varchar(21)  NOT NULL  ,
+	CONSTRAINT pk_medewerker_voor_type_dienst PRIMARY KEY ( personeelsnummer, typenaam ),
+	CONSTRAINT fk_medewerker_voor_type_dienst_medewerker FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer )   ,
+	CONSTRAINT fk_medewerker_voor_type_dienst_type_dienst FOREIGN KEY ( typenaam ) REFERENCES groep_64.type_dienst( typenaam )   
+ );
+
+CREATE  TABLE groep_64.project ( 
+	id                   char(8)  NOT NULL  ,
+	factuur              numeric    ,
+	startdatum           date  NOT NULL  ,
+	einddatum            date  NOT NULL  ,
+	status               varchar(19)  NOT NULL  ,
+	korting              numeric    ,
+	kostenplaats         varchar(150)    ,
+	verantwoordelijke_medewerker char(8)  NOT NULL  ,
+	naam_klant           varchar(150)  NOT NULL  ,
+	inschattingsjaar     date  NOT NULL  ,
+	projectnaam          varchar(150)  NOT NULL  ,
+	CONSTRAINT pk_project PRIMARY KEY ( id ),
+	CONSTRAINT fk_project_klant FOREIGN KEY ( naam_klant ) REFERENCES groep_64.klant( naam_klant )   ,
+	CONSTRAINT fk_project_rate_algemene_werking FOREIGN KEY ( inschattingsjaar ) REFERENCES groep_64.rate_algemene_werking( inschattingsjaar )   ,
+	CONSTRAINT fk_project_aanvraag FOREIGN KEY ( id ) REFERENCES groep_64.aanvraag( id )   
+ );
+
+CREATE  TABLE groep_64.project_is_gekoppeld_aan_project ( 
+	id1                  char(8)  NOT NULL  ,
+	id2                  char(8)  NOT NULL  ,
+	CONSTRAINT pk_project_is_gekoppeld_aan_project PRIMARY KEY ( id1, id2 ),
+	CONSTRAINT fk_project_is_gekoppeld_aan_project_project FOREIGN KEY ( id1 ) REFERENCES groep_64.project( id )   ,
+	CONSTRAINT fk_project_is_gekoppeld_aan_project_project_0 FOREIGN KEY ( id2 ) REFERENCES groep_64.project( id )   
+ );
+
+CREATE  TABLE groep_64.registreerder_projectprestaties ( 
+	id                   char(8)  NOT NULL  ,
+	personeelsnummer     char(8)  NOT NULL  ,
+	aantal_uren          integer  NOT NULL  ,
+	datum                date  NOT NULL  ,
+	opmerking_uren       varchar(400)    ,
+	kosten               numeric    ,
+	beschrijving_kosten  varchar(400)    ,
+	CONSTRAINT pk_registreerder_projectprestaties PRIMARY KEY ( id, personeelsnummer ),
+	CONSTRAINT fk_registreerder_projectprestaties_project FOREIGN KEY ( id ) REFERENCES groep_64.project( id )   ,
+	CONSTRAINT fk_registreerder_projectprestaties_medewerker FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer )   
+ );
+
+CREATE  TABLE groep_64.taak ( 
+	"taak-id"            char(8)  NOT NULL  ,
+	typenaam             varchar(21)  NOT NULL  ,
+	id                   char(8)  NOT NULL  ,
+	"geschatte onkosten" numeric  NOT NULL  ,
+	"geschat aantal uren" integer  NOT NULL  ,
+	CONSTRAINT pk_taak PRIMARY KEY ( "taak-id" ),
+	CONSTRAINT fk_taak_type_dienst FOREIGN KEY ( typenaam ) REFERENCES groep_64.type_dienst( typenaam )   ,
+	CONSTRAINT fk_taak_project FOREIGN KEY ( id ) REFERENCES groep_64.project( id )   
+ );
+
+CREATE  TABLE groep_64."utm_media_archive-item" ( 
+	naam                 varchar(150)  NOT NULL  ,
+	id                   char(8)  NOT NULL  ,
+	beschrijving         varchar(400)  NOT NULL  ,
+	datum_upload         date  NOT NULL  ,
+	bestandstype         varchar(60)  NOT NULL  ,
+	bestandsgrootte_bytes bigint  NOT NULL  ,
+	url                  varchar(300)  NOT NULL  ,
+	vertrouwelijk        boolean  NOT NULL  ,
+	CONSTRAINT "pk_utm_media_archive-item" PRIMARY KEY ( naam ),
+	CONSTRAINT "fk_utm_media_archive-item_project" FOREIGN KEY ( id ) REFERENCES groep_64.project( id )   
+ );
+
+CREATE  TABLE groep_64.contactpersoon_beheert_relatie_met_externe_klant ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	naam_klant           varchar(150)  NOT NULL  ,
+	CONSTRAINT pk_contactpersoon_beheert_relatie_met_externe_klan PRIMARY KEY ( personeelsnummer, naam_klant ),
+	CONSTRAINT fk_contactpersoon_beheert_relatie_met_externe_klant_contactpers FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.contactpersoon( personeelsnummer )   ,
+	CONSTRAINT fk_contactpersoon_beheert_relatie_met_externe_klant_externe_kla FOREIGN KEY ( naam_klant ) REFERENCES groep_64.externe_klant( naam_klant )   
+ );
+
+CREATE  TABLE groep_64."ingeplande medewerker taak" ( 
+	"taak-id"            char(8)  NOT NULL  ,
+	personeelsnummer     char(8)  NOT NULL  ,
+	week                 date  NOT NULL  ,
+	aantal_uren          integer  NOT NULL  ,
+	CONSTRAINT "pk_ingeplande medewerker taak" PRIMARY KEY ( "taak-id", personeelsnummer ),
+	CONSTRAINT "fk_ingeplande medewerker taak_taak" FOREIGN KEY ( "taak-id" ) REFERENCES groep_64.taak( "taak-id" )   ,
+	CONSTRAINT "fk_ingeplande medewerker taak_medewerker" FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer )   
+ );
+
+CREATE  TABLE groep_64."label_van_utmma-item" ( 
+	naam                 varchar(150)  NOT NULL  ,
+	label                varchar(100)  NOT NULL  ,
+	CONSTRAINT "pk_label_van_utmma-item" PRIMARY KEY ( naam, label ),
+	CONSTRAINT "fk_label_van_utmma-item_utm_media_archive-item" FOREIGN KEY ( naam ) REFERENCES groep_64."utm_media_archive-item"( naam )   ,
+	CONSTRAINT "fk_label_van_utmma-item_label" FOREIGN KEY ( label ) REFERENCES groep_64.label( label )   
+ );
+
+CREATE  TABLE groep_64."medewerker_in_utmma-item" ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	naam                 varchar(150)  NOT NULL  ,
+	CONSTRAINT "pk_medewerker_in_utmma-item" PRIMARY KEY ( personeelsnummer, naam ),
+	CONSTRAINT "fk_medewerker_in_utmma-item_utm_media_archive-item" FOREIGN KEY ( naam ) REFERENCES groep_64."utm_media_archive-item"( naam )   ,
+	CONSTRAINT "fk_medewerker_in_utmma-item_medewerker" FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer )   
+ );
+
+CREATE  TABLE groep_64.medewerker_taak ( 
+	"taak-id"            char(8)  NOT NULL  ,
+	personeelsnummer     char(8)  NOT NULL  ,
+	CONSTRAINT pk_medewerker_taak PRIMARY KEY ( "taak-id", personeelsnummer ),
+	CONSTRAINT fk_medewerker_taak_taak FOREIGN KEY ( "taak-id" ) REFERENCES groep_64.taak( "taak-id" )   ,
+	CONSTRAINT fk_medewerker_taak_medewerker FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer )   
+ );
+
+CREATE  TABLE groep_64.registreerder_taakprestaties ( 
+	"taak-id"            char(8)  NOT NULL  ,
+	personeelsnummer     char(8)  NOT NULL  ,
+	aantal_uren          integer  NOT NULL  ,
+	datum                date  NOT NULL  ,
+	"opmerking-uren"     varchar(400)    ,
+	kosten               bigint[]    ,
+	beschrijving_kosten  varchar(400)    ,
+	CONSTRAINT pk_registreerder_taakprestaties PRIMARY KEY ( "taak-id", personeelsnummer ),
+	CONSTRAINT fk_registreerder_taakprestaties_taak FOREIGN KEY ( "taak-id" ) REFERENCES groep_64.taak( "taak-id" )   ,
+	CONSTRAINT fk_registreerder_taakprestaties_medewerker FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer )   
+ );
+]]></string>
+		</script>
+		<script name="SQL_Editor_001" id="Editor-b4d" language="SQL" confirmed="y" >
+			<string><![CDATA[CREATE SCHEMA IF NOT EXISTS groep_64;
+
+CREATE  TABLE groep_64.contactpersoon ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	voornaam             varchar(60)  NOT NULL  ,
+	achternaam           varchar(100)  NOT NULL  ,
+	"e-mail"             varchar(200)  NOT NULL  ,
+	telefoonnummer       varchar(20)  NOT NULL  ,
+	CONSTRAINT pk_contactpersoon PRIMARY KEY ( personeelsnummer )
+ );
+
+CREATE  TABLE groep_64.klant ( 
+	naam_klant           varchar(150)  NOT NULL  ,
+	CONSTRAINT pk_klant PRIMARY KEY ( naam_klant )
+ );
+
+CREATE  TABLE groep_64.label ( 
+	label                varchar(100)  NOT NULL  ,
+	CONSTRAINT pk_label PRIMARY KEY ( label )
+ );
+
+CREATE  TABLE groep_64.medewerker ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	voornaam             varchar(60)  NOT NULL  ,
+	achternaam           varchar(100)  NOT NULL  ,
+	"e-mail"             varchar(200)  NOT NULL  ,
+	telefoonnummer       varchar(20)  NOT NULL  ,
+	capaciteit           smallint  NOT NULL  ,
+	CONSTRAINT pk_medewerker PRIMARY KEY ( personeelsnummer )
+ );
+
+CREATE  TABLE groep_64.rate_algemene_werking ( 
+	inschattingsjaar     date  NOT NULL  ,
+	rate                 numeric  NOT NULL  ,
+	CONSTRAINT pk_rate_algemene_werking PRIMARY KEY ( inschattingsjaar )
+ );
+
+ALTER TABLE groep_64.rate_algemene_werking ADD CONSTRAINT cns_rate_algemene_werking_jaar CHECK ( EXTRACT(MONTH FROM inschattingsjaar) = 1 and EXTRACT(DAY FROM inschattingsjaar) = 1 and inschattingsjaar > '2014-01-01' );
+
+CREATE  TABLE groep_64.type_dienst ( 
+	typenaam             varchar(21)  NOT NULL  ,
+	rate                 numeric  NOT NULL  ,
+	CONSTRAINT pk_type_dienst PRIMARY KEY ( typenaam )
+ );
+
+CREATE  TABLE groep_64.contactpersoon_van_klant ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	naam_klant           varchar(150)  NOT NULL  ,
+	CONSTRAINT pk_contactpersoon_van_klant PRIMARY KEY ( personeelsnummer, naam_klant )
+ );
+
+CREATE  TABLE groep_64.externe_klant ( 
+	naam_klant           varchar(150)  NOT NULL  ,
+	adres                varchar(300)  NOT NULL  ,
+	CONSTRAINT pk_externe_klant PRIMARY KEY ( naam_klant )
+ );
+
+CREATE  TABLE groep_64.interne_klant ( 
+	naam_klant           varchar(150)  NOT NULL  ,
+	departement          varchar(150)    ,
+	opleiding            integer    ,
+	campus               varchar(150)    ,
+	CONSTRAINT pk_interne_klant PRIMARY KEY ( naam_klant )
+ );
+
+ALTER TABLE groep_64.interne_klant ADD CONSTRAINT cns_interne_klant CHECK ( departement IS NULL and opleiding IS NULL and campus IS NULL or departement IS NOT NULL and opleiding IS NOT NULL and campus IS NOT NULL or departement IS NOT NULL and campus IS NOT NULL );
+
+CREATE  TABLE groep_64.medewerker_voor_type_dienst ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	typenaam             varchar(21)  NOT NULL  ,
+	CONSTRAINT pk_medewerker_voor_type_dienst PRIMARY KEY ( personeelsnummer, typenaam )
+ );
+
+CREATE  TABLE groep_64.project ( 
+	id                   char(8)  NOT NULL  ,
+	factuur              numeric    ,
+	startdatum           date  NOT NULL  ,
+	einddatum            date  NOT NULL  ,
+	status               varchar(19)  NOT NULL  ,
+	korting              numeric    ,
+	kostenplaats         varchar(150)    ,
+	verantwoordelijke_medewerker char(8)  NOT NULL  ,
+	naam_klant           varchar(150)  NOT NULL  ,
+	inschattingsjaar     date  NOT NULL  ,
+	projectnaam          varchar(150)  NOT NULL  ,
+	intern_of_extern     char(6)  NOT NULL  ,
+	CONSTRAINT pk_project PRIMARY KEY ( id ),
+	CONSTRAINT unq_project UNIQUE ( intern_of_extern ) 
+ );
+
+ALTER TABLE groep_64.project ADD CONSTRAINT cns_project_kostenplaats CHECK ( intern_of_extern = 'intern' and kostenplaats IS NOT NULL or intern_of_extern = 'extern'  and kostenplaats IS NULL );
+
+ALTER TABLE groep_64.project ADD CONSTRAINT cns_project_factuur CHECK ( (status = 'delivered' or status = 'closed') AND factuur IS NOT NULL OR (status = 'planned and ongoing' or status = 'estimation ongoing') AND factuur IS NULL );
+
+ALTER TABLE groep_64.project ADD CONSTRAINT cns_project_data CHECK ( startdatum > '2014-01-01' and einddatum > '2014-01-01' );
+
+CREATE  TABLE groep_64.project_is_gekoppeld_aan_project ( 
+	id1                  char(8)  NOT NULL  ,
+	id2                  char(8)  NOT NULL  ,
+	CONSTRAINT pk_project_is_gekoppeld_aan_project PRIMARY KEY ( id1, id2 )
+ );
+
+CREATE  TABLE groep_64.registreerder_projectprestaties ( 
+	id                   char(8)  NOT NULL  ,
+	personeelsnummer     char(8)  NOT NULL  ,
+	aantal_uren          integer  NOT NULL  ,
+	datum                date  NOT NULL  ,
+	opmerking_uren       varchar(400)    ,
+	kosten               numeric    ,
+	beschrijving_kosten  varchar(400)    ,
+	CONSTRAINT pk_registreerder_projectprestaties PRIMARY KEY ( id, personeelsnummer )
+ );
+
+ALTER TABLE groep_64.registreerder_projectprestaties ADD CONSTRAINT cns_registreerder_projectprestaties_prestaties CHECK ( kosten is NOT NULL and beschrijving_kosten is NOT NULL or kosten is NULL and beschrijving_kosten is NULL );
+
+ALTER TABLE groep_64.registreerder_projectprestaties ADD CONSTRAINT cns_registreerder_projectprestaties_datum CHECK ( datum > '2014-01-01' and datum < DATE(NOW()) );
+
+CREATE  TABLE groep_64.relatiebeheerder ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	naam_klant           varchar(150)  NOT NULL  ,
+	CONSTRAINT pk_contactpersoon_beheert_relatie_met_externe_klan PRIMARY KEY ( personeelsnummer, naam_klant )
+ );
+
+CREATE  TABLE groep_64.taak ( 
+	"taak-id"            char(8)  NOT NULL  ,
+	typenaam             varchar(21)  NOT NULL  ,
+	id                   char(8)  NOT NULL  ,
+	"geschatte onkosten" numeric  NOT NULL  ,
+	"geschat aantal uren" integer  NOT NULL  ,
+	CONSTRAINT pk_taak PRIMARY KEY ( "taak-id" )
+ );
+
+CREATE  TABLE groep_64."utm_media_archive-item" ( 
+	naam                 varchar(150)  NOT NULL  ,
+	id                   char(8)  NOT NULL  ,
+	beschrijving         varchar(400)  NOT NULL  ,
+	datum_upload         date  NOT NULL  ,
+	bestandstype         varchar(60)  NOT NULL  ,
+	bestandsgrootte_bytes bigint  NOT NULL  ,
+	url                  varchar(300)  NOT NULL  ,
+	vertrouwelijk        boolean  NOT NULL  ,
+	CONSTRAINT "pk_utm_media_archive-item" PRIMARY KEY ( naam )
+ );
+
+CREATE  TABLE groep_64.ingeplande_medewerker_taak ( 
+	"taak-id"            char(8)  NOT NULL  ,
+	personeelsnummer     char(8)  NOT NULL  ,
+	week                 date  NOT NULL  ,
+	aantal_uren          integer  NOT NULL  ,
+	CONSTRAINT "pk_ingeplande medewerker taak" PRIMARY KEY ( "taak-id", personeelsnummer )
+ );
+
+ALTER TABLE groep_64.ingeplande_medewerker_taak ADD CONSTRAINT cns_ingeplande_medewerker_taak_week CHECK ( to_char(week, 'Day') = 'Monday' and week > '2014-01-01' );
+
+CREATE  TABLE groep_64."label_van_utmma-item" ( 
+	naam                 varchar(150)  NOT NULL  ,
+	label                varchar(100)  NOT NULL  ,
+	CONSTRAINT "pk_label_van_utmma-item" PRIMARY KEY ( naam, label )
+ );
+
+CREATE  TABLE groep_64."medewerker_in_utmma-item" ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	naam                 varchar(150)  NOT NULL  ,
+	CONSTRAINT "pk_medewerker_in_utmma-item" PRIMARY KEY ( personeelsnummer, naam )
+ );
+
+CREATE  TABLE groep_64.medewerker_taak ( 
+	"taak-id"            char(8)  NOT NULL  ,
+	personeelsnummer     char(8)  NOT NULL  ,
+	CONSTRAINT pk_medewerker_taak PRIMARY KEY ( "taak-id", personeelsnummer )
+ );
+
+CREATE  TABLE groep_64.registreerder_taakprestaties ( 
+	"taak-id"            char(8)  NOT NULL  ,
+	personeelsnummer     char(8)  NOT NULL  ,
+	aantal_uren          integer  NOT NULL  ,
+	datum                date  NOT NULL  ,
+	"opmerking-uren"     varchar(400)    ,
+	kosten               numeric    ,
+	beschrijving_kosten  varchar(400)    ,
+	CONSTRAINT pk_registreerder_taakprestaties PRIMARY KEY ( "taak-id", personeelsnummer )
+ );
+
+ALTER TABLE groep_64.registreerder_taakprestaties ADD CONSTRAINT cns_registreerder_taakprestaties_prestaties CHECK ( kosten is NOT NULL and beschrijving_kosten is NOT NULL or kosten is NULL and beschrijving_kosten is NULL );
+
+ALTER TABLE groep_64.registreerder_taakprestaties ADD CONSTRAINT cns_registreerder_taakprestaties_datum CHECK ( datum > '2014-01-01' and datum < DATE(NOW()) );
+
+CREATE  TABLE groep_64.aanvraag ( 
+	id                   char(8)  NOT NULL  ,
+	huidige_status       varchar(8)  NOT NULL  ,
+	beschrijving         varchar(400)  NOT NULL  ,
+	naam_aanvrager       varchar(120)  NOT NULL  ,
+	aanvraagdatum        date  NOT NULL  ,
+	intern_of_extern     char(6)  NOT NULL  ,
+	deadline             date  NOT NULL  ,
+	naam_klant           varchar(150)  NOT NULL  ,
+	CONSTRAINT pk_aanvraag PRIMARY KEY ( id ),
+	CONSTRAINT unq_aanvraag_intern_of_extern UNIQUE ( intern_of_extern ) 
+ );
+
+ALTER TABLE groep_64.aanvraag ADD CONSTRAINT cns_aanvraag_aanvraagdatum CHECK ( aanvraagdatum > '2014-01-01' and aanvraagdatum < DATE(NOW()) );
+
+CREATE  TABLE groep_64.aanvraag_voor_type_dienst ( 
+	id                   char(8)  NOT NULL  ,
+	typenaam             varchar(21)  NOT NULL  ,
+	CONSTRAINT pk_aanvraag_voor_type_dienst PRIMARY KEY ( id, typenaam )
+ );
+
+CREATE  TABLE groep_64.contactpersoon_in_aanvraag ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	id                   char(8)  NOT NULL  ,
+	CONSTRAINT pk_contactpersoon_wordt_vermeldt_in_aanvraag PRIMARY KEY ( personeelsnummer, id )
+ );
+
+CREATE  TABLE groep_64.statusveranderaar ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	id                   char(8)  NOT NULL  ,
+	datum                date  NOT NULL  ,
+	tijdstip             time  NOT NULL  ,
+	opmerking            varchar(400)  NOT NULL  ,
+	CONSTRAINT pk_statusveranderaar PRIMARY KEY ( personeelsnummer, id ),
+	CONSTRAINT unq_statusveranderaar_id UNIQUE ( id ) 
+ );
+
+ALTER TABLE groep_64.statusveranderaar ADD CONSTRAINT cns_statusveranderaar_datum CHECK ( datum > '2014-01-01' and datum < DATE(NOW()) );
+
+ALTER TABLE groep_64.aanvraag ADD CONSTRAINT fk_aanvraag_project FOREIGN KEY ( intern_of_extern ) REFERENCES groep_64.project( intern_of_extern );
+
+ALTER TABLE groep_64.aanvraag ADD CONSTRAINT fk_aanvraag_project_0 FOREIGN KEY ( id ) REFERENCES groep_64.project( id );
+
+ALTER TABLE groep_64.aanvraag ADD CONSTRAINT fk_aanvraag_statusveranderaar FOREIGN KEY ( id ) REFERENCES groep_64.statusveranderaar( id );
+
+ALTER TABLE groep_64.aanvraag_voor_type_dienst ADD CONSTRAINT fk_aanvraag_voor_type_dienst_aanvraag FOREIGN KEY ( id ) REFERENCES groep_64.aanvraag( id );
+
+ALTER TABLE groep_64.aanvraag_voor_type_dienst ADD CONSTRAINT fk_aanvraag_voor_type_dienst_type_dienst FOREIGN KEY ( typenaam ) REFERENCES groep_64.type_dienst( typenaam );
+
+ALTER TABLE groep_64.contactpersoon_in_aanvraag ADD CONSTRAINT fk_contactpersoon_wordt_vermeldt_in_aanvraag_aanvraag FOREIGN KEY ( id ) REFERENCES groep_64.aanvraag( id );
+
+ALTER TABLE groep_64.contactpersoon_in_aanvraag ADD CONSTRAINT fk_contactpersoon_wordt_vermeldt_in_aanvraag_contactpersoon FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.contactpersoon( personeelsnummer );
+
+ALTER TABLE groep_64.contactpersoon_van_klant ADD CONSTRAINT fk_contactpersoon_van_klant_contactpersoon FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.contactpersoon( personeelsnummer );
+
+ALTER TABLE groep_64.contactpersoon_van_klant ADD CONSTRAINT fk_contactpersoon_van_klant_klant FOREIGN KEY ( naam_klant ) REFERENCES groep_64.klant( naam_klant );
+
+ALTER TABLE groep_64.externe_klant ADD CONSTRAINT fk_externe_klant_klant FOREIGN KEY ( naam_klant ) REFERENCES groep_64.klant( naam_klant );
+
+ALTER TABLE groep_64.ingeplande_medewerker_taak ADD CONSTRAINT "fk_ingeplande medewerker taak_taak" FOREIGN KEY ( "taak-id" ) REFERENCES groep_64.taak( "taak-id" );
+
+ALTER TABLE groep_64.ingeplande_medewerker_taak ADD CONSTRAINT "fk_ingeplande medewerker taak_medewerker" FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer );
+
+ALTER TABLE groep_64.interne_klant ADD CONSTRAINT fk_interne_klant_klant FOREIGN KEY ( naam_klant ) REFERENCES groep_64.klant( naam_klant );
+
+ALTER TABLE groep_64."label_van_utmma-item" ADD CONSTRAINT "fk_label_van_utmma-item_utm_media_archive-item" FOREIGN KEY ( naam ) REFERENCES groep_64."utm_media_archive-item"( naam );
+
+ALTER TABLE groep_64."label_van_utmma-item" ADD CONSTRAINT "fk_label_van_utmma-item_label" FOREIGN KEY ( label ) REFERENCES groep_64.label( label );
+
+ALTER TABLE groep_64."medewerker_in_utmma-item" ADD CONSTRAINT "fk_medewerker_in_utmma-item_utm_media_archive-item" FOREIGN KEY ( naam ) REFERENCES groep_64."utm_media_archive-item"( naam );
+
+ALTER TABLE groep_64."medewerker_in_utmma-item" ADD CONSTRAINT "fk_medewerker_in_utmma-item_medewerker" FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer );
+
+ALTER TABLE groep_64.medewerker_taak ADD CONSTRAINT fk_medewerker_taak_taak FOREIGN KEY ( "taak-id" ) REFERENCES groep_64.taak( "taak-id" );
+
+ALTER TABLE groep_64.medewerker_taak ADD CONSTRAINT fk_medewerker_taak_medewerker FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer );
+
+ALTER TABLE groep_64.medewerker_voor_type_dienst ADD CONSTRAINT fk_medewerker_voor_type_dienst_medewerker FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer );
+
+ALTER TABLE groep_64.medewerker_voor_type_dienst ADD CONSTRAINT fk_medewerker_voor_type_dienst_type_dienst FOREIGN KEY ( typenaam ) REFERENCES groep_64.type_dienst( typenaam );
+
+ALTER TABLE groep_64.project ADD CONSTRAINT fk_project_klant FOREIGN KEY ( naam_klant ) REFERENCES groep_64.klant( naam_klant );
+
+ALTER TABLE groep_64.project ADD CONSTRAINT fk_project_rate_algemene_werking FOREIGN KEY ( inschattingsjaar ) REFERENCES groep_64.rate_algemene_werking( inschattingsjaar );
+
+ALTER TABLE groep_64.project_is_gekoppeld_aan_project ADD CONSTRAINT fk_project_is_gekoppeld_aan_project_project FOREIGN KEY ( id1 ) REFERENCES groep_64.project( id );
+
+ALTER TABLE groep_64.project_is_gekoppeld_aan_project ADD CONSTRAINT fk_project_is_gekoppeld_aan_project_project_0 FOREIGN KEY ( id2 ) REFERENCES groep_64.project( id );
+
+ALTER TABLE groep_64.registreerder_projectprestaties ADD CONSTRAINT fk_registreerder_projectprestaties_project FOREIGN KEY ( id ) REFERENCES groep_64.project( id );
+
+ALTER TABLE groep_64.registreerder_projectprestaties ADD CONSTRAINT fk_registreerder_projectprestaties_medewerker FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer );
+
+ALTER TABLE groep_64.registreerder_taakprestaties ADD CONSTRAINT fk_registreerder_taakprestaties_taak FOREIGN KEY ( "taak-id" ) REFERENCES groep_64.taak( "taak-id" );
+
+ALTER TABLE groep_64.registreerder_taakprestaties ADD CONSTRAINT fk_registreerder_taakprestaties_medewerker FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer );
+
+ALTER TABLE groep_64.relatiebeheerder ADD CONSTRAINT fk_contactpersoon_beheert_relatie_met_externe_klant_contactpers FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.contactpersoon( personeelsnummer );
+
+ALTER TABLE groep_64.relatiebeheerder ADD CONSTRAINT fk_contactpersoon_beheert_relatie_met_externe_klant_externe_kla FOREIGN KEY ( naam_klant ) REFERENCES groep_64.externe_klant( naam_klant );
+
+ALTER TABLE groep_64.statusveranderaar ADD CONSTRAINT fk_statusveranderaar_medewerker FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer );
+
+ALTER TABLE groep_64.statusveranderaar ADD CONSTRAINT fk_statusveranderaar_aanvraag FOREIGN KEY ( id ) REFERENCES groep_64.aanvraag( id );
+
+ALTER TABLE groep_64.taak ADD CONSTRAINT fk_taak_type_dienst FOREIGN KEY ( typenaam ) REFERENCES groep_64.type_dienst( typenaam );
+
+ALTER TABLE groep_64.taak ADD CONSTRAINT fk_taak_project FOREIGN KEY ( id ) REFERENCES groep_64.project( id );
+
+ALTER TABLE groep_64."utm_media_archive-item" ADD CONSTRAINT "fk_utm_media_archive-item_project" FOREIGN KEY ( id ) REFERENCES groep_64.project( id );
+]]></string>
+		</script>
+		<script name="SQL_Editor_002" id="Editor-2074" language="SQL" confirmed="y" >
+			<string><![CDATA[CREATE SCHEMA IF NOT EXISTS groep_64;
+
+CREATE  TABLE groep_64.aanvraag ( 
+	id                   char(8)  NOT NULL  ,
+	huidige_status       varchar(8)  NOT NULL  ,
+	beschrijving         varchar(400)  NOT NULL  ,
+	naam_aanvrager       varchar(120)  NOT NULL  ,
+	aanvraagdatum        date  NOT NULL  ,
+	intern_of_extern     char(6)  NOT NULL  ,
+	deadline             date  NOT NULL  ,
+	naam_klant           varchar(150)  NOT NULL  ,
+	CONSTRAINT pk_aanvraag PRIMARY KEY ( id ),
+	CONSTRAINT unq_aanvraag_intern_of_extern UNIQUE ( intern_of_extern ) 
+ );
+
+ALTER TABLE groep_64.aanvraag ADD CONSTRAINT cns_aanvraag_aanvraagdatum CHECK ( aanvraagdatum > '2014-01-01' and aanvraagdatum < DATE(NOW()) );
+
+CREATE  TABLE groep_64.contactpersoon ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	voornaam             varchar(60)  NOT NULL  ,
+	achternaam           varchar(100)  NOT NULL  ,
+	"e-mail"             varchar(200)  NOT NULL  ,
+	telefoonnummer       varchar(20)  NOT NULL  ,
+	CONSTRAINT pk_contactpersoon PRIMARY KEY ( personeelsnummer )
+ );
+
+CREATE  TABLE groep_64.contactpersoon_in_aanvraag ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	id                   char(8)  NOT NULL  ,
+	CONSTRAINT pk_contactpersoon_wordt_vermeldt_in_aanvraag PRIMARY KEY ( personeelsnummer, id )
+ );
+
+CREATE  TABLE groep_64.klant ( 
+	naam_klant           varchar(150)  NOT NULL  ,
+	CONSTRAINT pk_klant PRIMARY KEY ( naam_klant )
+ );
+
+CREATE  TABLE groep_64.label ( 
+	label                varchar(100)  NOT NULL  ,
+	CONSTRAINT pk_label PRIMARY KEY ( label )
+ );
+
+CREATE  TABLE groep_64.medewerker ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	voornaam             varchar(60)  NOT NULL  ,
+	achternaam           varchar(100)  NOT NULL  ,
+	"e-mail"             varchar(200)  NOT NULL  ,
+	telefoonnummer       varchar(20)  NOT NULL  ,
+	capaciteit           smallint  NOT NULL  ,
+	CONSTRAINT pk_medewerker PRIMARY KEY ( personeelsnummer ),
+	CONSTRAINT unq_medewerker_voornaam UNIQUE ( voornaam ) 
+ );
+
+CREATE  TABLE groep_64.rate_algemene_werking ( 
+	inschattingsjaar     date  NOT NULL  ,
+	rate                 numeric  NOT NULL  ,
+	CONSTRAINT pk_rate_algemene_werking PRIMARY KEY ( inschattingsjaar )
+ );
+
+ALTER TABLE groep_64.rate_algemene_werking ADD CONSTRAINT cns_rate_algemene_werking_jaar CHECK ( EXTRACT(MONTH FROM inschattingsjaar) = 1 and EXTRACT(DAY FROM inschattingsjaar) = 1 and inschattingsjaar > '2014-01-01' );
+
+CREATE  TABLE groep_64.statusveranderaar ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	id                   char(8)  NOT NULL  ,
+	datum                date  NOT NULL  ,
+	tijdstip             time  NOT NULL  ,
+	opmerking            varchar(400)  NOT NULL  ,
+	CONSTRAINT pk_statusveranderaar PRIMARY KEY ( personeelsnummer, id ),
+	CONSTRAINT unq_statusveranderaar_id UNIQUE ( id ) ,
+	CONSTRAINT unq_statusveranderaar_personeelsnummer UNIQUE ( personeelsnummer ) 
+ );
+
+ALTER TABLE groep_64.statusveranderaar ADD CONSTRAINT cns_statusveranderaar_datum CHECK ( datum > '2014-01-01' and datum < DATE(NOW()) );
+
+CREATE  TABLE groep_64.type_dienst ( 
+	typenaam             varchar(21)  NOT NULL  ,
+	rate                 numeric  NOT NULL  ,
+	CONSTRAINT pk_type_dienst PRIMARY KEY ( typenaam )
+ );
+
+CREATE  TABLE groep_64.aanvraag_voor_type_dienst ( 
+	id                   char(8)  NOT NULL  ,
+	typenaam             varchar(21)  NOT NULL  ,
+	CONSTRAINT pk_aanvraag_voor_type_dienst PRIMARY KEY ( id, typenaam )
+ );
+
+CREATE  TABLE groep_64.contactpersoon_van_klant ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	naam_klant           varchar(150)  NOT NULL  ,
+	CONSTRAINT pk_contactpersoon_van_klant PRIMARY KEY ( personeelsnummer, naam_klant )
+ );
+
+CREATE  TABLE groep_64.externe_klant ( 
+	naam_klant           varchar(150)  NOT NULL  ,
+	adres                varchar(300)  NOT NULL  ,
+	CONSTRAINT pk_externe_klant PRIMARY KEY ( naam_klant )
+ );
+
+CREATE  TABLE groep_64.interne_klant ( 
+	naam_klant           varchar(150)  NOT NULL  ,
+	departement          varchar(150)    ,
+	opleiding            integer    ,
+	campus               varchar(150)    ,
+	CONSTRAINT pk_interne_klant PRIMARY KEY ( naam_klant )
+ );
+
+ALTER TABLE groep_64.interne_klant ADD CONSTRAINT cns_interne_klant CHECK ( departement IS NULL and opleiding IS NULL and campus IS NULL or departement IS NOT NULL and opleiding IS NOT NULL and campus IS NOT NULL or departement IS NOT NULL and campus IS NOT NULL );
+
+CREATE  TABLE groep_64.medewerker_voor_type_dienst ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	typenaam             varchar(21)  NOT NULL  ,
+	CONSTRAINT pk_medewerker_voor_type_dienst PRIMARY KEY ( personeelsnummer, typenaam )
+ );
+
+CREATE  TABLE groep_64.project ( 
+	id                   char(8)  NOT NULL  ,
+	factuur              numeric    ,
+	startdatum           date  NOT NULL  ,
+	einddatum            date  NOT NULL  ,
+	status               varchar(19)  NOT NULL  ,
+	korting              numeric    ,
+	kostenplaats         varchar(150)    ,
+	verantwoordelijke_medewerker char(8)  NOT NULL  ,
+	naam_klant           varchar(150)  NOT NULL  ,
+	inschattingsjaar     date  NOT NULL  ,
+	projectnaam          varchar(150)  NOT NULL  ,
+	intern_of_extern     char(6)  NOT NULL  ,
+	CONSTRAINT pk_project PRIMARY KEY ( id ),
+	CONSTRAINT unq_project UNIQUE ( intern_of_extern ) 
+ );
+
+ALTER TABLE groep_64.project ADD CONSTRAINT cns_project_kostenplaats CHECK ( intern_of_extern = 'intern' and kostenplaats IS NOT NULL or intern_of_extern = 'extern'  and kostenplaats IS NULL );
+
+ALTER TABLE groep_64.project ADD CONSTRAINT cns_project_factuur CHECK ( (status = 'delivered' or status = 'closed') AND factuur IS NOT NULL OR (status = 'planned and ongoing' or status = 'estimation ongoing') AND factuur IS NULL );
+
+ALTER TABLE groep_64.project ADD CONSTRAINT cns_project_data CHECK ( startdatum > '2014-01-01' and einddatum > '2014-01-01' );
+
+CREATE  TABLE groep_64.project_is_gekoppeld_aan_project ( 
+	id1                  char(8)  NOT NULL  ,
+	id2                  char(8)  NOT NULL  ,
+	CONSTRAINT pk_project_is_gekoppeld_aan_project PRIMARY KEY ( id1, id2 )
+ );
+
+CREATE  TABLE groep_64.registreerder_projectprestaties ( 
+	id                   char(8)  NOT NULL  ,
+	personeelsnummer     char(8)  NOT NULL  ,
+	aantal_uren          integer  NOT NULL  ,
+	datum                date  NOT NULL  ,
+	opmerking_uren       varchar(400)    ,
+	kosten               numeric    ,
+	beschrijving_kosten  varchar(400)    ,
+	CONSTRAINT pk_registreerder_projectprestaties PRIMARY KEY ( id, personeelsnummer ),
+	CONSTRAINT unq_registreerder_projectprestaties_personeelsnummer UNIQUE ( personeelsnummer ) ,
+	CONSTRAINT unq_registreerder_projectprestaties_id UNIQUE ( id ) 
+ );
+
+ALTER TABLE groep_64.registreerder_projectprestaties ADD CONSTRAINT cns_registreerder_projectprestaties_prestaties CHECK ( kosten is NOT NULL and beschrijving_kosten is NOT NULL or kosten is NULL and beschrijving_kosten is NULL );
+
+ALTER TABLE groep_64.registreerder_projectprestaties ADD CONSTRAINT cns_registreerder_projectprestaties_datum CHECK ( datum > '2014-01-01' and datum < DATE(NOW()) );
+
+CREATE  TABLE groep_64.relatiebeheerder ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	naam_klant           varchar(150)  NOT NULL  ,
+	CONSTRAINT pk_contactpersoon_beheert_relatie_met_externe_klan PRIMARY KEY ( personeelsnummer, naam_klant )
+ );
+
+CREATE  TABLE groep_64.taak ( 
+	"taak-id"            char(8)  NOT NULL  ,
+	typenaam             varchar(21)  NOT NULL  ,
+	id                   char(8)  NOT NULL  ,
+	"geschatte onkosten" numeric  NOT NULL  ,
+	"geschat aantal uren" integer  NOT NULL  ,
+	CONSTRAINT pk_taak PRIMARY KEY ( "taak-id" )
+ );
+
+CREATE  TABLE groep_64."utm_media_archive-item" ( 
+	naam                 varchar(150)  NOT NULL  ,
+	id                   char(8)  NOT NULL  ,
+	beschrijving         varchar(400)  NOT NULL  ,
+	datum_upload         date  NOT NULL  ,
+	bestandstype         varchar(60)  NOT NULL  ,
+	bestandsgrootte_bytes bigint  NOT NULL  ,
+	url                  varchar(300)  NOT NULL  ,
+	vertrouwelijk        boolean  NOT NULL  ,
+	CONSTRAINT "pk_utm_media_archive-item" PRIMARY KEY ( naam )
+ );
+
+CREATE  TABLE groep_64.ingeplande_medewerker_taak ( 
+	"taak-id"            char(8)  NOT NULL  ,
+	personeelsnummer     char(8)  NOT NULL  ,
+	week                 date  NOT NULL  ,
+	aantal_uren          integer  NOT NULL  ,
+	CONSTRAINT "pk_ingeplande medewerker taak" PRIMARY KEY ( "taak-id", personeelsnummer )
+ );
+
+ALTER TABLE groep_64.ingeplande_medewerker_taak ADD CONSTRAINT cns_ingeplande_medewerker_taak_week CHECK ( to_char(week, 'Day') = 'Monday' and week > '2014-01-01' );
+
+CREATE  TABLE groep_64."label_van_utmma-item" ( 
+	naam                 varchar(150)  NOT NULL  ,
+	label                varchar(100)  NOT NULL  ,
+	CONSTRAINT "pk_label_van_utmma-item" PRIMARY KEY ( naam, label )
+ );
+
+CREATE  TABLE groep_64."medewerker_in_utmma-item" ( 
+	personeelsnummer     char(8)  NOT NULL  ,
+	naam                 varchar(150)  NOT NULL  ,
+	CONSTRAINT "pk_medewerker_in_utmma-item" PRIMARY KEY ( personeelsnummer, naam )
+ );
+
+CREATE  TABLE groep_64.medewerker_taak ( 
+	"taak-id"            char(8)  NOT NULL  ,
+	personeelsnummer     char(8)  NOT NULL  ,
+	CONSTRAINT pk_medewerker_taak PRIMARY KEY ( "taak-id", personeelsnummer )
+ );
+
+CREATE  TABLE groep_64.registreerder_taakprestaties ( 
+	"taak-id"            char(8)  NOT NULL  ,
+	personeelsnummer     char(8)  NOT NULL  ,
+	aantal_uren          integer  NOT NULL  ,
+	datum                date  NOT NULL  ,
+	"opmerking-uren"     varchar(400)    ,
+	kosten               numeric    ,
+	beschrijving_kosten  varchar(400)    ,
+	CONSTRAINT pk_registreerder_taakprestaties PRIMARY KEY ( "taak-id", personeelsnummer )
+ );
+
+ALTER TABLE groep_64.registreerder_taakprestaties ADD CONSTRAINT cns_registreerder_taakprestaties_prestaties CHECK ( kosten is NOT NULL and beschrijving_kosten is NOT NULL or kosten is NULL and beschrijving_kosten is NULL );
+
+ALTER TABLE groep_64.registreerder_taakprestaties ADD CONSTRAINT cns_registreerder_taakprestaties_datum CHECK ( datum > '2014-01-01' and datum < DATE(NOW()) );
+
+ALTER TABLE groep_64.aanvraag_voor_type_dienst ADD CONSTRAINT fk_aanvraag_voor_type_dienst_aanvraag FOREIGN KEY ( id ) REFERENCES groep_64.aanvraag( id );
+
+ALTER TABLE groep_64.aanvraag_voor_type_dienst ADD CONSTRAINT fk_aanvraag_voor_type_dienst_type_dienst FOREIGN KEY ( typenaam ) REFERENCES groep_64.type_dienst( typenaam );
+
+ALTER TABLE groep_64.contactpersoon_in_aanvraag ADD CONSTRAINT fk_contactpersoon_wordt_vermeldt_in_aanvraag_aanvraag FOREIGN KEY ( id ) REFERENCES groep_64.aanvraag( id );
+
+ALTER TABLE groep_64.contactpersoon_in_aanvraag ADD CONSTRAINT fk_contactpersoon_wordt_vermeldt_in_aanvraag_contactpersoon FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.contactpersoon( personeelsnummer );
+
+ALTER TABLE groep_64.contactpersoon_van_klant ADD CONSTRAINT fk_contactpersoon_van_klant_contactpersoon FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.contactpersoon( personeelsnummer );
+
+ALTER TABLE groep_64.contactpersoon_van_klant ADD CONSTRAINT fk_contactpersoon_van_klant_klant FOREIGN KEY ( naam_klant ) REFERENCES groep_64.klant( naam_klant );
+
+ALTER TABLE groep_64.externe_klant ADD CONSTRAINT fk_externe_klant_klant FOREIGN KEY ( naam_klant ) REFERENCES groep_64.klant( naam_klant );
+
+ALTER TABLE groep_64.ingeplande_medewerker_taak ADD CONSTRAINT "fk_ingeplande medewerker taak_taak" FOREIGN KEY ( "taak-id" ) REFERENCES groep_64.taak( "taak-id" );
+
+ALTER TABLE groep_64.ingeplande_medewerker_taak ADD CONSTRAINT "fk_ingeplande medewerker taak_medewerker" FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer );
+
+ALTER TABLE groep_64.interne_klant ADD CONSTRAINT fk_interne_klant_klant FOREIGN KEY ( naam_klant ) REFERENCES groep_64.klant( naam_klant );
+
+ALTER TABLE groep_64."label_van_utmma-item" ADD CONSTRAINT "fk_label_van_utmma-item_utm_media_archive-item" FOREIGN KEY ( naam ) REFERENCES groep_64."utm_media_archive-item"( naam );
+
+ALTER TABLE groep_64."label_van_utmma-item" ADD CONSTRAINT "fk_label_van_utmma-item_label" FOREIGN KEY ( label ) REFERENCES groep_64.label( label );
+
+ALTER TABLE groep_64."medewerker_in_utmma-item" ADD CONSTRAINT "fk_medewerker_in_utmma-item_utm_media_archive-item" FOREIGN KEY ( naam ) REFERENCES groep_64."utm_media_archive-item"( naam );
+
+ALTER TABLE groep_64."medewerker_in_utmma-item" ADD CONSTRAINT "fk_medewerker_in_utmma-item_medewerker" FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer );
+
+ALTER TABLE groep_64.medewerker_taak ADD CONSTRAINT fk_medewerker_taak_taak FOREIGN KEY ( "taak-id" ) REFERENCES groep_64.taak( "taak-id" );
+
+ALTER TABLE groep_64.medewerker_taak ADD CONSTRAINT fk_medewerker_taak_medewerker FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer );
+
+ALTER TABLE groep_64.medewerker_voor_type_dienst ADD CONSTRAINT fk_medewerker_voor_type_dienst_medewerker FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer );
+
+ALTER TABLE groep_64.medewerker_voor_type_dienst ADD CONSTRAINT fk_medewerker_voor_type_dienst_type_dienst FOREIGN KEY ( typenaam ) REFERENCES groep_64.type_dienst( typenaam );
+
+ALTER TABLE groep_64.project ADD CONSTRAINT fk_project_klant FOREIGN KEY ( naam_klant ) REFERENCES groep_64.klant( naam_klant );
+
+ALTER TABLE groep_64.project ADD CONSTRAINT fk_project_rate_algemene_werking FOREIGN KEY ( inschattingsjaar ) REFERENCES groep_64.rate_algemene_werking( inschattingsjaar );
+
+ALTER TABLE groep_64.project ADD CONSTRAINT fk_project_aanvraag FOREIGN KEY ( id ) REFERENCES groep_64.aanvraag( id );
+
+ALTER TABLE groep_64.project ADD CONSTRAINT fk_project_aanvraag_0 FOREIGN KEY ( intern_of_extern ) REFERENCES groep_64.aanvraag( intern_of_extern );
+
+ALTER TABLE groep_64.project_is_gekoppeld_aan_project ADD CONSTRAINT fk_project_is_gekoppeld_aan_project_project FOREIGN KEY ( id1 ) REFERENCES groep_64.project( id );
+
+ALTER TABLE groep_64.project_is_gekoppeld_aan_project ADD CONSTRAINT fk_project_is_gekoppeld_aan_project_project_0 FOREIGN KEY ( id2 ) REFERENCES groep_64.project( id );
+
+ALTER TABLE groep_64.registreerder_projectprestaties ADD CONSTRAINT fk_registreerder_projectprestaties_project FOREIGN KEY ( id ) REFERENCES groep_64.project( id );
+
+ALTER TABLE groep_64.registreerder_projectprestaties ADD CONSTRAINT fk_registreerder_projectprestaties_medewerker FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer );
+
+ALTER TABLE groep_64.registreerder_taakprestaties ADD CONSTRAINT fk_registreerder_taakprestaties_taak FOREIGN KEY ( "taak-id" ) REFERENCES groep_64.taak( "taak-id" );
+
+ALTER TABLE groep_64.registreerder_taakprestaties ADD CONSTRAINT fk_registreerder_taakprestaties_medewerker FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( personeelsnummer );
+
+ALTER TABLE groep_64.relatiebeheerder ADD CONSTRAINT fk_contactpersoon_beheert_relatie_met_externe_klant_contactpers FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.contactpersoon( personeelsnummer );
+
+ALTER TABLE groep_64.relatiebeheerder ADD CONSTRAINT fk_contactpersoon_beheert_relatie_met_externe_klant_externe_kla FOREIGN KEY ( naam_klant ) REFERENCES groep_64.externe_klant( naam_klant );
+
+ALTER TABLE groep_64.statusveranderaar ADD CONSTRAINT fk_statusveranderaar_medewerker FOREIGN KEY ( personeelsnummer ) REFERENCES groep_64.medewerker( voornaam );
+
+ALTER TABLE groep_64.statusveranderaar ADD CONSTRAINT fk_statusveranderaar_aanvraag FOREIGN KEY ( id ) REFERENCES groep_64.aanvraag( id );
+
+ALTER TABLE groep_64.taak ADD CONSTRAINT fk_taak_type_dienst FOREIGN KEY ( typenaam ) REFERENCES groep_64.type_dienst( typenaam );
+
+ALTER TABLE groep_64.taak ADD CONSTRAINT fk_taak_project FOREIGN KEY ( id ) REFERENCES groep_64.project( id );
+
+ALTER TABLE groep_64."utm_media_archive-item" ADD CONSTRAINT "fk_utm_media_archive-item_project" FOREIGN KEY ( id ) REFERENCES groep_64.project( id );
+]]></string>
+		</script>
+	</layout>
+	<layout name="~Layout with Sample Tools" id="Layout-2576" show_column_type="y" show_relation="columns" >
+		<entity schema="groep_64" name="aanvraag" color="C7F4BE" x="400" y="448" />
+		<entity schema="groep_64" name="aanvraag_voor_type_dienst" color="C7F4BE" x="144" y="272" />
+		<entity schema="groep_64" name="contactpersoon" color="C7F4BE" x="400" y="48" />
+		<entity schema="groep_64" name="contactpersoon_in_aanvraag" color="C7F4BE" x="48" y="96" />
+		<entity schema="groep_64" name="contactpersoon_van_klant" color="C7F4BE" x="400" y="272" />
+		<entity schema="groep_64" name="externe_klant" color="C7F4BE" x="1072" y="48" />
+		<entity schema="groep_64" name="interne_klant" color="BED3F4" x="1376" y="768" />
+		<entity schema="groep_64" name="klant" color="C7F4BE" x="688" y="272" />
+		<entity schema="groep_64" name="label" color="BED3F4" x="1648" y="768" />
+		<entity schema="groep_64" name="label_van_utmma-item" color="BED3F4" x="1872" y="768" />
+		<entity schema="groep_64" name="medewerker" color="BED3F4" x="1648" y="976" />
+		<entity schema="groep_64" name="project" color="F4DDBE" x="1360" y="48" />
+		<entity schema="groep_64" name="project_is_gekoppeld_aan_project" color="F4DDBE" x="1696" y="48" />
+		<entity schema="groep_64" name="rate_algemene_werking" color="F4DDBE" x="1696" y="368" />
+		<entity schema="groep_64" name="relatiebeheerder" color="C7F4BE" x="688" y="48" />
+		<entity schema="groep_64" name="taak" color="BED3F4" x="1360" y="976" />
+		<entity schema="groep_64" name="type_dienst" color="C7F4BE" x="144" y="448" />
+		<entity schema="groep_64" name="utm_media_archive-item" color="F4DDBE" x="1360" y="368" />
+		<script name="SQL Editor" id="Editor-1c8d" language="SQL" >
+			<string><![CDATA[SELECT
+	id, factuur, startdatum, einddatum, status, korting, kostenplaats, verantwoordelijke_medewerker, naam_klant, inschattingsjaar, 
+	projectnaam
+FROM
+	groep_64.project t;]]></string>
+		</script>
+		<browser id="Browse-484" name="Relational Data Explorer" confirm_updates="y" >
+			<browse_table schema="groep_64" entity="project" x="20" y="20" width="400" height="300" >
+				<browse_table schema="groep_64" entity="project_is_gekoppeld_aan_project" fk="fk_project_is_gekoppeld_aan_project_project" x="440" y="20" width="500" height="350" />
+			</browse_table>
+		</browser>
+		<query id="Query-2166" name="Query Builder" >
+			<query_table schema="groep_64" name="project" alias="p" x="48" y="48" >
+				<column name="id" />
+				<column name="factuur" />
+				<column name="startdatum" />
+				<column name="einddatum" />
+				<column name="status" />
+				<column name="korting" />
+				<column name="kostenplaats" />
+				<column name="verantwoordelijke_medewerker" />
+				<column name="naam_klant" />
+				<column name="inschattingsjaar" />
+				<column name="projectnaam" />
+				<query_table schema="groep_64" name="project_is_gekoppeld_aan_project" alias="pigap" x="352" y="48" fk="fk_project_is_gekoppeld_aan_project_project" type="Inner Join" >
+					<column name="id1" />
+					<column name="id2" />
+				</query_table>
+			</query_table>
+		</query>
+		<form name="Report" id="Report-218f" template="Page" css="container-fluid" view="frame" >
+			<var name="samplePageNumber" type="4" value="0" mandatory="n" />
+			<var name="sampleRecordsPerPage" type="4" value="100" mandatory="n" />
+			<body name="Body" template="Grid" pos="0,0,0,0,f,f" layout="{{-2,-2,-2,-2,-1},{-2,-2,-2,-2}}" scroll="n" html="n" >
+				<cell type="label" name="Project Data" template="H3" pos="0,0,1,0,l,c" />
+				<cell type="chart" name="Pie" template="Pie" pos="0,1,4,1,l,c" max_records="20" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="id" type="1" />
+						<var name="factuur" type="2" />
+						<var name="startdatum" type="91" />
+						<var name="einddatum" type="91" />
+						<var name="status" type="-1" />
+						<var name="korting" type="2" />
+						<var name="kostenplaats" type="-1" />
+						<var name="verantwoordelijke_medewerker" type="1" />
+						<var name="naam_klant" type="-1" />
+						<var name="inschattingsjaar" type="91" />
+						<var name="projectnaam" type="-1" />
+						<script ><![CDATA[SELECT * FROM groep_64.project]]></script>
+					</form_script>
+					<param name="i0" value="projectnaam" />
+					<param name="width" value="100%" />
+					<param name="v0" value="factuur" />
+					<param name="title" value="Sample Chart" />
+					<param name="height" value="400px" />
+				</cell>
+				<tableview name="sample" template="Table" css="table table-striped table-sm table-hover" pos="0,2,4,2,f,f" layout="{{-2,-2,-2,-2,-2,-2,-2},{-2,-2}}" scroll="n" html="n" header_rows="1" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="id" type="1" />
+						<var name="factuur" type="2" />
+						<var name="startdatum" type="91" />
+						<var name="einddatum" type="91" />
+						<var name="status" type="-1" />
+						<var name="korting" type="2" />
+						<var name="kostenplaats" type="-1" />
+						<var name="verantwoordelijke_medewerker" type="1" />
+						<var name="naam_klant" type="-1" />
+						<var name="inschattingsjaar" type="91" />
+						<var name="projectnaam" type="-1" />
+						<script ><![CDATA[SELECT * FROM groep_64.project]]></script>
+					</form_script>
+					<cell type="label" name="id" pos="0,0,0,0,c,c" />
+					<cell type="label" name="factuur" pos="1,0,1,0,c,c" />
+					<cell type="label" name="startdatum" pos="2,0,2,0,c,c" />
+					<cell type="label" name="einddatum" pos="3,0,3,0,c,c" />
+					<cell type="label" name="status" pos="4,0,4,0,c,c" />
+					<cell type="label" name="korting" pos="5,0,5,0,c,c" />
+					<cell type="label" name="Button can open other pages." pos="6,0,6,0,c,c" />
+					<cell type="label" name="${id}" template="Plain" pos="0,1,0,1,l,c" />
+					<cell type="label" name="${factuur}" template="Plain" pos="1,1,1,1,l,c" />
+					<cell type="label" name="${startdatum}" template="Plain" pos="2,1,2,1,l,c" />
+					<cell type="label" name="${einddatum}" template="Plain" pos="3,1,3,1,l,c" />
+					<cell type="label" name="${status}" template="Plain" pos="4,1,4,1,l,c" />
+					<cell type="label" name="${korting}" template="Plain" pos="5,1,5,1,l,c" />
+					<cell type="button" name="More" template="Plain" css="btn btn-default btn-success" pos="6,1,6,1,c,c" ref_id="Report-218f" />
+				</tableview>
+				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="0,3,0,3,l,c" glyph="FA-ANGLE_DOUBLE_LEFT" ref_id="Report-218f" >
+					<var name="samplePageNumber" value="0" />
+				</cell>
+				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="1,3,1,3,l,c" glyph="FA-ANGLE_LEFT" ref_id="Report-218f" >
+					<var name="samplePageNumber" value="${Math.max(0,samplePageNumber-1)}" />
+				</cell>
+				<cell type="label" name="Page ${samplePageNumber+1}" pos="2,3,2,3,l,c" />
+				<cell type="href" name="" disabled="${!sampleHasNextPage}" pos="3,3,3,3,l,c" glyph="FA-ANGLE_RIGHT" ref_id="Report-218f" >
+					<var name="samplePageNumber" value="${( samplePageNumber+1 )}" />
+				</cell>
+			</body>
+		</form>
+	</layout>
+</project>
